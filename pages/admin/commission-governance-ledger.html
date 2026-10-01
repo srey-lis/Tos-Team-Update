@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Commission Governance Ledger | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="admin"><!-- Shared component: admin-sidebar-operations (assets/js/components/admin.js) --><tos-admin-sidebar-operations active="commission"></tos-admin-sidebar-operations><div class="pl-72"><!-- Shared component: admin-header-operations (assets/js/components/admin.js) --><tos-admin-header-operations></tos-admin-header-operations>
+<!-- ===== Main content ===== --><main class="relative pt-20 w-full min-h-screen bg-surface px-space-lg py-space-xl"><div class="flex flex-col w-full">
+<!-- Demo Banner Notice -->
+<div class="mb-space-lg rounded-xl bg-[#DCFCE7]/70 p-space-md text-[#15803D] shadow-sm flex items-center justify-between gap-space-md flex-wrap">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] shrink-0" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="font-body-md text-body-md font-medium">Demo page with sample data and no login. In ASP.NET this area will be protected with the Admin role.</p>
+</div>
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps uppercase tracking-wider text-[#15803D]/80">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+<span>Audit Sandbox Live</span>
+</div>
+</div>
+<!-- Breadcrumbs & Header Section -->
+<div class="flex flex-col gap-space-sm mb-space-xl">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span>Settlement</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Commission by Partner</span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mt-space-xs">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Commission by partner</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Each partner is charged $0.50 per person once they confirm a booking.</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+<span>Analytics View</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export Ledger (CSV)</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-space-xs shadow-md">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Provision Partner</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 4 KPI Stat Cards with Sovereign Editorial Palette -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/5 pointer-events-none transition-transform group-hover:scale-125"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Confirmed People</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">groups</span>
+</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">14,290</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="text-[#15803D] font-semibold flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span>+12.4%</span>
+<span>Across 25 provinces</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary/5 pointer-events-none transition-transform group-hover:scale-125"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Total Charged</span>
+<span class="w-8 h-8 rounded-lg bg-secondary-fixed/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">$7,145.00</div>
+</div>
+<div class="mt-space-md pt-space-xs font-label-md text-label-md text-on-surface-variant">
+        Sovereign rate of <span class="font-semibold text-secondary">$0.50</span> / guest
+      </div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-tertiary-fixed-dim/20 pointer-events-none transition-transform group-hover:scale-125"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Still to Collect</span>
+<span class="w-8 h-8 rounded-lg bg-[#FEF3C7] flex items-center justify-center text-[#B45309]">
+<span class="material-symbols-outlined text-[18px]">pending</span>
+</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-secondary font-bold tracking-tight">$2,252.50</div>
+</div>
+<div class="mt-space-md pt-space-xs font-label-md text-label-md text-on-surface-variant flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-[#B45309]"></span>
+<span>Pending Bakong escrow settlement</span>
+</div>
+</div>
+<!-- Card 4 (National/MoT Vault Card) -->
+<div class="p-space-lg rounded-xl bg-primary text-on-primary shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-white/10 pointer-events-none transition-transform group-hover:scale-110"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary-fixed-dim">Settled to MoT Vault</span>
+<span class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-primary font-bold tracking-tight">$4,892.50</div>
+</div>
+<div class="mt-space-md pt-space-xs font-label-md text-label-md text-on-primary/80 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">verified</span>
+<span>MoT Conservation Fund (Cleared)</span>
+</div>
+</div>
+</div>
+<!-- Search & Filter Ribbon Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm mb-space-lg flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full h-11 pl-11 pr-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant/60 focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 outline-none transition-all" id="ledgerSearch" placeholder="Search partner name, business entity, or MoT license code..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative">
+<select class="h-11 px-space-md pr-8 rounded-lg bg-surface-container-low text-on-surface font-title-md text-title-md appearance-none cursor-pointer focus:ring-2 focus:ring-primary/20 outline-none transition-all" id="typeFilter">
+<option value="all">All Types (Guides, Eco-Stays, Transport)</option>
+<option value="guide">Tour Guides</option>
+<option value="operator">Tour Operators</option>
+<option value="eco">Eco-Stays &amp; Resorts</option>
+<option value="transport">Transport Operators</option>
+<option value="ranger">Ranger Units</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+<div class="relative">
+<select class="h-11 px-space-md pr-8 rounded-lg bg-surface-container-low text-on-surface font-title-md text-title-md appearance-none cursor-pointer focus:ring-2 focus:ring-primary/20 outline-none transition-all" id="statusFilter">
+<option value="all">All Status (Unpaid, Partially Paid, Settled)</option>
+<option value="settled">Settled ($0.00 balance)</option>
+<option value="pending">Pending Balance</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+<button class="h-11 px-space-md rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md transition-colors flex items-center gap-1" onclick="resetFilters()">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>Reset</span>
+</button>
+</div>
+</div>
+<!-- Partner Commission Ledger Table -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden mb-space-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/60 text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<th class="py-space-md px-space-lg font-semibold">Partner</th>
+<th class="py-space-md px-space-md font-semibold">Type</th>
+<th class="py-space-md px-space-md font-semibold text-right">Confirmed Bookings</th>
+<th class="py-space-md px-space-md font-semibold text-right">People</th>
+<th class="py-space-md px-space-md font-semibold text-right">Charge ($0.50/pax)</th>
+<th class="py-space-md px-space-md font-semibold text-right">Paid</th>
+<th class="py-space-md px-space-md font-semibold text-right">Balance</th>
+<th class="py-space-md px-space-lg font-semibold text-center">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-body-md text-body-md" id="ledgerBody">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Lis" data-status="pending" data-type="guide">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">L</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Lis</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-SR-99120</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Tour guide</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">1</td>
+<td class="py-space-md px-space-md text-right font-medium">1</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$0.50</td>
+<td class="py-space-md px-space-md text-right text-outline">$0.00</td>
+<td class="py-space-md px-space-md text-right font-bold text-secondary">$0.50</td>
+<td class="py-space-md px-space-lg text-center">
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-md text-label-md transition-colors shadow-sm inline-flex items-center gap-1" onclick="settleRow(this, 'Lis', '$0.50')">
+<span>Mark paid</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Chann Dara" data-status="settled" data-type="guide">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">CD</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Chann Dara</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-SR-88410</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Tour guide</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">6</td>
+<td class="py-space-md px-space-md text-right font-medium">6</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$3.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-[#15803D]">$3.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-outline">$0.00</td>
+<td class="py-space-md px-space-lg text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Settled</span>
+</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Heritage Trails Co." data-status="pending" data-type="operator">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-secondary text-title-md">HT</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Heritage Trails Co.</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-PP-10492</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Tour operator</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">14</td>
+<td class="py-space-md px-space-md text-right font-medium">14</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$7.00</td>
+<td class="py-space-md px-space-md text-right text-outline">$0.00</td>
+<td class="py-space-md px-space-md text-right font-bold text-secondary">$7.00</td>
+<td class="py-space-md px-space-lg text-center">
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-md text-label-md transition-colors shadow-sm inline-flex items-center gap-1" onclick="settleRow(this, 'Heritage Trails Co.', '$7.00')">
+<span>Mark paid</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Sokha Leap" data-status="settled" data-type="guide">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">SL</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Sokha Leap</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-BTB-5210</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Tour guide</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">54</td>
+<td class="py-space-md px-space-md text-right font-medium">128</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$64.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-[#15803D]">$64.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-outline">$0.00</td>
+<td class="py-space-md px-space-lg text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Settled</span>
+</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="FCC Angkor by Avani" data-status="pending" data-type="eco">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">FA</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">FCC Angkor by Avani</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-SR-RESORT-03</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Eco-resort</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">42</td>
+<td class="py-space-md px-space-md text-right font-medium">84</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$42.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface-variant">$20.00</td>
+<td class="py-space-md px-space-md text-right font-bold text-secondary">$22.00</td>
+<td class="py-space-md px-space-lg text-center">
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-md text-label-md transition-colors shadow-sm inline-flex items-center gap-1" onclick="settleRow(this, 'FCC Angkor by Avani', '$22.00')">
+<span>Mark paid</span>
+</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Giant Ibis Transport" data-status="settled" data-type="transport">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">GI</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Giant Ibis Transport</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-NAT-BUS-01</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Bus operator</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">88</td>
+<td class="py-space-md px-space-md text-right font-medium">320</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$160.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-[#15803D]">$160.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-outline">$0.00</td>
+<td class="py-space-md px-space-lg text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Settled</span>
+</span>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Vannak Meas" data-status="settled" data-type="ranger">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">VM</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Vannak Meas</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-KK-RNG-08</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Cardamom Ranger</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">12</td>
+<td class="py-space-md px-space-md text-right font-medium">28</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$14.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-[#15803D]">$14.00</td>
+<td class="py-space-md px-space-md text-right font-medium text-outline">$0.00</td>
+<td class="py-space-md px-space-lg text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Settled</span>
+</span>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors ledger-row" data-name="Shinta Mani Bensley" data-status="pending" data-type="eco">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-title-md">SM</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">Shinta Mani Bensley</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MoT-SR-LUX-004</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant font-medium">Luxury Eco-Stay</span>
+</td>
+<td class="py-space-md px-space-md text-right font-medium">24</td>
+<td class="py-space-md px-space-md text-right font-medium">48</td>
+<td class="py-space-md px-space-md text-right font-medium text-on-surface">$24.00</td>
+<td class="py-space-md px-space-md text-right text-outline">$0.00</td>
+<td class="py-space-md px-space-md text-right font-bold text-secondary">$24.00</td>
+<td class="py-space-md px-space-lg text-center">
+<button class="px-space-md py-1.5 rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-md text-label-md transition-colors shadow-sm inline-flex items-center gap-1" onclick="settleRow(this, 'Shinta Mani Bensley', '$24.00')">
+<span>Mark paid</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination / Summary Footer -->
+<div class="p-space-md bg-surface-container-low/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<div>Showing <span class="font-semibold text-on-surface">8</span> of <span class="font-semibold text-on-surface">8</span> certified partners</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface disabled:opacity-40" disabled="">Previous</button>
+<span class="px-2 font-semibold text-primary">1</span>
+<button class="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Collapsible Panel: Advanced MoT Sovereign Analytics & Ledger -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden mb-space-lg">
+<!-- Panel Header (Collapsible Toggle) -->
+<button class="w-full p-space-lg flex items-center justify-between bg-surface-container-low hover:bg-surface-container transition-colors text-left" onclick="toggleMoTPanel()">
+<div class="flex items-center gap-space-md">
+<span class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">Advanced MoT Sovereign Analytics &amp; Ledger</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Sovereign tariff redistribution under Cambodia Ministry of Tourism decree MoT-2024-8891</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm text-primary font-title-md text-title-md">
+<span id="panelStatusText">Collapse Ledger</span>
+<span class="material-symbols-outlined transition-transform duration-300" id="panelArrow">expand_less</span>
+</div>
+</button>
+<!-- Panel Content (Expanded by Default) -->
+<div class="p-space-lg flex flex-col gap-space-xl" id="motPanelContent">
+<!-- Section A: 3-Way Fund Distribution Visualization -->
+<div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm mb-space-md">
+<div>
+<h4 class="font-title-lg text-title-lg font-semibold text-on-surface">Statutory Reinvestment of the $0.50 Guest Fee</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central clearing via NBC Bakong with immutable heritage escrow allocation.</p>
+</div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Standard Formula: KH-SOV-0.50</div>
+</div>
+<!-- Visual Bar Chart -->
+<div class="w-full h-4 rounded-full bg-surface-container overflow-hidden flex mb-space-md">
+<div class="h-full bg-primary" style="width: 60%;" title="60% Temple &amp; Forest Preservation"></div>
+<div class="h-full bg-secondary" style="width: 25%;" title="25% Rural Tour Guide Training"></div>
+<div class="h-full bg-tertiary-container" style="width: 15%;" title="15% Platform Maintenance &amp; Bakong Gateway"></div>
+</div>
+<!-- Breakdown Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Bucket 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<span class="w-3 h-3 rounded-full bg-primary shrink-0"></span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">60% Preservation</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Temple &amp; Forest Preservation directly allocated to APSARA National Authority &amp; Ministry of Environment rangers.</p>
+<div class="font-title-lg text-title-lg font-bold text-primary">$0.30 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ verified guest</span></div>
+</div>
+<!-- Bucket 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<span class="w-3 h-3 rounded-full bg-secondary shrink-0"></span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">25% Guide Training</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Rural Tour Guide Training, English/Khmer epigraphy certifications, and indigenous biodiversity coaching.</p>
+<div class="font-title-lg text-title-lg font-bold text-secondary">$0.125 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ verified guest</span></div>
+</div>
+<!-- Bucket 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<span class="w-3 h-3 rounded-full bg-tertiary-container shrink-0"></span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">15% Bakong Core</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Platform maintenance, real-time National Bakong QR switchboard gateways, and tourist SOS geo-dispatch.</p>
+<div class="font-title-lg text-title-lg font-bold text-tertiary-container">$0.075 <span class="font-label-md text-label-md text-on-surface-variant font-normal">/ verified guest</span></div>
+</div>
+</div>
+</div>
+<!-- Section B: Audit Trail & NBC Signature -->
+<div class="p-space-md rounded-xl bg-[#0F5E59]/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0 mt-0.5">verified_user</span>
+<div>
+<div class="font-title-md text-title-md font-semibold text-primary">NBC Sovereign Clearing Audit Stamp</div>
+<p class="font-label-md text-label-md text-on-surface-variant font-mono mt-0.5">Hash: 8f4a-992b-cambodia-nbc-bakong-gateway-0941c-khmer-gov-2025</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-caps text-label-caps uppercase text-outline">Latest State Finalization</div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">2025-05-18 14:32:04 ICT (Phnom Penh)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main><!-- Shared component: admin-footer-compact (assets/js/components/admin.js) --><tos-admin-footer-compact></tos-admin-footer-compact></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/admin.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/admin/commission-governance-ledger.js" defer></script>
+</body>
+</html>

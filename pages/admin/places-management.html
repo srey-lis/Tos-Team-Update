@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Places Management | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="admin"><!-- Shared component: admin-sidebar-content (assets/js/components/admin.js) --><tos-admin-sidebar-content active="places"></tos-admin-sidebar-content><div class="pl-72 flex flex-col min-h-screen"><!-- Shared component: admin-header-content (assets/js/components/admin.js) --><tos-admin-header-content></tos-admin-header-content>
+<!-- ===== Main content ===== --><main class="flex-1 w-full pt-16 bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+
+<!-- Advisory Notice: APSARA & Heritage Mandate -->
+<section class="rounded-xl bg-surface-container-low p-space-md shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pl-space-xs">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Royal Government of Cambodia Mandate</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">APSARA Authority Circular 2024-B8</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5 font-medium">
+            Dry Season Angkor Pass ticketing window (05:00–17:30 ICT) active across Zone 1 &amp; 2. Respectful attire (covered shoulders &amp; knees) enforced at monument perimeters.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 self-end md:self-center">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-space-xs" onclick="document.getElementById('guidelines-panel').scrollIntoView({behavior: 'smooth'})" type="button">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>View Guidelines Matrix</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Page Header & Key Intent -->
+<!-- ===== Header / top bar ===== --><header class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">Heritage Registry</span>
+<span class="text-outline-variant">/</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Zone Administration</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Destinations &amp; Heritage Places</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">
+        Manage provinces, historical temples, national parks, eco-lodges, and cultural points of interest cataloged across Cambodia.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export UNESCO Dossier</span>
+</button>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-md hover:shadow-lg flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Add New Place</span>
+</button>
+</div>
+</header>
+<!-- Metrics Bento Row -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Cataloged Places</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">place</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg text-on-surface font-headline-lg leading-none">248</span>
+<span class="font-label-md text-label-md text-primary font-semibold">+12 this QTR</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Heritage &amp; eco sites across 25 provinces</p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">219 Open Regular Hours</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">UNESCO Heritage Zones</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg text-on-surface font-headline-lg leading-none">4</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">Protected</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Angkor, Preah Vihear, Sambor, Koh Ker</p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">shield</span>
+<span class="font-label-md text-label-md">Direct APSARA &amp; MoC oversight</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Active Eco-Trails</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">hiking</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg text-on-surface font-headline-lg leading-none">64</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">CBET paths</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Community-managed eco routes</p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Cardamom, Aural, Areng &amp; Virachey</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Ticketing Integration</span>
+<div class="w-8 h-8 rounded-lg bg-primary-fixed/60 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg text-on-surface font-headline-lg leading-none">99.8%</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Uptime</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">APSARA Pass API &amp; MoE Eco-Fee gateway</p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Bakong Instant Clear
+        </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">v2.4 Live</span>
+</div>
+</div>
+</section>
+<!-- Filter & Search Console -->
+<section class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex flex-col lg:flex-row gap-space-md items-stretch lg:items-center justify-between">
+<!-- Search Input -->
+<div class="relative flex-1 min-w-[260px]">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full h-11 pl-11 pr-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:bg-surface-container transition-all" id="places-search" placeholder="Search monument, temple sanctuary, waterfall, or province code..." type="text"/>
+</div>
+<!-- Filters Group -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Province Filter -->
+<div class="flex items-center gap-1.5 px-space-md h-11 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px]">map</span>
+<select class="bg-transparent font-title-md text-label-lg text-on-surface focus:outline-none cursor-pointer" id="province-filter">
+<option value="all">All 25 Provinces</option>
+<option value="siem-reap">Siem Reap</option>
+<option value="phnom-penh">Phnom Penh</option>
+<option value="kampot">Kampot</option>
+<option value="koh-kong">Koh Kong</option>
+<option value="preah-sihanouk">Koh Rong / Sihanoukville</option>
+<option value="battambang">Battambang</option>
+<option value="mondulkiri">Mondulkiri</option>
+<option value="preah-vihear">Preah Vihear</option>
+</select>
+</div>
+<!-- Category Filter -->
+<div class="flex items-center gap-1.5 px-space-md h-11 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px]">category</span>
+<select class="bg-transparent font-title-md text-label-lg text-on-surface focus:outline-none cursor-pointer" id="category-filter">
+<option value="all">All Categories</option>
+<option value="unesco">Ancient Temples &amp; UNESCO</option>
+<option value="eco">Eco-Parks &amp; Waterways</option>
+<option value="museum">Cultural Museums</option>
+<option value="islands">Islands &amp; Beaches</option>
+</select>
+</div>
+<!-- Status Filter -->
+<div class="flex items-center gap-1.5 px-space-md h-11 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px]">tune</span>
+<select class="bg-transparent font-title-md text-label-lg text-on-surface focus:outline-none cursor-pointer" id="status-filter">
+<option value="all">Any Operational Status</option>
+<option value="open">Open (Regular Entry)</option>
+<option value="restricted">Restricted / Ritual Hours</option>
+<option value="eco">Eco-Protected</option>
+</select>
+</div>
+<!-- Reset / Filter Button -->
+<button class="w-11 h-11 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors" title="Clear Filters" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Active Tag Bar -->
+<div class="flex items-center gap-space-sm mt-space-md pt-space-sm flex-wrap text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase text-outline">Quick Filters:</span>
+<button class="px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wide">All (248)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wide transition-colors">UNESCO Zone 1 (32)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wide transition-colors">Angkor Pass Enabled (48)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wide transition-colors">Cardamom Biodiversity (14)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase tracking-wide transition-colors">High Guide Demand (18)</button>
+</div>
+</section>
+<!-- Places Management Directory (Table & Card Mix) -->
+<!-- Section: Registered Heritage &amp; Ecotourism Sites --><section class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<!-- Header of the Table -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Registered Heritage &amp; Ecotourism Sites</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">Showing 6 of 248</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<button class="p-1.5 rounded-lg bg-surface-container-highest text-primary hover:bg-surface-container transition-colors" title="Grid View">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Table Compact View">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+</button>
+</div>
+</div>
+<!-- Items Grid List -->
+<div class="flex flex-col divide-y divide-surface-container">
+<!-- Item 1: Angkor Wat -->
+<article class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col xl:flex-row gap-space-lg items-start xl:items-center justify-between">
+<div class="flex flex-col md:flex-row gap-space-lg items-start md:items-center flex-1">
+<div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Majestic morning aerial photograph of Angkor Wat temple lotus towers reflected in the northern sacred moat, golden sunrise casting warm amber light on Angkorian sandstone with rich lush green jungle canopy framing the Khmer monument." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdUVhr70xAqeK2P-1BkYbafV41_x0FrT8vRlLGyIrdecNeBcIx86HW8jYe9gjTfcjSm-g3IfXjvqWkwuJjtvKJqiPfkN0V5xNxBDvZCEkua_9GQ5MSjidi_zzZl8Vu3SEUGcZgw_gZrLEgPFZ5PH6otb1n0bftiHLM50i-bv064PetBWPMvmVz3dR1F5yJvEfpDUDFleshhCBFIgf3eDNifBZ-qzZyMgYLU0hhuAQipHdujl1PpO0c2Q"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-primary/90 backdrop-blur-md text-on-primary font-label-caps text-label-caps uppercase">
+              UNESCO Zone 1
+            </div>
+</div>
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">KH-SRP-001</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Siem Reap Province</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Open 05:00 - 17:30
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Angkor Wat Central Sanctuary</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+              Heart of the UNESCO World Heritage Angkor Archaeological Park. Strict cultural dress code: shoulders and knees must be covered. Sunrise access permitted via West Gate.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md mt-1 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span> Official Angkor Pass Required
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">badge</span> 54 Licensed Guides Active Today
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-[16px]">warning</span> Max 300 pax at Bakan tower
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap xl:flex-col items-center xl:items-end gap-space-xs w-full xl:w-auto shrink-0 justify-between xl:justify-center pt-space-xs xl:pt-0">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Guide Allocation (54)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Details</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-on-surface-variant hover:text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">announcement</span> Update Visitor Notice
+            </button>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">APSARA Sync: OK</span>
+</div>
+</div>
+</article>
+<!-- Item 2: Banteay Srei -->
+<article class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col xl:flex-row gap-space-lg items-start xl:items-center justify-between">
+<div class="flex flex-col md:flex-row gap-space-lg items-start md:items-center flex-1">
+<div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Intricate 10th-century pink sandstone bas-relief carvings and pediments of Banteay Srei temple in Cambodia, bathed in warm tropical afternoon sunlight with ornate Devata carvings and lush green palm trees in backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfwdpPj8hcWbrqdArkS1eNZEGODjK13EHeuvwvI3SWWaDCghApQ5VqP41ihfeutoRiQcWpypv_xqFQ0MQDSf5Veof3s_dfG_7j1Sr9NUbYBU_H2urIwYgyk6vyWym2vcAtAOGYj72Km889Lg9LzJvXLysMgFA_hmnQRVRYmVZVrV8a025JoK5tuLeRAdvJMSg8ZutmZL1JB0DSWqogl7RT6j0kFjowsbx9uiPAt0nAKWI9NLCUu7w3tg"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-primary/90 backdrop-blur-md text-on-primary font-label-caps text-label-caps uppercase">
+              UNESCO Zone 1
+            </div>
+</div>
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">KH-SRP-014</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Siem Reap Province</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Open 07:30 - 17:00
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Banteay Srei (Citadel of Women)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+              Delicate 10th-century pink sandstone carvings dedicated to Shiva. Preservation buffer zone active; rope barriers require guide compliance to prevent sandstone tactile erosion.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md mt-1 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span> Official Angkor Pass Required
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">badge</span> 28 Licensed Guides Active
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">auto_stories</span> High-Priority Conservation Area
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap xl:flex-col items-center xl:items-end gap-space-xs w-full xl:w-auto shrink-0 justify-between xl:justify-center pt-space-xs xl:pt-0">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Guide Allocation (28)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Details</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-on-surface-variant hover:text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">announcement</span> Update Visitor Notice
+            </button>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Conservation Level: High</span>
+</div>
+</div>
+</article>
+<!-- Item 3: Phnom Penh Royal Palace -->
+<article class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col xl:flex-row gap-space-lg items-start xl:items-center justify-between">
+<div class="flex flex-col md:flex-row gap-space-lg items-start md:items-center flex-1">
+<div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Traditional Khmer tiered golden roof architecture of the Royal Palace Throne Hall in Phnom Penh under bright blue morning sky, immaculate manicured French gardens, glistening golden spire ornamentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zMSafn1MiQvwdBEZGvNxmKSw2QKPxoE0gDDRFMfm-aRlQ9FlJ-jNdx_qVXmq7BaQX48biy-hgS_Vdp_zkz3p45e39Cm78aETT_PiTey0gCYft-k4yUxxwRFgWhajEcA3H7yTB09UeFggPzk27vFy5gq5_ddqBLSrgs_9pQDs80_yNNW6hW9KzDpibphhY5HwJWZinb4GLFIqQQF83rSs6uv8_cGIAG9DarjCcQHpJ3AdGzBa4A5WLA"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-tertiary/90 backdrop-blur-md text-on-tertiary font-label-caps text-label-caps uppercase">
+              Royal Heritage
+            </div>
+</div>
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">KH-PNH-001</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Phnom Penh Capital</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Ceremony Blackouts Active
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Phnom Penh Royal Palace &amp; Silver Pagoda</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+              Complex of sovereign buildings and the Wat Preah Keo Morakot (Silver Pagoda) housing the Emerald Buddha. Operating hours subject to state functions and royal audiences.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md mt-1 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-md text-label-md text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px]">receipt</span> Ministry Ticket: $10 (40,000 KHR)
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">badge</span> 18 Official Royal Palace Guides
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span> Closed 11:00 - 14:00 daily
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap xl:flex-col items-center xl:items-end gap-space-xs w-full xl:w-auto shrink-0 justify-between xl:justify-center pt-space-xs xl:pt-0">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Guide Allocation (18)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Details</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-on-surface-variant hover:text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">event_busy</span> Blackout Dates Manager
+            </button>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">MoC Protocol</span>
+</div>
+</div>
+</article>
+<!-- Item 4: Cardamom Tented Camp & Tatai River -->
+<article class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col xl:flex-row gap-space-lg items-start xl:items-center justify-between">
+<div class="flex flex-col md:flex-row gap-space-lg items-start md:items-center flex-1">
+<div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Misty tropical emerald river running through the dense virgin Cardamom rainforest in Koh Kong Cambodia, an eco-safari canvas lodge perched beside the bank with kayakers paddling in pristine turquoise waters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrShR8J6qQeU-kKdL3KYHhbp-Endb5txypUT3qkIGapBKkenrmWsgkXBM13623dX2d9lD8NM4RJNc4SMkoaTPtSPrS34uI2DsiZrksWyqWx-I96doxyVg-tCBCihCvM0HCoqZEKLg-Idm5ivF1f_7YZfDYuUQKgYPiJEUYqzcWhG--0z6ELP_De9K5vOLLZEUTnICHpprXewRruHY-nkPj-4i3TmmvweKSIn-Mb8HlnCb2vTI7vHv7gw"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-secondary/90 backdrop-blur-md text-on-secondary font-label-caps text-label-caps uppercase">
+              Wildlife Sanctuary
+            </div>
+</div>
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">KH-KKG-003</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Koh Kong Province</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Eco-Protected
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Cardamom Tented Camp &amp; Tatai River</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+              Botum Sakor National Park corridor. Conservation concession partnered with Wildlife Alliance. Self-guided trekking prohibited; accredited ranger guide mandatory for all trail segments.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md mt-1 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">eco</span> MoE Eco Conservation Fee: $5/day
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">local_police</span> Wildlife Alliance Escort Required
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">groups</span> 12 Active Forest Rangers
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap xl:flex-col items-center xl:items-end gap-space-xs w-full xl:w-auto shrink-0 justify-between xl:justify-center pt-space-xs xl:pt-0">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Ranger Roster (12)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Details</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-on-surface-variant hover:text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">forest</span> Permit Quota Settings
+            </button>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">MoE Gateway Sync</span>
+</div>
+</div>
+</article>
+<!-- Item 5: Bamboo Train & Phnom Sampeau -->
+<article class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col xl:flex-row gap-space-lg items-start xl:items-center justify-between">
+<div class="flex flex-col md:flex-row gap-space-lg items-start md:items-center flex-1">
+<div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Traditional rustic Cambodian bamboo train norry platform sliding along historic French colonial railway tracks amidst golden rice fields of Battambang at sunset, local driver adjusting the small motor engine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-NBsxC5ceMtr226hBBtq73gsugicUZCuomlmeSxZi1WRnnw6Gl-dh28fkAPzZGLVbDeqnfbj-EKa_olwE5Eb7XBt6iJgWyYBbLjO37G9n7NT3ew2mmuCLFVaGwAWfwy_sAk3C0-5S4jXpyw06Tx_6m1lQia2ezkara_z8bZJxUojxAoN1fopSUO2gAanWuwXdpCRm9hgWN3KU77dWhaNpd7odzEtuPPEtE9u3lVTt60KTVj2-M-Oc7w"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-surface-container-highest/90 backdrop-blur-md text-on-surface font-label-caps text-label-caps uppercase">
+              Rural Heritage
+            </div>
+</div>
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">KH-BBG-008</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Battambang Province</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Open (Seasonal Track)
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Bamboo Train (Norry) &amp; Phnom Sampeau</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+              Community transport historical experience along the Odambang trail, followed by Phnom Sampeau bat cave exodus at dusk (approx. 17:30 ICT). Cooperative community revenue split.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md mt-1 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-md text-label-md text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px]">train</span> Ticket: $5 Standard Ride
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">groups</span> 22 Local Community Operators
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-[16px]">dark_mode</span> Dusk Flight Window: 17:15 - 18:30
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap xl:flex-col items-center xl:items-end gap-space-xs w-full xl:w-auto shrink-0 justify-between xl:justify-center pt-space-xs xl:pt-0">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Manage Operators (22)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Details</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-on-surface-variant hover:text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">speed</span> Safety &amp; Weight Regs
+            </button>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">MoT Comm. Endorsement</span>
+</div>
+</div>
+</article>
+<!-- Item 6: Koh Rong Marine Park -->
+<article class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col xl:flex-row gap-space-lg items-start xl:items-center justify-between">
+<div class="flex flex-col md:flex-row gap-space-lg items-start md:items-center flex-1">
+<div class="relative w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Crystal clear turquoise Gulf of Thailand waters gently lapping against pristine powder white sand of Sok San Beach on Koh Rong island Cambodia, dense tropical coconut palms swaying, wooden longtail boat moored offshore." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyVUfpIfb92bq1ON8fcHNvUIudtuO1iZ8bbY1kr-ZS8zIJehnxeya0ZGayQvDAiGn_JdiRK6CGypsmcC_FVNd3pxVb-1ienXh5zJMps8V2dV2luDJaG6cvzY5C7sFZVkpHt6Qe4lcVgAe4lMo63UxQiwsRmfJd85pqtTIXiizuTeZ727zWADg_Z_xVLJVfsEZESeUo6pYKmzcrZtKe5QN02h-E9cBrZQdK3GjMBR2jeMzN5NFNh6USzw"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-primary-container/90 backdrop-blur-md text-on-primary font-label-caps text-label-caps uppercase">
+              Coastal Marine Park
+            </div>
+</div>
+<div class="flex flex-col gap-1 min-w-0 flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">KH-KRG-001</span>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Preah Sihanouk Province</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-caps text-label-caps flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> High Season Open
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Koh Rong Marine National Park</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+              Protected marine archipelago featuring coral reef conservation zones and bioluminescent plankton bays. Speedboat arrivals coordinated via Sihanoukville Port Authority.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md mt-1 text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">water</span> Marine Environment Levy: $2.50
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">scuba_diving</span> 16 Certified Marine Guides
+              </span>
+<span class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">sailing</span> Ferry Sync Active (3 lines)
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap xl:flex-col items-center xl:items-end gap-space-xs w-full xl:w-auto shrink-0 justify-between xl:justify-center pt-space-xs xl:pt-0">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Marine Guides (16)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Details</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<button class="text-on-surface-variant hover:text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">waves</span> Reef Weather Advisory
+            </button>
+<span class="text-outline-variant font-label-caps">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">MoE Protected Area</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Table Pagination Footer -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+        Displaying entries 1–6 of 248 validated destinations
+      </span>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md disabled:opacity-50" disabled="">
+          Previous
+        </button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md">42</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md">
+          Next
+        </button>
+</div>
+</div>
+</section>
+<!-- Collapsible APSARA & MoT Visitor Guidelines Matrix -->
+<!-- Section: APSARA &amp; Ministry of Tourism Visitor Guidelines Matrix --><section class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm" id="guidelines-panel">
+<details class="group" open="">
+<summary class="flex items-center justify-between cursor-pointer list-none select-none">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed/50 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">APSARA &amp; Ministry of Tourism Visitor Guidelines Matrix</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Code of conduct, ticket reciprocity, photography rights, and heritage zoning laws</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</summary>
+<div class="mt-space-lg pt-space-md grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Column 1: Dress Code & Sacred Decorum -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">dry_cleaning</span>
+<span class="font-title-md text-title-md font-semibold">Temple Code of Conduct</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Prakas No. 041/MoT requires full knee and shoulder coverage. Sheer fabrics, bare midriffs, and offensive slogans are strictly barred from central towers across all Angkor zones.
+          </p>
+<div class="mt-auto pt-space-xs">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-caps text-label-caps uppercase">Enforcement: Temple Police + Guards</span>
+</div>
+</div>
+<!-- Column 2: Commercial Filming & Drones -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">videocam</span>
+<span class="font-title-md text-title-md font-semibold">Drone &amp; Cinematography</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Unmanned aerial vehicles (UAVs) require combined permit approval from APSARA, State Secretariat of Civil Aviation (SSCA), and Ministry of National Defense minimum 10 working days prior.
+          </p>
+<div class="mt-auto pt-space-xs">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-caps text-label-caps uppercase">SSCA Permit Ref: MoND-2024-DR</span>
+</div>
+</div>
+<!-- Column 3: Guide Licensing & Badge Verification -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[20px]">id_card</span>
+<span class="font-title-md text-title-md font-semibold">Certified Guide Mandate</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Only guides possessing active MoT RFID badges are allowed to conduct historical narrations in UNESCO Zone 1 &amp; 2. Unauthorized foreign group leaders face instantaneous spot penalties.
+          </p>
+<div class="mt-auto pt-space-xs">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-caps text-label-caps uppercase">MoT Portal Biometric Check Active</span>
+</div>
+</div>
+</div>
+</details>
+</section>
+</div></main><!-- Shared component: admin-footer-legal (assets/js/components/admin.js) --><tos-admin-footer-legal></tos-admin-footer-legal></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/admin.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/admin/places-management.js" defer></script>
+</body>
+</html>

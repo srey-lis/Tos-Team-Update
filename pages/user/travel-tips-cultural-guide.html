@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Tips Cultural Guide | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen" data-layout="site">
+<!-- ===== Header / top bar ===== --><tos-user-site-header active="tips"></tos-user-site-header>
+<!-- ===== Main content ===== --><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Authority Badge Banner -->
+<section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pt-space-lg pb-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="home" href="../../index.html">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span class="">Home</span>
+</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Travel Tips &amp; Field Intelligence</span>
+</nav>
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span class="font-bold tracking-wider">APSARA AUTHORITY &amp; MoT VALIDATED</span>
+<span class="text-outline">|</span>
+<span class="text-on-surface-variant">2025 Field Manual</span>
+</div>
+</div>
+<!-- Editorial Header Title Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end mb-space-xl">
+<div class="lg:col-span-8 space-y-space-sm">
+<span class="inline-block font-label-caps text-label-caps uppercase tracking-widest text-secondary font-bold">
+          Kingdom of Wonder • Essential Traveler Codex
+        </span>
+<h1 class="font-headline-lg text-headline-lg text-primary leading-tight">
+          Essential Travel Tips &amp; Cultural Etiquette for Cambodia
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl pt-space-xs">
+          A definitive handbook on sacred temple decorum, modern cashless payments with Bakong KHQR, frictionless local transit, micro-climate packing strategies, and mindful immersion across all 25 provinces.
+        </p>
+</div>
+<!-- Field Status Summary Widget -->
+<div class="lg:col-span-4 bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Current Season</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-[10px] font-bold">DRY &amp; SUNLIT</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-primary">29°C</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Siem Reap • UNESCO Circuit</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between pt-space-xs">
+<span class="">Official KHR Rate:</span>
+<span class="font-title-md text-title-md text-on-surface font-mono">1 USD ≈ 4,085 KHR</span>
+</div>
+</div>
+</div>
+<!-- Search & Dynamic Filter Chips Component -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm mb-space-xl space-y-space-md">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant text-[22px]">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-low transition-all" id="tips-search-input" placeholder="Search advice (e.g., dress code, Bakong KHQR, tuk-tuk fares, monk photography, e-Visa)..." type="text">
+<button class="hidden absolute right-4 text-on-surface-variant hover:text-on-surface" id="clear-search-btn">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+</button>
+</div>
+<!-- Categories Pill Bar -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1" id="category-filter-bar">
+<button class="filter-pill active px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-primary text-on-primary shadow-sm transition-all" data-category="all">
+          All Field Tips (24)
+        </button>
+<button class="filter-pill px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" data-category="temple">
+          🏛️ Temple Etiquette
+        </button>
+<button class="filter-pill px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" data-category="money">
+          💳 Currency &amp; Bakong
+        </button>
+<button class="filter-pill px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" data-category="transit">
+          🛺 Getting Around
+        </button>
+<button class="filter-pill px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" data-category="culture">
+          🙏 Khmer Cultural Nuances
+        </button>
+<button class="filter-pill px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" data-category="weather">
+          🌦️ Seasons &amp; Packing
+        </button>
+<button class="filter-pill px-4 py-2 rounded-full font-label-lg text-label-lg whitespace-nowrap bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" data-category="safety">
+          🏥 Health &amp; SOS
+        </button>
+</div>
+</div>
+</section>
+<!-- Section 2: Critical Featured Alert - The Angkor Sacred Code of Conduct -->
+<section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="temple">
+<div class="relative overflow-hidden rounded-2xl bg-primary text-on-primary p-space-md md:p-space-xl shadow-xl">
+<!-- Decorative Backdrop Texture Effect -->
+<div class="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-primary-container/40 blur-3xl pointer-events-none"></div>
+<div class="absolute top-0 right-0 p-space-md opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[160px]">temple_buddhist</span>
+</div>
+<!-- Alert Banner Header -->
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-lg">
+<div class="space-y-space-xs">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps font-bold tracking-wide">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+<span class="">MANDATORY APSARA DECREE #482</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-surface-bright">The Angkor Sacred Code of Conduct</h2>
+<p class="font-body-md text-body-md text-on-primary-container max-w-2xl">
+            Angkor is not a cinematic stage; it is a living sanctuary of active Theravada worship and centuries-old stone reverence. Strict enforcement is upheld by heritage police.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm flex-shrink-0">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-bright transition-all shadow-md flex items-center gap-2" onclick="downloadCodePdf()">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="">Angkor Rules PDF</span>
+</button>
+<button class="px-4 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg hover:bg-primary-container/80 transition-all flex items-center gap-2" onclick="saveToChecklist(this)">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+<span id="save-btn-text" class="">Save to My Plan</span>
+</button>
+</div>
+</div>
+<!-- 4 Pillars Grid -->
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md pt-space-xs">
+<!-- Pillar 1 -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-md flex flex-col justify-between space-y-space-sm transition-all hover:bg-surface-container-lowest/15">
+<div class="space-y-space-xs">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-on-secondary-container flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed">checkroom</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-tertiary-fixed font-bold">RULE 01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label-caps text-label-caps text-on-primary/70">DRESS CODE</span>
+</div>
+<h3 class="font-title-md text-title-md text-surface-bright">Cover Shoulders &amp; Knees</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+              No bare shoulders, sheer fabrics, crop tops, or shorts above the kneecap. <strong class="text-tertiary-fixed font-semibold">Important:</strong> Shawls wrapped over tank tops are rejected at the Bakan Tower upper sanctuary entrance.
+            </p>
+</div>
+<div class="pt-space-xs">
+<span class="inline-flex items-center gap-1 font-label-caps text-[10px] text-primary-fixed font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">gavel</span> APSARA STRICT INSPECTION
+            </span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-md flex flex-col justify-between space-y-space-sm transition-all hover:bg-surface-container-lowest/15">
+<div class="space-y-space-xs">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-on-secondary-container flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed">front_hand</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-tertiary-fixed font-bold">RULE 02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label-caps text-label-caps text-on-primary/70">SACRED GROUND</span>
+</div>
+<h3 class="font-title-md text-title-md text-surface-bright">Sacred Relics &amp; Monks</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+              Never touch bas-relief carvings or sit on fallen pediments. Always ask politely before photographing monks. Women must never touch a Buddhist monk nor hand items directly into their hands.
+            </p>
+</div>
+<div class="pt-space-xs">
+<span class="inline-flex items-center gap-1 font-label-caps text-[10px] text-primary-fixed font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">nature_people</span> SACRED INTEGRITY
+            </span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-md flex flex-col justify-between space-y-space-sm transition-all hover:bg-surface-container-lowest/15">
+<div class="space-y-space-xs">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-on-secondary-container flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed">smoke_free</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-tertiary-fixed font-bold">RULE 03</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label-caps text-label-caps text-on-primary/70">SANCTUARY PEACE</span>
+</div>
+<h3 class="font-title-md text-title-md text-surface-bright">Quiet Zones &amp; Smoke-Free</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+              Maintain serene volume around prayer shrines and stupas. The entire 401 km² archaeological reserve is strictly smoke-free. Littering incurs immediate $25 on-the-spot environmental penalties.
+            </p>
+</div>
+<div class="pt-space-xs">
+<span class="inline-flex items-center gap-1 font-label-caps text-[10px] text-primary-fixed font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">eco</span> CLEAN HERITAGE ZONE
+            </span>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-md flex flex-col justify-between space-y-space-sm transition-all hover:bg-surface-container-lowest/15">
+<div class="space-y-space-xs">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-on-secondary-container flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed">child_care</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-tertiary-fixed font-bold">RULE 04</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+<span class="font-label-caps text-label-caps text-on-primary/70">CHILD PROTECTION</span>
+</div>
+<h3 class="font-title-md text-title-md text-surface-bright">Begging &amp; Souvenir Children</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+              Never buy souvenirs or give cash/candy to children at temple portals. Doing so encourages school truancy and exploitative networks. Support registered vocational schools (e.g., Artisans d'Angkor) instead.
+            </p>
+</div>
+<div class="pt-space-xs">
+<span class="inline-flex items-center gap-1 font-label-caps text-[10px] text-primary-fixed font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">volunteer_activism</span> CHILD-SAFE TRAVEL
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Currency, Money & Bakong KHQR Revolution (Interactive Grid) -->
+<!-- Section: Money, Currency &amp; The Bakong KHQR Revolution --><section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="money">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-md gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Fiscal Savvy</span>
+<h2 class="font-headline-md text-headline-md text-primary">Money, Currency &amp; The Bakong KHQR Revolution</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+        Cambodia functions on a unique dual-currency model, now rapidly modernized by the National Bank's digital payment ecosystem.
+      </p>
+</div>
+<!-- Currency Cards Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Big Feature: The Bakong Tourist App -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps font-bold">
+              GAME CHANGER FOR TRAVELERS
+            </span>
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-primary font-mono">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> KHQR Verified
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">The Bakong Tourists App: Zero Fee Scanning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Launched by the National Bank of Cambodia (NBC), international travelers can now download the <strong class="text-on-surface">Bakong Tourists App</strong> upon arrival, complete instant passport e-KYC, link a Visa/MasterCard, and scan ubiquitous <strong>KHQR red square codes</strong> at roadside iced coffee stalls, fruit vendors, local night markets, and five-star establishments.
+          </p>
+<!-- Interactive QR Demonstration Simulation -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col sm:flex-row items-center gap-space-md">
+<div class="w-24 h-24 bg-surface-container-lowest rounded-lg p-2 flex flex-col items-center justify-center flex-shrink-0 shadow-sm">
+<!-- Inline SVG simulated KHQR Code -->
+<svg class="w-full h-full text-primary" fill="currentColor" viewBox="0 0 100 100">
+<rect height="28" rx="2" width="28" x="0" y="0"></rect>
+<rect fill="#fdf8f5" height="20" width="20" x="4" y="4"></rect>
+<rect height="12" width="12" x="8" y="8"></rect>
+<rect height="28" rx="2" width="28" x="72" y="0"></rect>
+<rect fill="#fdf8f5" height="20" width="20" x="76" y="4"></rect>
+<rect height="12" width="12" x="80" y="8"></rect>
+<rect height="28" rx="2" width="28" x="0" y="72"></rect>
+<rect fill="#fdf8f5" height="20" width="20" x="4" y="76"></rect>
+<rect height="12" width="12" x="8" y="80"></rect>
+<!-- Data Pixels -->
+<rect height="8" width="8" x="36" y="8"></rect>
+<rect height="8" width="8" x="48" y="16"></rect>
+<rect height="12" width="12" x="36" y="36"></rect>
+<rect height="16" width="8" x="56" y="36"></rect>
+<rect height="8" width="12" x="72" y="56"></rect>
+<rect height="16" width="8" x="40" y="72"></rect>
+<rect height="8" width="12" x="56" y="72"></rect>
+<rect height="8" width="16" x="76" y="80"></rect>
+</svg>
+</div>
+<div class="space-y-1 text-center sm:text-left">
+<span class="font-title-md text-title-md text-on-surface">No Cash Hassle &amp; No Foreign Markups</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Avoid torn USD bill disputes. Bakong debits directly in exact Cambodian Riel amounts without pocketfuls of coins or change mismatches.
+              </p>
+<div class="pt-1 flex flex-wrap gap-2 justify-center sm:justify-start">
+<span class="inline-flex items-center text-label-caps text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Instant Setup
+                </span>
+<span class="inline-flex items-center text-label-caps text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">shield</span> National Bank Backed
+                </span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-body-sm text-on-surface-variant">Available on iOS App Store &amp; Google Play</span>
+<a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-primary hover:text-secondary transition-colors" href="https://bakong.nbc.gov.kh/en/" rel="noreferrer" target="_blank">
+<span class="">Learn More at NBC Portal</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Right Column: Dual Currency & Tipping Standards -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Dual Currency Reality Check -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-title-md text-title-md">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-on-surface">Crisp USD Notes Rule</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            U.S. Dollars circulate freely alongside Cambodian Riel. However, Cambodian vendors and banks will <strong>strictly reject any USD note</strong> with tiny tears, pencil marks, pinholes, or heavy fold degradation.
+          </p>
+<div class="p-space-xs rounded-lg bg-surface-container-low font-body-sm text-body-sm flex items-center justify-between">
+<span class="text-on-surface-variant">Micro change (&lt; $1):</span>
+<span class="font-semibold text-on-surface">Always returned in Riel (~4,000 KHR)</span>
+</div>
+</div>
+<!-- Tipping Etiquette Guide -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-title-md text-title-md">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+<span class="text-on-surface">Tipping &amp; Gratuity Norms</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Tipping is not legally mandated, yet profoundly appreciated given local hospitality wage structures.
+          </p>
+<ul class="space-y-1.5 font-body-sm text-body-sm pt-space-xs">
+<li class="flex items-center justify-between py-1 bg-surface-container px-2.5 rounded-lg">
+<span class="text-on-surface-variant">Tuk-Tuk Drivers (Short hops):</span>
+<span class="font-semibold text-primary">2,000 – 4,000 KHR (~$0.50 – $1)</span>
+</li>
+<li class="flex items-center justify-between py-1 bg-surface-container px-2.5 rounded-lg">
+<span class="text-on-surface-variant">Sit-down Restaurants:</span>
+<span class="font-semibold text-primary">5% – 10% of total bill</span>
+</li>
+<li class="flex items-center justify-between py-1 bg-surface-container px-2.5 rounded-lg">
+<span class="text-on-surface-variant">Full-Day Licensed Temple Guides:</span>
+<span class="font-semibold text-primary">$15 – $25 USD / day</span>
+</li>
+</ul>
+</div>
+<!-- ATM Caution Warning -->
+<div class="bg-surface-container-high rounded-xl p-space-sm flex items-start gap-space-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[22px] flex-shrink-0 mt-0.5">warning</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-title-md">ATM Withdrawal Fee Alert:</strong> Most local Cambodian ATMs (Canadia, ABA, Sathapana) impose a flat <strong class="text-on-surface">$5.00 – $7.00 USD fee</strong> per international card transaction. Withdraw larger lump sums or preload Bakong to minimize repetitive charges.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Getting Around: Transport Hacks & Smart Navigation -->
+<!-- Section: Getting Around Cambodia: Transport Hacks --><section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="transit">
+<div class="mb-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Transit Navigation</span>
+<h2 class="font-headline-md text-headline-md text-primary">Getting Around Cambodia: Transport Hacks</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        From ancient temple circuits to highway cruising, here is how to navigate safely without paying inflated tourist fares.
+      </p>
+</div>
+<!-- Transport Grid Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- 1: E-Hailing Auto Rickshaws -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">electric_rickshaw</span>
+</div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps font-bold">
+            URBAN COMMUTES
+          </span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Auto-Rickshaws &amp; Grab / PassApp</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Download <strong>Grab</strong> or <strong>PassApp</strong> before landing. Fixes transparent meter pricing in Phnom Penh, Siem Reap, and Battambang. Eliminates painful street-side haggling.
+          </p>
+</div>
+<div class="pt-space-xs bg-surface-container rounded-lg p-space-xs space-y-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span class="">Typical city hop:</span>
+<span class="font-mono text-primary font-bold">$1.25 – $2.50</span>
+</div>
+<div class="text-[11px] text-outline">Tip: Keep small change ready if paying cash</div>
+</div>
+</div>
+<!-- 2: Remorque Traditional Tuk-Tuk -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">commute</span>
+</div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps font-bold">
+            TEMPLE ODYSSEYS
+          </span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Remorque (Traditional Tuk-Tuk)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            A motorcycle hauling a shaded four-seat carriage. Ideal for the breezy Angkor archaeological circuit. Hire through your hotel desk or agree on a fixed full-day itinerary upfront.
+          </p>
+</div>
+<div class="pt-space-xs bg-surface-container rounded-lg p-space-xs space-y-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span class="">Angkor Full Day:</span>
+<span class="font-mono text-secondary font-bold">$18 – $28</span>
+</div>
+<div class="text-[11px] text-outline">Includes sunrise pickup at 4:45 AM</div>
+</div>
+</div>
+<!-- 3: Inter-City VIP Vans -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">airport_shuttle</span>
+</div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps font-bold">
+            CROSS-PROVINCE
+          </span>
+<h3 class="font-title-lg text-title-lg text-on-surface">VIP Minivans (Giant Ibis, Larryta)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Modern high-speed transit with 3-point seatbelts, conditioned air, and Wi-Fi between Phnom Penh, Siem Reap, Sihanoukville, and Kampot along Expressway E1.
+          </p>
+</div>
+<div class="pt-space-xs bg-surface-container rounded-lg p-space-xs space-y-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span class="">Seat Ticket Range:</span>
+<span class="font-mono text-primary font-bold">$13 – $18 USD</span>
+</div>
+<div class="text-[11px] text-outline">Book 48h in advance during high season</div>
+</div>
+</div>
+<!-- 4: Historic Bamboo Train -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">train</span>
+</div>
+<span class="inline-block px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps font-bold">
+            HERITAGE NOVELTY
+          </span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Battambang Norry (Bamboo Train)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            A small motorized wooden platform with bamboo slats running over historic French colonial rails through serene countryside. If two meet, the lighter load disassembles by hand!
+          </p>
+</div>
+<div class="pt-space-xs bg-surface-container rounded-lg p-space-xs space-y-1">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span class="">Ride Fare per person:</span>
+<span class="font-mono text-secondary font-bold">$5.00 USD</span>
+</div>
+<div class="text-[11px] text-outline">Departures from Wat Ek Phnom / O Sra-Lav</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Local Customs & Cultural Nuances (Khmer Cultural Immersion) -->
+<section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="culture">
+<div class="bg-surface-container-low rounded-3xl p-space-md md:p-space-xl shadow-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Visual Column with image placeholder and Sompeah graphic -->
+<div class="lg:col-span-5 space-y-space-md">
+<div class="relative rounded-2xl overflow-hidden shadow-md">
+<img class="w-full h-80 object-cover" data-alt="A respectful Khmer woman in traditional silk blouse gently performing the Sompeah greeting with pressed palms near a sunlit sandstone monastery gallery in Siem Reap, warm natural light, cinematic documentary feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8H6C2gXFHkBCJPuZuKiCJRdkUOpt-cZgx0k73d514Vi9J2x74e4-fG8us38m2mYw6ihNiaLpQM_lLkbtSYchuk7I1uxXXG0oaznyDiro1MXKj6E2QEZ-VMHbAQjzPONJnfNzfKuvuXai-fYco06NI3Ue0FWB_Ps3awpPJcFDr8Y21ygCwz4x5LYzHFEotIg0q0h6EkQoGkNvVQGwaCtoWtirtvEhXLRzHEOLxpzvs5c3Q-CPz2sOFSg">
+<div class="absolute bottom-0 inset-x-0 p-space-md bg-gradient-to-t from-primary/95 via-primary/70 to-transparent text-on-primary">
+<span class="font-label-caps text-label-caps text-tertiary-fixed font-bold tracking-wider">SACRED GESTURE</span>
+<p class="font-headline-sm text-headline-sm">The Art of the Sompeah (សំពះ)</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest text-on-surface space-y-space-xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold">5 LEVELS OF REVERENCE</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              The height of hands matches social status: chest-level for peers, mouth-level for elders/bosses, nose-level for parents and grandparents, eyebrow-level for monks &amp; royalty, and forehead-level for Buddha and sacred deities.
+            </p>
+</div>
+</div>
+<!-- Etiquette Do's & Don'ts Breakdown -->
+<div class="lg:col-span-7 space-y-space-md">
+<div>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Behavioral Decorum</span>
+<h2 class="font-headline-md text-headline-md text-primary">Mindful Immersion in Khmer Society</h2>
+<p class="font-body-md text-body-md text-on-surface-variant pt-1">
+              Khmer hospitality is world-renowned for gentle warmth. Respecting these subtle cultural boundaries instantly unlocks deep local goodwill.
+            </p>
+</div>
+<div class="space-y-space-sm">
+<!-- Etiquette item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex items-start gap-space-md shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-title-md text-title-md text-on-surface">The Sacred Head &amp; Modest Feet</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  In Cambodian cosmology, the head is spiritually the purest apex of the body—<strong>never touch anyone’s head</strong>, not even affectionately patting children. Conversely, feet are considered spiritually unclean: never point your soles toward monks, elders, or Buddha icons. Tuck your legs under you when seated on pagoda mats.
+                </p>
+</div>
+</div>
+<!-- Etiquette item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex items-start gap-space-md shadow-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">footprint</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-title-md text-title-md text-on-surface">Slip Off Footwear Indoors</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Always take off shoes and hats before crossing into living rooms of private homes, viharas (temple sanctums), and many local boutiques or boutique spas. Look for shoe racks or grouped sandals by the threshold.
+                </p>
+</div>
+</div>
+<!-- Etiquette item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex items-start gap-space-md shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">mood</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="font-title-md text-title-md text-on-surface">The Culture of "Saving Face" &amp; Calm Tones</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Public displays of anger, shouting, or aggressive confrontation cause acute loss of face in Khmer culture and will immediately shut down cooperation. Address delays or misunderstandings with a light smile, calm posture, and polite deference.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Seasonal Intelligence & Interactive Packing Checklist -->
+<!-- Section: Seasonal Intelligence &amp; Packing Essentials --><section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="weather">
+<div class="mb-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Climate &amp; Gear</span>
+<h2 class="font-headline-md text-headline-md text-primary">Seasonal Intelligence &amp; Packing Essentials</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Cambodia has three distinct climate windows. Match your travel window to avoid midday temple heat exhaustion or wet-season track conditions.
+      </p>
+</div>
+<!-- Season Matrix 3-Columns -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-lg">
+<!-- Season 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps font-bold px-2.5 py-1 rounded-full bg-primary-fixed text-primary">
+              COOL &amp; DRY
+            </span>
+<span class="font-mono text-label-md text-on-surface-variant">24°C – 31°C</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">November to February</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Peak expedition season with crisp clear skies, gentle morning breezes, and minimal humidity. Perfect for trekking the Cardamom Mountains and all-day temple exploration.
+          </p>
+</div>
+<div class="bg-surface-container p-space-xs rounded-xl font-body-sm text-body-sm text-on-surface">
+<span class="font-semibold text-secondary">Expedition Tip:</span> Book boutique hotels &amp; guides 2–3 months ahead.
+        </div>
+</div>
+<!-- Season 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps font-bold px-2.5 py-1 rounded-full bg-secondary-fixed text-secondary">
+              HOT &amp; RADIANT
+            </span>
+<span class="font-mono text-label-md text-on-surface-variant">33°C – 39°C</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">March to May</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Intense equatorial sun warms sandstone ruins by 11 AM. The traditional Khmer New Year (Choul Chnam Thmey) bursts across mid-April with festive water celebrations.
+          </p>
+</div>
+<div class="bg-surface-container p-space-xs rounded-xl font-body-sm text-body-sm text-on-surface">
+<span class="font-semibold text-secondary">Expedition Tip:</span> Tour from 5:30 AM – 10:30 AM, rest mid-day, resume at 3:30 PM.
+        </div>
+</div>
+<!-- Season 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps font-bold px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface">
+              GREEN &amp; MONSOON
+            </span>
+<span class="font-mono text-label-md text-on-surface-variant">27°C – 32°C</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">June to October</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            The landscape turns vibrant emerald green with full temple moats and dramatic afternoon skies. Rain usually occurs in short, spectacular 45-minute late-day cloudbursts.
+          </p>
+</div>
+<div class="bg-surface-container p-space-xs rounded-xl font-body-sm text-body-sm text-on-surface">
+<span class="font-semibold text-secondary">Expedition Tip:</span> Zero tourist crowds; superb photography and low prices.
+        </div>
+</div>
+</div>
+<!-- Interactive Field Packing Checklist Bento Box -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md pb-space-sm border-b-0">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Interactive Heritage Packing Checklist</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tap items as you pack your field rucksack.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-secondary font-mono" id="pack-counter">0 / 6 Packed</span>
+<button class="text-xs px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant hover:text-on-surface" onclick="resetPackingList()">Reset</button>
+</div>
+</div>
+<!-- Checklist Items Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-sm" id="packing-checklist-grid">
+<!-- Item 1 -->
+<label class="pack-item cursor-pointer flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updatePackCounter()" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Linen Trousers &amp; Maxi Skirts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Meets knee temple guidelines while staying breathable in 35°C humidity.</span>
+</div>
+</label>
+<!-- Item 2 -->
+<label class="pack-item cursor-pointer flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updatePackCounter()" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Slip-On Breathable Footwear</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Easy on/off at pagodas with supportive tread for uneven stone temple steps.</span>
+</div>
+</label>
+<!-- Item 3 -->
+<label class="pack-item cursor-pointer flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updatePackCounter()" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">DEET Mosquito Spray (20%+)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Essential for dawn/dusk temple visits near mossy jungle moats and rivers.</span>
+</div>
+</label>
+<!-- Item 4 -->
+<label class="pack-item cursor-pointer flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updatePackCounter()" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Compact UV Windproof Umbrella</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Shields harsh midday sun in unshaded courtyards and deflects monsoon showers.</span>
+</div>
+</label>
+<!-- Item 5 -->
+<label class="pack-item cursor-pointer flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updatePackCounter()" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Insulated Water Canteen</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Most eco-lodges &amp; Tos-Team vehicles provide cold free refill stations.</span>
+</div>
+</label>
+<!-- Item 6 -->
+<label class="pack-item cursor-pointer flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updatePackCounter()" type="checkbox">
+<div>
+<span class="font-title-md text-title-md text-on-surface block">Universal Power Plug Adapter</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cambodia uses Types A, C, and G (230V, 50Hz); keep an adapter handy.</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 7: Connectivity, SIM Cards & Mobile Internet -->
+<!-- Section: Tourist SIMs: Smart &amp; Metfone Recommended --><section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="transit">
+<div class="bg-surface-container-high rounded-2xl p-space-md md:p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="space-y-space-xs max-w-xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="">CELLULAR &amp; CONNECTIVITY</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tourist SIMs: Smart &amp; Metfone Recommended</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Purchase directly upon arriving at Phnom Penh (PNH) or Siem Reap-Angkor (SAI) airports. <strong>Smart Axiata</strong> delivers superior 4G/LTE inside urban centers; <strong>Metfone</strong> holds stronger coverage in deep rural provinces and Cardamom trailheads. An 8-day tourist package with 15GB runs roughly <strong>$6 – $8 USD</strong>. Passport registration is mandatory.
+        </p>
+</div>
+<div class="flex-shrink-0 flex items-center gap-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="text-center px- space-y-1">
+<span class="material-symbols-outlined text-[32px] text-primary">sim_card</span>
+<span class="block font-label-caps text-label-caps text-on-surface font-bold">eSIM Ready</span>
+<span class="block font-mono text-xs text-secondary">Airalo &amp; Nomad</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Emergency SOS & Verified Medical Assistance Drawer -->
+<!-- Section: On-The-Ground Assistance Quick Directory --><section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin mb-space-xl" data-section-category="safety">
+<div class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-sm space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm">
+<div class="space-y-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">health_and_safety</span> EMERGENCY INTELLIGENCE &amp; SUPPORT
+          </span>
+<h2 class="font-headline-md text-headline-md text-primary">On-The-Ground Assistance Quick Directory</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="px-4 py-2.5 rounded-lg bg-error text-on-error font-label-lg text-label-lg hover:bg-error/90 transition-all shadow-md flex items-center gap-2" href="tel:117">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span class="">Call Tourist Police (117)</span>
+</a>
+</div>
+</div>
+<!-- Quick Contacts Table Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Contact 1 -->
+<div class="bg-surface-container rounded-xl p-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold">TOURIST POLICE HOTLINE</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-mono">117 / 012 942 484</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            English-speaking specialized tourist officers located at major temple entrances and riverside hubs.
+          </p>
+</div>
+<!-- Contact 2 -->
+<div class="bg-surface-container rounded-xl p-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps text-primary font-bold">APSARA VISITOR SERVICES</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-mono">+855 63 765 577</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Angkor Archaeological Park headquarters for lost passes, permits, and conservation inquiries.
+          </p>
+</div>
+<!-- Contact 3 -->
+<div class="bg-surface-container rounded-xl p-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold">NATIONAL AMBULANCE (SAMU)</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-mono">119</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Central public emergency dispatcher for urgent medical situations across urban centers.
+          </p>
+</div>
+<!-- Contact 4 -->
+<div class="bg-surface-container rounded-xl p-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps text-primary font-bold">ROYAL PHNOM PENH HOSPITAL</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-mono">+855 23 991 000</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            JCI-accredited tertiary hospital in Phnom Penh with 24/7 trauma care and medical evacuation liaison.
+          </p>
+</div>
+</div>
+<!-- Water & Mosquito Health Alert Notice -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-secondary text-[32px] flex-shrink-0">sanitizer</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-title-md">Drinking Water &amp; Ice Safety:</strong> Never drink tap water directly. Commercial ice in restaurants and roadside cafes with hollow cylinders is made with purified municipal ice and is generally safe. Stick to sealed bottled or hotel refill stations.
+          </div>
+</div>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface font-label-lg text-label-lg hover:bg-surface-container whitespace-nowrap flex items-center gap-1.5 flex-shrink-0" onclick="toggleHospitalModal()">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span>
+<span class="">Verified Clinic Directory</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 9: Call To Action Footer Card -->
+<!-- Section: Ready to Put These Tips Into Practice? --><section class="max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pb-space-xl">
+<div class="relative overflow-hidden rounded-3xl bg-primary text-on-primary p-space-md md:p-space-xl shadow-xl">
+<!-- Ambient Backing -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary-container to-primary opacity-90"></div>
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-tertiary-fixed font-bold">
+            EXPERIENCE THE KINGDOM THOUGHTFULLY
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-surface-bright">Ready to Put These Tips Into Practice?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">
+            Build a seamless, culturally respectful itinerary with daily temple route scheduling, automated sunrise reminders, and verified local drivers.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm flex-shrink-0">
+<a class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg hover:bg-secondary/90 transition-all shadow-md text-center flex items-center justify-center gap-2" data-path="plan-trip" href="ai-trip-planner-itinerary-generator.html">
+<span class="material-symbols-outlined text-[20px]">magic_button</span>
+<span class="">Plan Trip with AI</span>
+</a>
+<a class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-bright transition-all shadow-md text-center flex items-center justify-center gap-2" data-path="explore" href="explore-cambodia.html">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+<span class="">Browse Destinations</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Hospital List Modal Overlay (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4" id="hospital-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-space-lg shadow-2xl space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-primary">Verified Hospitals in Cambodia</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="toggleHospitalModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-sm text-on-surface max-h-96 overflow-y-auto pr-1">
+<div class="p-space-sm rounded-xl bg-surface-container space-y-1">
+<span class="font-title-md text-title-md block text-primary">Royal Angkor International Hospital</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Siem Reap • 24/7 Emergency &amp; Ambulance</p>
+<span class="font-mono text-sm text-secondary font-semibold">+855 63 761 888</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container space-y-1">
+<span class="font-title-md text-title-md block text-primary">Calmette Hospital (French-standard VIP wing)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Phnom Penh • Advanced trauma and surgical unit</p>
+<span class="font-mono text-sm text-secondary font-semibold">+855 23 426 948</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container space-y-1">
+<span class="font-title-md text-title-md block text-primary">Sonja Kill Memorial Hospital</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kampot / Kep Coastal Region</p>
+<span class="font-mono text-sm text-secondary font-semibold">+855 78 777 555</span>
+</div>
+</div>
+<div class="pt-space-xs flex justify-end">
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg" onclick="toggleHospitalModal()">
+          Close Directory
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Interactive Script for Search, Filters, and Checklist -->
+</main>
+<!-- ===== Footer ===== --><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-sm"><span class="font-headline-sm text-headline-sm text-primary">Tos-Team KH</span><span class="text-[18px]">🇰🇭</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Curated expeditions, temple heritage itineraries, and eco-travel experiences across the Kingdom of Wonder powered by CamTrip AI.</p><div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-caps text-label-caps"><span class="material-symbols-outlined text-[16px] text-primary">verified_user</span><span class="">Bakong Escrow Protected</span></div></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Exploration</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors" data-path="explore" href="explore-cambodia.html">Angkor Heritage Circuit</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="explore" href="explore-cambodia.html">Cardamom Eco Lodges</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="explore" href="explore-cambodia.html">Mekong River Odysseys</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="explore" href="explore-cambodia.html">Koh Rong Archipelago</a></li></ul></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Trip Planning</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors" data-path="plan-trip" href="ai-trip-planner-itinerary-generator.html">CamTrip AI Planner</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="my-plan" href="my-plan-trip-builder.html">Saved Itineraries</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="tips" href="travel-tips-cultural-guide.html">Temple Dress Codes</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="guides" href="licensed-tour-guides-local-experts.html">Licensed Khmer Guides</a></li></ul></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Official &amp; Tourism</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors inline-flex items-center gap-space-xs" href="https://www.tourismcambodia.org" rel="noreferrer" target="_blank">Ministry of Tourism Cambodia <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></li><li class=""><a class="hover:text-primary transition-colors inline-flex items-center gap-space-xs" href="https://apsaraauthority.gov.kh/" rel="noreferrer" target="_blank">APSARA National Authority <span class="material-symbols-outlined text-[14px]">open_in_new</span></a></li><li class=""><a class="hover:text-primary transition-colors" href="#">National e-Visa Portal</a></li><li class=""><a class="hover:text-primary transition-colors inline-flex items-center gap-space-xs font-title-md text-secondary" href="tel:117"><span class="material-symbols-outlined text-[16px]">call</span> Tourist Police Hotline (117)</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><p class="">© 2025 Tos-Team KH • CamTrip AI Platform. All rights reserved.</p><div class="flex items-center gap-space-lg font-label-md text-label-md"><span class="">Privacy Protocol</span><span class="">Bakong Escrow Terms</span><span class="">Heritage Ethics Pledge</span></div></div></div></footer>
+
+
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/components/site.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/user/travel-tips-cultural-guide.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotels Eco Stays | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen" data-layout="site"><!-- Shared component: site-header-booking (assets/js/components/site.js) --><tos-user-site-header active="hotel"></tos-user-site-header>
+<!-- ===== Main content ===== --><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Heritage Breadcrumb Bar -->
+<div class="w-full bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-sm flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="home" href="../../index.html">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Home</span>
+</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Stays &amp; Accommodations</span>
+</div>
+<div class="hidden sm:flex items-center gap-space-md font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+<span>78 Verified Khmer Boutique Partners</span>
+</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-label-md text-label-md">USD / KHR Live Rate: $1 = 4,085៛</span>
+</div>
+</div>
+</div>
+<!-- Hero Section with Atmospheric Scrim & Search Console -->
+<section class="relative w-full overflow-hidden bg-primary text-on-primary">
+<!-- Background Heritage Photographic Canvas with Scrim -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center mix-blend-overlay opacity-30 pointer-events-none scale-105 transition-transform duration-1000 ease-out" data-alt="Majestic golden hour reflection of Angkor Wat temple spires mirroring perfectly over calm sacred lotus pond at sunrise in Siem Reap Cambodia with warm saffron morning light and pink water lilies" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfzngl37cJ_gzMfWpVt0OAAkVY7zs_QUFRNW5g3qh8JovPDz8xO0b-yPSICj-S-pyjBrnnKofgwm1TB9dhDfNWwTZUpG4Gbz5W-3O-sXyiqiapZ2cSCvamDV5PehxDQsSvQney_cHbElu2l2tEOysL0db5gzBZ-jchr8wBKh028tdGaQn7lCOM90EEKvsL6GPD0I-PxhjEnepvRCVrVAMykxZyAX3DxciLaVSBiS1_wWnIoosEzEPoOw')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/85 to-primary"></div>
+<div class="relative max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pt-space-xl pb-space-xl">
+<!-- Eyebrow & Headline Container -->
+<div class="max-w-3xl space-y-space-sm mb-space-xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/15 backdrop-blur-md text-on-primary font-label-caps text-label-caps tracking-wider">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span>KINGDOM OF WONDER • AUTHENTIC CAMBODIAN STAYS</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg tracking-tight text-surface-bright">
+          Heritage Villas, Eco-Lodges &amp; Boutique Resorts
+        </h1>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl leading-relaxed">
+          Curated sanctuaries from riverside French colonial suites in Kampot to lush forest tree-villas near Angkor Wat, secured with seamless Bakong KHQR instant escrow.
+        </p>
+</div>
+<!-- Unified Editorial Search Console -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-xl p-space-sm md:p-space-md text-on-surface">
+<form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-sm items-center" onsubmit="event.preventDefault();">
+<!-- Destination Field -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-lg p-space-sm hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span>Sanctuary / Province</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none placeholder:text-outline" id="search-destination" placeholder="Where in Cambodia?" type="text" value="Siem Reap (Angkor Heritage)"/>
+</div>
+<span class="text-outline font-body-sm text-[11px] block mt-0.5">e.g. Kampot, Koh Rong, Cardamom River</span>
+</div>
+<!-- Check-in & Out Date Field -->
+<div class="lg:col-span-3 bg-surface-container-low rounded-lg p-space-sm hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span>
+<span>Check-in — Check-out</span>
+</label>
+<div class="flex items-center justify-between">
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface cursor-pointer focus:outline-none" readonly="" type="text" value="Oct 14, 2025 — Oct 18, 2025"/>
+</div>
+<span class="text-tertiary-container font-label-caps text-label-caps block mt-0.5 font-bold">4 Nights • Cool Season Preview</span>
+</div>
+<!-- Guests & Rooms Field -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-lg p-space-sm hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">group</span>
+<span>Guests &amp; Rooms</span>
+</label>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none" type="text" value="2 Adults • 1 Villa"/>
+<span class="text-outline font-body-sm text-[11px] block mt-0.5">Private ensuite bath</span>
+</div>
+<!-- Style / Sanctuary Type -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-lg p-space-sm hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">spa</span>
+<span>Expedition Style</span>
+</label>
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none cursor-pointer">
+<option value="all">All Heritage Styles</option>
+<option value="eco">Eco-Forest Lodge</option>
+<option selected="" value="luxury">Angkorian Luxury</option>
+<option value="colonial">Colonial Riverfront</option>
+<option value="homestay">Khmer Stilt Homestay</option>
+<option value="island">Private Island Villa</option>
+</select>
+<span class="text-outline font-body-sm text-[11px] block mt-0.5">Filter architecture</span>
+</div>
+<!-- Search Action -->
+<div class="lg:col-span-1 h-full flex items-center">
+<button class="w-full h-full min-h-[58px] bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg rounded-lg flex flex-col items-center justify-center gap-0.5 shadow-md hover:shadow-lg transition-all" id="search-btn" type="submit">
+<span class="material-symbols-outlined text-[24px]">search</span>
+<span class="text-[12px] uppercase tracking-wider font-bold">Search</span>
+</button>
+</div>
+</form>
+<!-- Quick Assurance Badges Row -->
+<div class="mt-space-sm pt-space-xs flex flex-wrap items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-[12px]">
+<div class="flex items-center gap-4 flex-wrap">
+<span class="inline-flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Bakong KHQR Escrow (0% Transaction Fee)</span>
+</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-tertiary">recycling</span>
+<span>Zero-Single-Use-Plastic Stays</span>
+</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-secondary">local_library</span>
+<span>10% Proceeds to APSARA Restoration Fund</span>
+</span>
+</div>
+<div class="text-on-surface-variant font-label-md text-label-md">
+            Showing <strong class="text-primary font-bold">8 Featured Expeditions</strong>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Matrix & Region Chips -->
+<section class="w-full bg-surface-container-low py-space-md shadow-sm">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col gap-space-sm">
+<!-- Primary Region Filter Buttons -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase pr-2 flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span>Province:</span>
+</span>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm font-semibold">
+          All Regions (78)
+        </button>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+          Siem Reap (Angkor)
+        </button>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+          Phnom Penh
+        </button>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+          Kampot &amp; Kep
+        </button>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+          Koh Rong &amp; Islands
+        </button>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+          Battambang
+        </button>
+<button class="region-chip shrink-0 px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+          Mondulkiri &amp; Cardamom
+        </button>
+</div>
+<!-- Secondary Attribute Toggles -->
+<div class="flex items-center gap-2 flex-wrap pt-1 font-label-md text-label-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase pr-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>Refine:</span>
+</span>
+<label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors">
+<input checked="" class="w-3.5 h-3.5 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span>Bakong Instant KHQR Escrow</span>
+</label>
+<label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors">
+<input checked="" class="w-3.5 h-3.5 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span>Free Organic Breakfast</span>
+</label>
+<label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors">
+<input class="w-3.5 h-3.5 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span>Pool &amp; Spa Sanctuary</span>
+</label>
+<label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors">
+<input class="w-3.5 h-3.5 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span>MoT &amp; APSARA Certified</span>
+</label>
+<label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors">
+<input class="w-3.5 h-3.5 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span>Solar &amp; Community Eco-Certified</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Main Content Showcase Grid -->
+<!-- Section: Distinguished Stays of Cambodia --><section class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+<!-- Editorial Section Heading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">hotel</span>
+<span>CURATED FIELD JOURNAL • EDITION OCT 2025</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">
+          Distinguished Stays of Cambodia
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Carefully vetted properties evaluated on architectural authenticity, ethical community employment, and environmental stewardship.
+        </p>
+</div>
+<!-- Sorting Bar -->
+<div class="flex items-center gap-space-xs self-start md:self-auto bg-surface-container rounded-lg p-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant px-2">SORT BY:</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-md text-label-md text-primary font-bold shadow-xs">
+          Recommended
+        </button>
+<button class="px-2.5 py-1 rounded hover:bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-colors">
+          Highest Rated
+        </button>
+<button class="px-2.5 py-1 rounded hover:bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md transition-colors">
+          Price: Low to High
+        </button>
+</div>
+</div>
+<!-- 8 Curated Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-space-lg">
+<!-- Card 1: Shinta Mani Angkor & Bensley Collection -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<!-- Visual Container with Aspect Ratio -->
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Luxury tropical courtyard villa at Shinta Mani Angkor with lush private plunge pool surrounded by towering palm fronds, black stone carvings and Khmer art in Siem Reap" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_ez1_vH-frnWqf6UvbNVlDAjAKyPA02maaUQWyEwdfoIhiqDrEegSrcKGsscQqULcpTqoUiqcAIexVLqUxxpu1oWFq6-hu86tpw2B36KgaxkvOkLbSeAFeDFcENZ3bz822NtuQSrHsLPP09_oyrRUw1SLE75L_6ca9CZreq1bS5-cgicLM0AXrNYeokbZtgF23GMN6gWP1J4QsB_i0_IErD0A7JubuOMEr9l-JdBt1XM_M7fqRUqSBg')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps shadow-xs">
+              5-STAR LUXURY
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-bright/90 text-primary font-label-caps text-label-caps backdrop-blur-md">
+              BENSLEY DESIGN
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.96</span>
+<span class="text-on-surface-variant font-normal">(520)</span>
+</div>
+</div>
+<!-- Details Area -->
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Siem Reap • Old French Quarter</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              Shinta Mani Angkor &amp; Bensley Collection
+            </h3>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Eco-Luxury</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Private Pool</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Temple Shuttle</span>
+</div>
+<!-- Bakong Assurance badge -->
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">qr_code_2</span>
+<span class="font-label-md text-label-md">Bakong KHQR Escrow Protected</span>
+</div>
+</div>
+<!-- Bottom Price & Actions Row -->
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$285</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~1,164,225៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('Shinta Mani Angkor', '$285', 'Siem Reap')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('Shinta Mani Angkor &amp; Bensley Collection', 285)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: FCC Angkor by Avani -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Colonial style white mansion FCC Angkor hotel with shady heritage banyan trees, vintage wicker chairs, and emerald tiled saltwater swimming pool in Siem Reap" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZV5EJsbUYG851_esDqGyy57bNgra8aaVSFYwnam-MC3fmSz8BPaZrO9w1FOmMsuVDWX6bonu4dG0lEBXWYo2ovIjsKGvvA2arsFtTSrHDcnkeyLctQ0uMdgjHnwtiZzvm6pNSS0101q3z51U7epD7OZxYoll3bZV3o7RxKXnlF4Acsdct_dDGrjEhV16zrQhp2D_u_mx7O604eAL8QZ-nTFVqZzHCT0qm2uXYtHUr9mW-trsD76fXKA')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-caps text-label-caps shadow-xs">
+              HERITAGE LANDMARK
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.91</span>
+<span class="text-on-surface-variant font-normal">(780)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Siem Reap • Siem Reap Riverfront</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              FCC Angkor by Avani
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Colonial Heritage</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Saltwater Pool</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Art Gallery</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">qr_code_2</span>
+<span class="font-label-md text-label-md">Bakong KHQR Escrow Protected</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$160</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~653,600៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('FCC Angkor by Avani', '$160', 'Siem Reap')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('FCC Angkor by Avani', 160)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Canvas & Orchids Retreat -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Luxury floating wooden tented eco-lodge pontoon over misty Tatai River framed by dense Cardamom Mountain jungle rainforest canopy in Koh Kong Cambodia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-7ThgMzLtG-GSdosTmqqTBSljVM7ZCrh1xRFXJFAzOvyXza0UXQ9tU5LNWTy5Usr6K7V582dtuDeKsrjyWN-IOWDildxvbz3hDWGEnwj2OB4mWFBLuN2MVoPZZ3TFv7SGAbXpkFzM5-KGrB5RiNqTMMJQy6aOim9NsL2I9kGKCma1VO9beDQD6yhIEZycaaNFZv10He94jdG6gbNo_9w7n1NZ_tj2vv3nMcCBMbu1W14N0EgmSB0HNQ')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-caps text-label-caps shadow-xs">
+              CARDAMOM ECO-SANCTUARY
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.94</span>
+<span class="text-on-surface-variant font-normal">(340)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Koh Kong • Tatai River Forest</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              Canvas &amp; Orchids Retreat
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Floating Villa</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Rainforest</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Kayaks Free</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">forest</span>
+<span class="font-label-md text-label-md">100% Off-Grid Solar Powered</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$195</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~796,575៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('Canvas &amp; Orchids Retreat', '$195', 'Koh Kong')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('Canvas &amp; Orchids Retreat', 195)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Plantation Urban Resort & Spa -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Idyllic hidden tropical pool sanctuary at Plantation Urban Resort Phnom Penh with oversized red sunbeds, lush bamboo canopy, and restored french architectural wings" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCyoitB9wqCETc98AgG2MTsxgjsBT2azTm8TYJCVEkpzP6a6sAUzo4jrcDyKG54cC0sV6SN0DOa9T7OfUDvxKj6K7PO5Q-ZYszQ55kadHLLoh4csWCN_oPJhwuiHG8wV1g_hHjqnY-QAGlC7RysDJawaaYvFBe_xqwdZ9b1qMriCh3A8ZRrUhQHf3ELXIiQkcYluK2vFNvn-K_0RRe7ugmw8qVLSQz5oX-ibEmdhAfDQxOqRWgqAnD5A')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps shadow-xs">
+              URBAN OASIS
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.88</span>
+<span class="text-on-surface-variant font-normal">(1.2k)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Phnom Penh • Behind Royal Palace</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              Plantation Urban Resort &amp; Spa
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Oasis Garden</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Giant Lotus Pool</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Near Museums</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">qr_code_2</span>
+<span class="font-label-md text-label-md">Bakong KHQR Escrow Protected</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$88</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~359,480៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('Plantation Urban Resort', '$88', 'Phnom Penh')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('Plantation Urban Resort &amp; Spa', 88)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5: The Columns Boutique Hotel -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Restored yellow French colonial shophouse facade of The Columns hotel in Kampot with wooden shutter windows, bougainvillea blossoms, and vintage bicycles outside" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7BRF3lU3xYE_JVnw9LkYkg6OAxWYaHzC-sfXwYdc6cirYVBVwP4TyFk3clTIiAsd7f7EIAyhdtTLilYZLA27uJ0jgYAzvRnEEd3HVPjOKz4PfH-XSXPETjbr8uAsNoj1g5wguBWxUUzoh0vciVcu2VcFAyq6A8pRJGpMiuA7QVyL94xptPycWh44cr_7twBkoOW4E9x0R8iWfenJg6gSYaXziad6fCjtGqCPpLRGNqkFDthXMRcBlCA')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-caps text-label-caps shadow-xs">
+              HISTORIC SHOP-HOUSE
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.85</span>
+<span class="text-on-surface-variant font-normal">(420)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Kampot • Old French District</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              The Columns Boutique Hotel
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Heritage Town</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Riverside 200m</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Pepper Tours</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">directions_bike</span>
+<span class="font-label-md text-label-md">Complimentary City Bicycles</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$48</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~196,080៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('The Columns Hotel', '$48', 'Kampot')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('The Columns Boutique Hotel', 48)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 6: Song Saa Private Island -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Ultra-luxury overwater timber villa perched above crystalline turquoise sea at Song Saa Private Island Cambodia with infinity pool overlooking white coral beaches" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPc3ILZafcvETrvDtAC41K84rE7CMR9IFVwVDUI5uWVCe1zlqNHW9DkJKRr0IOlxw7pvzCXUBnGsYNBUbUz5i4TOg35Gp-jb5y7X5wCdWIVUxdTCP5U10P8lDg8aCvoao_wQl-MkL6FZiM-EWV5ni0_27yJK0CiDD6nPWDdxFYbVpYDx19kVBZRMXdURsmNJup7VWoIlz6-1XgKS2Stf4NtJSOOq84-mFzVTnwh4_ZGq7p5kNiqEQwLw')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-caps text-label-caps shadow-xs">
+              PRIVATE ISLAND RESERVE
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.99</span>
+<span class="text-on-surface-variant font-normal">(210)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Koh Rong Archipelago • Marine Park</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              Song Saa Private Island
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Overwater Villa</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Marine Sanctuary</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">All-Inclusive</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">sailing</span>
+<span class="font-label-md text-label-md">Private Speedboat Transfer Included</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$820</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~3,349,700៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('Song Saa Island', '$820', 'Koh Rong')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('Song Saa Private Island', 820)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 7: Maisons Wat Kor -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Traditional elevated teak wood Khmer stilt house at Maisons Wat Kor in Battambang Cambodia surrounded by lush tropical lotus pond and organic herb gardens" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1Cye2sPddsBJ2k3FoQtcnEXUoNyQLh5855H3qzh0MVugvqfPiPcDtAES2e_Pxh7cO1-hoc8g3PyyD4PQFO3OzQCVpj6jA0AHHrEdoO4hgiJDQihDo1stXLEWEoQeK0Rwwa_ZFVd72bU5rD6sTtchogsaA2Vac4myds481qhuar8IUdjA8lvaDcoHokL_ag8Yx1BlYIqOaTz4huF15Bc-bT_i8-B_7Mhv1l1RUJ5JtyX01ZoYOHoSKxw')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps shadow-xs">
+              KHMER WOODEN VILLA
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.89</span>
+<span class="text-on-surface-variant font-normal">(310)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Battambang • Wat Kor Village</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              Maisons Wat Kor
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Authentic Khmer Stilt</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Farm-to-Table</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Lotus Pond</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">soup_kitchen</span>
+<span class="font-label-md text-label-md">Traditional Cooking Classes Daily</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$65</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~265,525៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('Maisons Wat Kor', '$65', 'Battambang')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('Maisons Wat Kor', 65)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 8: Jungle Addiction Eco-Lodge -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Rustic wooden eco chalets on green rolling highland hills of Sen Monorom Mondulkiri Cambodia overlooking misty pine valley in evening fog" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAiY49MIANuTRiZM_C0zJDwA3Mn-UbJTYYnCd7mCWNiUqYCkyGwjodQyiMjg0SnGFjh74Tv6W9YskBAT2hWG6OCs2yayPlXPAMY8QMqVeLiktoBGbCw9HRjokQGvULTUI-7MBwQtN94lM_WSzkD4QHkhLaLySIvJTwgUaaHxiBQvJLjP6G76J0UKVSqbr5cSa8tyBQrpsQ71ivk5cEGRD4ksVPMkOPDLfmn1IshJ-6XmCoXVSyrP5oNA')"></div>
+<div class="absolute top-3 left-3 flex flex-col gap-1 items-start">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-tertiary-container font-label-caps text-label-caps shadow-xs">
+              HIGHLAND EXPEDITION
+            </span>
+</div>
+<button aria-label="Save to Wishlist" class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-xs font-label-md text-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.87</span>
+<span class="text-on-surface-variant font-normal">(190)</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span>
+<span>Mondulkiri • Sen Monorom Hills</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-headline-sm line-clamp-1 group-hover:text-primary transition-colors">
+              Jungle Addiction Eco-Lodge
+            </h3>
+<div class="flex flex-wrap gap-1 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-caps text-label-caps">Elephant Valley</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Cool Mountain Air</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">Bunong Community</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary text-[12px] pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">diversity_1</span>
+<span class="font-label-md text-label-md">Direct Support to Indigenous Bunong Guides</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$52</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-body-sm text-[12px] text-outline">~212,420៛</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<button class="plan-btn px-2 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="addToMyPlan('Jungle Addiction Lodge', '$52', 'Mondulkiri')">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+<span>+ My Plan</span>
+</button>
+<button class="px-2 py-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1 shadow-xs" onclick="openBookingModal('Jungle Addiction Eco-Lodge', 52)">
+<span>Book Room</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination & Live Counter Bar -->
+<div class="mt-space-xl p-space-md bg-surface-container-low rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-semibold text-primary">Showing 1 to 8</span>
+<span>of 78 verified properties</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold shadow-xs">
+          1
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors">
+          2
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors">
+          3
+        </button>
+<span class="text-outline-variant px-1 font-bold">...</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors">
+          10
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Interactive Stay Planner Callout Banner -->
+<section class="w-full bg-surface-container py-space-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="relative overflow-hidden rounded-2xl bg-primary text-on-primary p-space-lg md:p-space-xl shadow-xl flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<!-- Decorative Ambient Khmer Floral Vector Background -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 opacity-10 pointer-events-none">
+<svg class="w-full h-full text-surface-bright" fill="currentColor" viewbox="0 0 200 200">
+<path d="M100,0 C120,40 160,80 200,100 C160,120 120,160 100,200 C80,160 40,120 0,100 C40,80 80,40 100,0 Z"></path>
+</svg>
+</div>
+<div class="space-y-space-sm max-w-2xl relative z-10">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-on-tertiary-container/20 text-on-tertiary-container font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">sync_saved_locally</span>
+<span>INTEGRATED CAMTRIP AI PLANNING</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg tracking-tight text-surface-bright">
+            Sync Hotels Seamlessly with Your Daily Itinerary
+          </h2>
+<p class="font-body-md text-body-md text-primary-fixed-dim leading-relaxed">
+            Booking through Tos-Team KH automatically coordinates check-in times with your Remorque (Tuk-Tuk) drivers, secures temple pass sunrise pickups, and unlocks late baggage storage directly inside your personalized dashboard.
+          </p>
+<!-- Progress / Feature Milestones -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-xs text-on-primary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">electric_rickshaw</span>
+<span class="font-label-md text-label-md">Auto Driver Briefing</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">wb_twilight</span>
+<span class="font-label-md text-label-md">Angkor Sunrise Sync</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">luggage</span>
+<span class="font-label-md text-label-md">Zero-Fee Bag Escrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col gap-space-sm w-full lg:w-auto relative z-10 shrink-0">
+<button class="px-space-lg py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-bright text-primary font-label-lg text-label-lg font-bold shadow-md transition-all text-center flex items-center justify-center gap-2" onclick="triggerNotification('CamTrip AI Itinerary Planner opened')">
+<span class="material-symbols-outlined text-[20px] text-secondary">magic_button</span>
+<span>Open AI Trip Planner</span>
+</button>
+<a class="px-space-lg py-3 rounded-lg bg-primary-container hover:bg-on-primary-fixed-variant text-on-primary font-label-lg text-label-lg font-semibold transition-all text-center flex items-center justify-center gap-2 shadow-sm" data-path="my-plan" href="my-plan-trip-builder.html">
+<span class="material-symbols-outlined text-[18px]">folder_special</span>
+<span id="plan-counter-label">Review My Plan (2)</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Official Assurance & Cultural Respect Section -->
+<!-- Section: Bakong Escrow Protection --><section class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Bakong Escrow Guarantee Box -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">lock_clock</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">
+            Bakong Escrow Protection
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            In formal alliance with the National Bank of Cambodia and licensed tourist boards, your payment is safely held in escrow until physical check-in confirmation at the hotel reception.
+          </p>
+</div>
+<div class="pt-space-xs flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">security</span>
+<span>100% Refundable prior to 48h arrival</span>
+</div>
+</div>
+<!-- Fair Tourism & Direct Wage Support -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">handshake</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-tertiary">
+            Community Fair-Share Pledge
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Unlike foreign Online Travel Agents charging 25% commissions, Tos-Team operates on a 3% local reinvestment model. 97% of your tariff directly supports Cambodian hospitality workers.
+          </p>
+</div>
+<div class="pt-space-xs flex items-center gap-2 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span>Certified Direct Living Wage Partner</span>
+</div>
+</div>
+<!-- APSARA Heritage Code -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">temple_buddhist</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-secondary">
+            APSARA Heritage Sanctuary Notice
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            All listed properties near protected zones strictly honor Angkor architectural height restrictions (below Angkor Wat summit tree line) and support local stone restoration apprenticeships.
+          </p>
+</div>
+<div class="pt-space-xs flex items-center gap-2 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Approved under MoT Prakas 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Quick-Booking / KHQR Preview Modal (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="booking-modal">
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-2xl shadow-2xl p-space-lg space-y-space-md text-on-surface animate-in fade-in zoom-in duration-200">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase">Official Bakong Reservation</span>
+<h3 class="font-headline-sm text-headline-sm text-primary" id="modal-hotel-name">Property Name</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dates: Oct 14 - 18, 2025 (4 Nights)</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeBookingModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Price Breakdown -->
+<div class="p-space-sm rounded-xl bg-surface-container-low space-y-2">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span id="modal-night-calc">Room tariff ($0 x 4 nights)</span>
+<span id="modal-tariff-sum">$0.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Community Heritage Levy (MoT)</span>
+<span>$4.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Bakong KHQR Escrow Fee</span>
+<span class="text-primary font-semibold">$0.00 (Waived)</span>
+</div>
+<div class="pt-2 flex justify-between font-title-md text-title-md font-bold text-on-surface">
+<span>Total Escrow Authorization:</span>
+<div class="text-right">
+<div class="text-primary" id="modal-total-usd">$0.00</div>
+<div class="font-body-sm text-body-sm text-outline font-normal" id="modal-total-khr">~0 ៛</div>
+</div>
+</div>
+</div>
+<!-- Mock KHQR QR Container -->
+<div class="p-space-md rounded-xl bg-primary text-on-primary flex flex-col items-center justify-center text-center space-y-2">
+<div class="w-40 h-40 bg-surface-container-lowest p-2 rounded-xl flex items-center justify-center shadow-inner">
+<!-- Simplified SVG Representation of Bakong QR -->
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<rect fill="#004541" height="30" width="30" x="5" y="5"></rect>
+<rect fill="#FFFFFF" height="18" width="18" x="11" y="11"></rect>
+<rect fill="#004541" height="10" width="10" x="15" y="15"></rect>
+<rect fill="#004541" height="30" width="30" x="65" y="5"></rect>
+<rect fill="#FFFFFF" height="18" width="18" x="71" y="11"></rect>
+<rect fill="#004541" height="10" width="10" x="75" y="15"></rect>
+<rect fill="#004541" height="30" width="30" x="5" y="65"></rect>
+<rect fill="#FFFFFF" height="18" width="18" x="11" y="71"></rect>
+<rect fill="#004541" height="10" width="10" x="15" y="75"></rect>
+<circle cx="50" cy="50" fill="#fc7f53" r="12"></circle>
+<rect fill="#004541" height="24" width="6" x="42" y="12"></rect>
+<rect fill="#004541" height="14" width="8" x="52" y="24"></rect>
+<rect fill="#004541" height="10" width="18" x="75" y="55"></rect>
+<rect fill="#004541" height="20" width="12" x="45" y="70"></rect>
+</svg>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
+<span>Scan with any Bakong Bank App (ABA, ACLEDA, Wing)</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm pt-2">
+<button class="w-1/2 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" onclick="closeBookingModal()">
+          Cancel
+        </button>
+<button class="w-1/2 py-2.5 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md font-bold transition-all shadow-md" onclick="confirmBakongPayment()">
+          Confirm Escrow Booking
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive Feedback Toast -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none" id="toast">
+<div class="bg-primary text-on-primary px-space-md py-space-sm rounded-xl shadow-2xl flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-container text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-msg">Added to your plan!</span>
+</div>
+</div>
+<!-- Client Interaction Logic -->
+
+</div></main><!-- Shared component: site-footer-booking (assets/js/components/site.js) --><tos-site-footer-booking></tos-site-footer-booking>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/components/site.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/user/hotels-eco-stays.js" defer></script>
+</body>
+</html>

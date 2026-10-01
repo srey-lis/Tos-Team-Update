@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Bookings | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="partner"><!-- Shared component: partner-sidebar-tours (assets/js/components/partner.js) --><tos-partner-sidebar-tours active="confirm-bookings"></tos-partner-sidebar-tours><div class="pl-72"><!-- Shared component: partner-header-tours (assets/js/components/partner.js) --><tos-partner-header-tours></tos-partner-header-tours>
+<!-- ===== Main content ===== --><main class="relative w-full pt-20 bg-surface min-h-screen px-space-lg"><div class="flex flex-col w-full pb-16 space-y-8">
+<!-- Top Stats & Notification Toast -->
+<div class="w-full grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Action Queue</span>
+<span class="font-headline-md text-headline-md text-secondary mt-1 font-bold">3 Pending</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Expires within 4 hrs</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">notification_important</span>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Escrow In Vault</span>
+<span class="font-headline-md text-headline-md text-primary mt-1 font-bold">$1,590.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Bakong KHQR Guaranteed</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed/40 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Active Dispatch</span>
+<span class="font-headline-md text-headline-md text-on-surface mt-1 font-bold">19 Guides</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">MoT Licensed Roster</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">badge</span>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-primary-container text-on-primary shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">verified</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-tertiary-fixed">Sync Active</span>
+</div>
+<p class="font-body-sm text-body-sm mt-1 text-on-primary-container">APSARA Authority &amp; MoT Central Dispatch API connected</p>
+</div>
+<span class="font-label-caps text-label-caps text-on-primary/70 mt-2">Latency: 42ms • OK</span>
+<div class="absolute -right-4 -bottom-6 w-24 h-24 rounded-full bg-white/5 pointer-events-none"></div>
+</div>
+</div>
+<!-- Editorial Section Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
+<div>
+<div class="flex items-center gap-2 text-tertiary-container mb-1">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest font-bold">Expedition Dispatch Console</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Confirm Bookings &amp; Traveler Manifests</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mt-1">
+        Review incoming reservations, verify traveler details and Bakong payment status, and confirm or reschedule bookings.
+      </p>
+</div>
+<!-- Quick Action / Export -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-2 shadow-sm font-label-lg text-label-lg transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download Manifest PDF</span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-2 shadow-sm font-label-lg text-label-lg transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Daily Guest List</span>
+</button>
+</div>
+</div>
+<!-- Search & Filter Controls -->
+<div class="bg-surface-container-lowest p-3 rounded-2xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Search Bar -->
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20" id="manifestSearch" placeholder="Search by booking ID, traveler name, or tour package..." type="text"/>
+</div>
+<!-- Filter Navigation Tabs -->
+<div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto p-1 bg-surface-container-low rounded-xl">
+<button class="px-4 py-2 rounded-lg bg-surface text-primary shadow-sm font-label-lg text-label-lg flex items-center gap-2 shrink-0 transition-all font-semibold" type="button">
+<span>Awaiting Confirmation</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-caps text-label-caps">3</span>
+</button>
+<button class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg flex items-center gap-2 shrink-0 transition-all" type="button">
+<span>Confirmed Bookings</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps">19</span>
+</button>
+<button class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg flex items-center gap-2 shrink-0 transition-all" type="button">
+<span>Declined / Rescheduled</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps">2</span>
+</button>
+<button class="px-3.5 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg flex items-center gap-2 shrink-0 transition-all" type="button">
+<span>All Bookings</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps">24</span>
+</button>
+</div>
+</div>
+<!-- Urgent Action Callout Bar -->
+<div class="bg-secondary-fixed/30 rounded-2xl p-4 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-secondary-fixed">Departure window approaching for 1 booking</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Booking #BK-9041 departs in less than 16 hours. Guide assignment locks upon confirmation.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold px-3 py-1 bg-surface rounded-full shadow-sm shrink-0">Time Sensitive</span>
+</div>
+<!-- PENDING BOOKINGS CARDS CONTAINER -->
+<div class="flex flex-col gap-6" id="pendingBookingList">
+<!-- Card 1: Angkor Sunrise -->
+<article class="bg-surface-container-lowest rounded-2xl p-6 lg:p-7 shadow-sm transition-all hover:shadow-md relative overflow-hidden" id="card-BK-9041">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Main Details (Left 8 Cols) -->
+<div class="xl:col-span-8 flex flex-col justify-between space-y-5">
+<!-- Meta Header -->
+<div class="flex flex-wrap items-center justify-between gap-3 pb-3">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-title-md text-title-md font-bold text-on-surface tracking-tight">Booking #BK-9041</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> Received 25 mins ago
+              </span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps uppercase tracking-wide">
+                Pending Operator Confirmation
+              </span>
+</div>
+<!-- Escrow Badge -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Bakong KHQR Escrow Verified ($480.00 held)</span>
+</div>
+</div>
+<!-- Tour & Schedule Bento Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4 bg-surface-container-low/70 p-4 rounded-xl">
+<div class="sm:col-span-8 flex items-start gap-4">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0 shadow-sm" data-alt="Majestic sunrise silhouette over the five lotus-bud towers of Angkor Wat reflecting in the tranquil outer northern pond with pink lotus blossoms in warm morning mist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE3BVSokDEgiUzwi93CEFcVVhlDt3rkkhA2JmHscnDwePT8VJcXAUCQ7DOQZ2vGR9_oT5qlQh4tboyTk8zzPjCTosi_6XLfa1pt6-appxNLT8UCcle2JCJgSKDQikA8MC4oh8arHk5YPinI9yqv1mEml-WzV2DrFDBnyONHE8xegBz01e7O0lPuK1zp0SuFJexYRt4rEoYl2wjx9qXzVOmbTpHQWdDs9Afa1QXcLKz6oMMTvFGTZryPg"/>
+<div class="flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider font-semibold">Signature Cultural Circuit</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-snug">3-Day Angkor Sunrise &amp; Sacred Mysteries</h3>
+<div class="flex items-center gap-4 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5 font-semibold text-primary">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    Tomorrow, Oct 25, 2025 • 05:30 AM
+                  </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                    2 Adults
+                  </span>
+</div>
+</div>
+</div>
+<div class="sm:col-span-4 bg-surface-container-lowest p-3.5 rounded-xl flex flex-col justify-center">
+<span class="font-label-caps text-label-caps uppercase text-outline">Lead Traveler</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">Sophea Cham</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono mt-0.5">+855 12 884 921</span>
+<span class="font-body-sm text-body-sm text-outline-variant truncate">sophea.cham@gmail.com</span>
+</div>
+</div>
+<!-- Pickup & Dietary Special Context -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-on-surface">
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">local_taxi</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Accommodation &amp; Pickup</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">FCC Angkor by Avani, Room 204</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<strong class="text-secondary font-semibold">Pickup: 05:00 AM sharp</strong> • EV Remorque (Electric Tuk-Tuk) requested
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Preferences &amp; Special Notes</span>
+<div class="flex flex-wrap gap-1.5 mt-1">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-caps text-label-caps">1 Vegetarian</span>
+<span class="px-2 py-0.5 rounded-md bg-primary/10 text-primary font-label-caps text-label-caps">English Guide Lic. requested</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-caps text-label-caps">First-time visitor</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Panel (Right 4 Cols) -->
+<div class="xl:col-span-4 bg-surface-container-low rounded-xl p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Pricing Breakdown</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">KHR 1,960,800</span>
+</div>
+<div class="space-y-2 py-3">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Angkor Pass &amp; Expedition Fee</span>
+<span class="font-semibold text-on-surface">$420.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>EV Remorque Green Transit</span>
+<span class="font-semibold text-on-surface">$60.00</span>
+</div>
+<div class="flex justify-between font-title-md text-title-md font-bold text-on-surface pt-2">
+<span>Total Escrow Held</span>
+<span class="text-primary">$480.00</span>
+</div>
+</div>
+<div class="mt-4 p-3 rounded-lg bg-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+                Funds released instantly upon morning guide check-in QR scan.
+              </p>
+</div>
+</div>
+<!-- Action Buttons Group -->
+<div class="flex flex-col gap-2.5 pt-6">
+<button class="w-full py-3 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-all" onclick="handleConfirm('BK-9041', 'Sophea Cham')" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Confirm Booking</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2.5 px-3 rounded-xl bg-surface hover:bg-surface-container-high text-secondary font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-all" onclick="handleDecline('BK-9041')" type="button">
+<span class="material-symbols-outlined text-[18px]">event_busy</span>
+<span>Decline / Reschedule</span>
+</button>
+<button class="py-2.5 px-3 rounded-xl bg-surface hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-all" onclick="openChat('Sophea Cham', '+855 12 884 921')" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Message</span>
+</button>
+</div>
+<button class="text-center font-label-md text-label-md text-outline hover:text-primary transition-colors py-1 flex items-center justify-center gap-1" onclick="openManifestModal('BK-9041', 'Sophea Cham', '3-Day Angkor Sunrise &amp; Sacred Mysteries', '2 Adults', 'FCC Angkor by Avani', '$480.00')" type="button">
+<span>View Full Manifest &amp; Passports</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Cardamom Canopy -->
+<article class="bg-surface-container-lowest rounded-2xl p-6 lg:p-7 shadow-sm transition-all hover:shadow-md relative overflow-hidden" id="card-BK-9043">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Main Details (Left 8 Cols) -->
+<div class="xl:col-span-8 flex flex-col justify-between space-y-5">
+<!-- Meta Header -->
+<div class="flex flex-wrap items-center justify-between gap-3 pb-3">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-title-md text-title-md font-bold text-on-surface tracking-tight">Booking #BK-9043</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> Received 1 hour ago
+              </span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps uppercase tracking-wide">
+                Pending Operator Confirmation
+              </span>
+</div>
+<!-- Escrow Badge -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Bakong KHQR Escrow Verified ($960.00 held)</span>
+</div>
+</div>
+<!-- Tour & Schedule Bento Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4 bg-surface-container-low/70 p-4 rounded-xl">
+<div class="sm:col-span-8 flex items-start gap-4">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0 shadow-sm" data-alt="Dense emerald tropical rainforest canopy in Cardamom Mountains with morning sunbeams cutting through heavy mossy trees and cascading wild freshwater stream." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnRyIksLrVK0IlO88xHuV82MC7d-JnKhezPkmb5A51Qee7LjXl7bB5rU8p828iT6sd1PMuERVlx85LZRHYUXJLnPZrmxirSKMy4AefTmy9_SDI5YWGBtdH13DSJDeY7BzH1iupmmJZzTH0RFL8HzCDdXd-ijZQCmo_7TR-6gQSyG1R-VgbqBPMs57GA84FnykH0jl7s1Lq7oaEVt9YItbiRyktquDVpYmtHNB5TXxxL45f7jqE88NYZQ"/>
+<div class="flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider font-semibold">Eco-Wilderness Patrol</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-snug">Cardamom Canopy Ranger Expedition</h3>
+<div class="flex items-center gap-4 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5 font-semibold text-primary">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    Oct 28, 2025 • 07:00 AM
+                  </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                    3 Adults
+                  </span>
+</div>
+</div>
+</div>
+<div class="sm:col-span-4 bg-surface-container-lowest p-3.5 rounded-xl flex flex-col justify-center">
+<span class="font-label-caps text-label-caps uppercase text-outline">Lead Traveler</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">Lucas Weber</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono mt-0.5">+49 170 334910</span>
+<span class="font-body-sm text-body-sm text-outline-variant truncate">l.weber@berlin-travel.de</span>
+</div>
+</div>
+<!-- Pickup & Dietary Special Context -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-on-surface">
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Accommodation &amp; Pickup</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Raffles Grand Hotel d'Angkor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<strong class="text-secondary font-semibold">Pickup: 06:30 AM</strong> • Lobby Concierge Desk (4WD Everest Expedition)
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">hiking</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Expedition Gear &amp; Guide Needs</span>
+<div class="flex flex-wrap gap-1.5 mt-1">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-caps text-label-caps">High Activity Level</span>
+<span class="px-2 py-0.5 rounded-md bg-primary/10 text-primary font-label-caps text-label-caps">French Guide Preferred</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed/50 text-secondary font-label-caps text-label-caps">Boot Hire Size 42 &amp; 44</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Panel (Right 4 Cols) -->
+<div class="xl:col-span-4 bg-surface-container-low rounded-xl p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Pricing Breakdown</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">KHR 3,921,600</span>
+</div>
+<div class="space-y-2 py-3">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Ranger Expedition (3 Pax)</span>
+<span class="font-semibold text-on-surface">$840.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Wildlife Alliance Ranger Donation</span>
+<span class="font-semibold text-on-surface">$120.00</span>
+</div>
+<div class="flex justify-between font-title-md text-title-md font-bold text-on-surface pt-2">
+<span>Total Escrow Held</span>
+<span class="text-primary">$960.00</span>
+</div>
+</div>
+<div class="mt-4 p-3 rounded-lg bg-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">forest</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+                Includes WA ranger escort pass &amp; emergency GPS satellite transponder.
+              </p>
+</div>
+</div>
+<!-- Action Buttons Group -->
+<div class="flex flex-col gap-2.5 pt-6">
+<button class="w-full py-3 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-all" onclick="handleConfirm('BK-9043', 'Lucas Weber')" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Confirm Booking</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2.5 px-3 rounded-xl bg-surface hover:bg-surface-container-high text-secondary font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-all" onclick="handleDecline('BK-9043')" type="button">
+<span class="material-symbols-outlined text-[18px]">event_busy</span>
+<span>Decline / Reschedule</span>
+</button>
+<button class="py-2.5 px-3 rounded-xl bg-surface hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-all" onclick="openChat('Lucas Weber', '+49 170 334910')" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Message</span>
+</button>
+</div>
+<button class="text-center font-label-md text-label-md text-outline hover:text-primary transition-colors py-1 flex items-center justify-center gap-1" onclick="openManifestModal('BK-9043', 'Lucas Weber', 'Cardamom Canopy Ranger Expedition', '3 Adults', 'Raffles Grand Hotel d\'Angkor', '$960.00')" type="button">
+<span>View Full Manifest &amp; Gear Spec</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Phnom Penh Silk Island -->
+<article class="bg-surface-container-lowest rounded-2xl p-6 lg:p-7 shadow-sm transition-all hover:shadow-md relative overflow-hidden" id="card-BK-9046">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Main Details (Left 8 Cols) -->
+<div class="xl:col-span-8 flex flex-col justify-between space-y-5">
+<!-- Meta Header -->
+<div class="flex flex-wrap items-center justify-between gap-3 pb-3">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-title-md text-title-md font-bold text-on-surface tracking-tight">Booking #BK-9046</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> Received 3 hours ago
+              </span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps uppercase tracking-wide">
+                Pending Operator Confirmation
+              </span>
+</div>
+<!-- Escrow Badge -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/40 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Bakong KHQR Escrow Verified ($150.00 held)</span>
+</div>
+</div>
+<!-- Tour & Schedule Bento Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-4 bg-surface-container-low/70 p-4 rounded-xl">
+<div class="sm:col-span-8 flex items-start gap-4">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0 shadow-sm" data-alt="Traditional wooden Khmer silk weaving loom overlooking the wide Mekong river with colorful golden raw silk yarns drying in soft tropical sunlight on Koh Dach Silk Island." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh-WtjPHzZ8eoSE41pyTPBwsvZzJp_4a_nToTyOewBwpzuce9J8MWv4yhJ6aqgAmU9ONBdVk2b5lG0L4MYbczqYONHMTUQfQjkZACKAThqL_AhSTVMKmO8hDBLhw60aE83QgfAioE8nlqqzt5VN8KFIy_vXn6A4R-QFmizTelS_Udk45rXseSGo_paARFqKFpZ2jBSoTc9kunyENDVDuUwZhZcPqnsa4nLYhDwNfEFA4fWB_f7-lFDkw"/>
+<div class="flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider font-semibold">Living Heritage Discovery</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-snug">Phnom Penh Heritage &amp; Silk Island</h3>
+<div class="flex items-center gap-4 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5 font-semibold text-primary">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    Oct 26, 2025 • 08:30 AM
+                  </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                    2 Adults
+                  </span>
+</div>
+</div>
+</div>
+<div class="sm:col-span-4 bg-surface-container-lowest p-3.5 rounded-xl flex flex-col justify-center">
+<span class="font-label-caps text-label-caps uppercase text-outline">Lead Traveler</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold mt-0.5">Kosal &amp; Monica Tan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono mt-0.5">+855 77 923 118</span>
+<span class="font-body-sm text-body-sm text-outline-variant truncate">monica.tan@gmail.com</span>
+</div>
+</div>
+<!-- Pickup & Dietary Special Context -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-on-surface">
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Accommodation &amp; Pickup</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Rosewood Phnom Penh</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<strong class="text-secondary font-semibold">Pickup: 08:00 AM</strong> • Vattanac Tower Ground Lobby
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">pedal_bike</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Experience Add-ons</span>
+<div class="flex flex-wrap gap-1.5 mt-1">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-caps text-label-caps">2x Electric Bicycle</span>
+<span class="px-2 py-0.5 rounded-md bg-primary/10 text-primary font-label-caps text-label-caps">Weaving Masterclass</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-caps text-label-caps">Ferry Crossings Included</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Panel (Right 4 Cols) -->
+<div class="xl:col-span-4 bg-surface-container-low rounded-xl p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Pricing Breakdown</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">KHR 612,750</span>
+</div>
+<div class="space-y-2 py-3">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Island Heritage Tour (2 Pax)</span>
+<span class="font-semibold text-on-surface">$120.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>E-Bike Rentals &amp; Workshop Gear</span>
+<span class="font-semibold text-on-surface">$30.00</span>
+</div>
+<div class="flex justify-between font-title-md text-title-md font-bold text-on-surface pt-2">
+<span>Total Escrow Held</span>
+<span class="text-primary">$150.00</span>
+</div>
+</div>
+<div class="mt-4 p-3 rounded-lg bg-surface flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">fitbit_push_ups</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+                Helmets and Koh Dach river ferry passes reserved automatically.
+              </p>
+</div>
+</div>
+<!-- Action Buttons Group -->
+<div class="flex flex-col gap-2.5 pt-6">
+<button class="w-full py-3 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-all" onclick="handleConfirm('BK-9046', 'Kosal &amp; Monica Tan')" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Confirm Booking</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2.5 px-3 rounded-xl bg-surface hover:bg-surface-container-high text-secondary font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-all" onclick="handleDecline('BK-9046')" type="button">
+<span class="material-symbols-outlined text-[18px]">event_busy</span>
+<span>Decline / Reschedule</span>
+</button>
+<button class="py-2.5 px-3 rounded-xl bg-surface hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-1.5 transition-all" onclick="openChat('Kosal Tan', '+855 77 923 118')" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Message</span>
+</button>
+</div>
+<button class="text-center font-label-md text-label-md text-outline hover:text-primary transition-colors py-1 flex items-center justify-center gap-1" onclick="openManifestModal('BK-9046', 'Kosal &amp; Monica Tan', 'Phnom Penh Heritage &amp; Silk Island', '2 Adults', 'Rosewood Phnom Penh', '$150.00')" type="button">
+<span>View Full Manifest &amp; Details</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- RECENTLY CONFIRMED BOOKINGS SECTION -->
+<!-- Section: Recently Confirmed Manifests --><section class="mt-12 bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recently Confirmed Manifests</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dispatched guides and locked itineraries ready for departure</p>
+</div>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors" id="toggleRecentBtn" onclick="toggleRecentSection()" type="button">
+<span>Collapse Preview</span>
+<span class="material-symbols-outlined text-[18px]" id="toggleIcon">expand_less</span>
+</button>
+</div>
+<!-- Table Content -->
+<div class="overflow-x-auto transition-all duration-300" id="recentBookingsContainer">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-outline font-label-caps text-label-caps uppercase">
+<th class="py-3 px-4 rounded-l-xl">Ref / Traveler</th>
+<th class="py-3 px-4">Tour Package</th>
+<th class="py-3 px-4">Date &amp; Pax</th>
+<th class="py-3 px-4">Assigned MoT Guide</th>
+<th class="py-3 px-4">Status &amp; Escrow</th>
+<th class="py-3 px-4 text-right rounded-r-xl">Quick Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Elena Rostova</span>
+<span class="font-label-caps text-label-caps text-outline font-mono">#BK-9038</span>
+</div>
+</td>
+<td class="py-4 px-4 font-body-md text-body-md text-on-surface">Angkor Grand Circuit &amp; Banteay Srei</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Oct 24, 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4 Pax (Private Van)</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-[11px]">SL</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Sokha Leap</span>
+<span class="font-label-caps text-label-caps text-outline">Lic. #SR-4089</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100/80 text-emerald-800 font-label-caps text-label-caps font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Confirmed &amp; Ready
+              </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="p-2 rounded-lg bg-surface hover:bg-surface-container text-on-surface shadow-sm" title="Print Manifest" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">David Miller</span>
+<span class="font-label-caps text-label-caps text-outline font-mono">#BK-9035</span>
+</div>
+</td>
+<td class="py-4 px-4 font-body-md text-body-md text-on-surface">Phnom Kulen Holy River &amp; Waterfalls</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Oct 24, 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 Pax (SUV Trek)</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-[11px]">VM</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Vannak Meas</span>
+<span class="font-label-caps text-label-caps text-outline">Lic. #SR-1122</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100/80 text-emerald-800 font-label-caps text-label-caps font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Confirmed &amp; Ready
+              </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="p-2 rounded-lg bg-surface hover:bg-surface-container text-on-surface shadow-sm" title="Print Manifest" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Chanthou Long</span>
+<span class="font-label-caps text-label-caps text-outline font-mono">#BK-9031</span>
+</div>
+</td>
+<td class="py-4 px-4 font-body-md text-body-md text-on-surface">Battambang Bamboo Train &amp; Caves</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Oct 25, 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">6 Pax (Family Minibus)</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-outline font-label-caps text-label-caps">Guide Assigning</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100/80 text-emerald-800 font-label-caps text-label-caps font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Escrow Locked
+              </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="p-2 rounded-lg bg-surface hover:bg-surface-container text-on-surface shadow-sm" title="Print Manifest" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- OPERATIONAL COMPLIANCE NOTICE FOOTNOTE -->
+<div class="rounded-2xl p-5 bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Operational Safety &amp; APSARA Compliance Notice</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          All confirmed bookings automatically sync with the Ministry of Tourism (MoT) Guide Dispatch Roster and lock Bakong escrow release upon guest check-in. Strict temple etiquette and park conservation codes apply.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">MoT Gateway Status: Connected</span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+</div>
+</div>
+<!-- MANIFEST DETAIL MODAL (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4" id="manifestModal">
+<div class="bg-surface-container-lowest rounded-2xl w-full max-w-2xl shadow-xl overflow-hidden flex flex-col">
+<div class="p-6 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="modalTourName">Expedition Manifest</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" onclick="closeManifestModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-6 space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface-container-low rounded-xl">
+<span class="font-label-caps text-label-caps uppercase text-outline">Booking Reference</span>
+<p class="font-title-md text-title-md font-mono text-on-surface font-bold" id="modalBookingId">-</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl">
+<span class="font-label-caps text-label-caps uppercase text-outline">Escrow Guarantee</span>
+<p class="font-title-md text-title-md text-primary font-bold" id="modalEscrow">-</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl">
+<span class="font-label-caps text-label-caps uppercase text-outline">Lead Passenger &amp; Contact</span>
+<p class="font-title-md text-title-md font-semibold text-on-surface" id="modalTravelerName">-</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1" id="modalHotel">Hotel: -</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modalPax">Party: -</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl">
+<h5 class="font-label-caps text-label-caps uppercase text-outline mb-2">MoT Verification Badges</h5>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-surface text-primary font-label-md text-label-md shadow-sm">Passport Scans Encrypted</span>
+<span class="px-2.5 py-1 rounded-md bg-surface text-primary font-label-md text-label-md shadow-sm">Emergency Insurance Active</span>
+<span class="px-2.5 py-1 rounded-md bg-surface text-tertiary-container font-label-md text-label-md shadow-sm">APSARA Sunrise Pass Linked</span>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low flex justify-end gap-3">
+<button class="px-4 py-2 rounded-xl bg-surface text-on-surface font-label-lg text-label-lg" onclick="closeManifestModal()" type="button">Close</button>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center gap-1.5" onclick="printModalManifest()" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Manifest</span>
+</button>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE TOAST NOTIFICATION -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none" id="actionToast">
+<div class="px-5 py-4 rounded-xl bg-surface-container-lowest text-on-surface shadow-2xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]" id="toastIcon">check_circle</span>
+<div>
+<p class="font-title-md text-title-md font-semibold" id="toastTitle">Booking Confirmed</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="toastMessage">Guide roster assigned and notification dispatched.</p>
+</div>
+</div>
+</div>
+</div>
+</main></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/partner.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/partner/confirm-bookings.js" defer></script>
+</body>
+</html>

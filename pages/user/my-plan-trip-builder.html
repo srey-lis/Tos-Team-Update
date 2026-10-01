@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Plan - CamTrip AI | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-[#FAF7F2] font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col justify-between" data-layout="site">
+<!-- Top Navigation Bar matching reference layout and brand tokens -->
+<!-- ===== Header / top bar ===== --><tos-user-site-header active="my-plan"></tos-user-site-header>
+<!-- Main Content Layout -->
+<!-- ===== Main content ===== --><main class="w-full flex-1 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-7">
+<!-- Page Header & Action Controls matching Reference -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-[#E7E1D6]/70 mb-6">
+<div>
+<h1 class="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold tracking-tight">My plan</h1>
+<p class="text-sm md:text-base text-on-surface-variant mt-1" id="plan-summary-line">
+          2 stops · 3 days · about $45 in total
+        </p>
+</div>
+<div aria-label="Page language" class="inline-flex items-center rounded-lg border border-[#E7E1D6] bg-white p-1 shadow-2xs" role="group">
+<button aria-pressed="true" class="px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface-variant transition-colors" data-page-language="en" onclick="setPageLanguage('en')" type="button">English</button>
+<button aria-pressed="false" class="px-3 py-1.5 rounded-md text-xs font-semibold text-on-surface-variant transition-colors" data-page-language="km" onclick="setPageLanguage('km')" type="button">ខ្មែរ</button>
+</div>
+<!-- Action Tools from Reference: Daily Budget, Copy, Print/PDF, Clear All -->
+<div class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-sm">
+<!-- Daily Budget Control -->
+<div class="flex items-center bg-white border border-[#E7E1D6] rounded-lg px-2.5 py-1.5 shadow-2xs">
+<span class="text-xs text-on-surface-variant mr-1.5 font-medium">Daily budget $</span>
+<span class="text-xs font-semibold text-on-surface-variant/80 bg-surface-container px-2 py-0.5 rounded">off</span>
+</div>
+<!-- Copy as text -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E7E1D6] text-on-surface hover:bg-surface-container text-xs sm:text-sm font-medium shadow-2xs transition-colors" onclick="copyPlanAsText()" type="button">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">content_copy</span>
+<span class="">Copy as text</span>
+</button>
+<!-- Print / save PDF -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E7E1D6] text-on-surface hover:bg-surface-container text-xs sm:text-sm font-medium shadow-2xs transition-colors" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">print</span>
+<span class="">Print / save PDF</span>
+</button>
+<!-- Clear all -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E7E1D6] text-on-surface hover:border-error/40 hover:text-error text-xs sm:text-sm font-medium shadow-2xs transition-colors" onclick="clearAllStops()" type="button">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">delete_outline</span>
+<span class="">Clear all</span>
+</button>
+</div>
+</div>
+<!-- Day Selector Row matching Reference cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 mb-7">
+<!-- Day 1 Card (Active) -->
+<button class="text-left p-4 rounded-xl transition-all duration-150 border-2 border-[#80C2BC] bg-[#E8F3F1] shadow-2xs cursor-pointer" id="day-btn-1" onclick="selectDay(1)" type="button">
+<div class="font-headline-sm text-base md:text-lg font-bold text-primary">Day 1</div>
+<div class="text-xs md:text-sm text-primary/80 mt-1 font-medium" id="day-1-info">2 stops</div>
+<div class="text-xs md:text-sm text-primary/90 font-semibold" id="day-1-cost">$45</div>
+</button>
+<!-- Day 2 Card -->
+<button class="text-left p-4 rounded-xl transition-all duration-150 border border-[#E7E1D6] bg-white hover:border-primary/40 shadow-2xs cursor-pointer" id="day-btn-2" onclick="selectDay(2)" type="button">
+<div class="font-headline-sm text-base md:text-lg font-semibold text-on-surface">Day 2</div>
+<div class="text-xs md:text-sm text-on-surface-variant mt-1">0 stops</div>
+<div class="text-xs md:text-sm text-on-surface-variant font-medium">$0</div>
+</button>
+<!-- Day 3 Card -->
+<button class="text-left p-4 rounded-xl transition-all duration-150 border border-[#E7E1D6] bg-white hover:border-primary/40 shadow-2xs cursor-pointer" id="day-btn-3" onclick="selectDay(3)" type="button">
+<div class="font-headline-sm text-base md:text-lg font-semibold text-on-surface">Day 3</div>
+<div class="text-xs md:text-sm text-on-surface-variant mt-1">0 stops</div>
+<div class="text-xs md:text-sm text-on-surface-variant font-medium">$0</div>
+</button>
+<!-- Add Day Card -->
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-dashed border-[#B8CEC8] bg-transparent hover:bg-white hover:border-primary text-primary transition-all duration-150 group cursor-pointer min-h-[96px]" onclick="addNewDay()" type="button">
+<span class="material-symbols-outlined text-[24px] mb-0.5 group-hover:scale-110 transition-transform">add</span>
+<span class="font-bold text-sm tracking-wide">Add day</span>
+</button>
+</div>
+<!-- Main Content Split: Left Itinerary Column + Right Add a Stop Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+<!-- Left Column: Day Itinerary Details -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-4">
+<!-- Day Subheader & Quick Tools -->
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-2">
+<h2 class="font-headline-sm text-xl md:text-2xl text-on-surface font-bold" id="current-day-heading">Day 1</h2>
+<span class="text-sm font-semibold text-primary px-2 py-0.5 bg-primary-fixed-dim/30 rounded-full" id="current-day-cost-pill">· $45</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Sort by time -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E7E1D6] hover:bg-surface-container text-xs sm:text-sm font-medium text-on-surface shadow-2xs transition-colors" onclick="sortByTime()" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">schedule</span>
+<span class="">Sort by time</span>
+</button>
+<!-- Clear day -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E7E1D6] hover:border-error/40 hover:text-error text-xs sm:text-sm font-medium text-on-surface shadow-2xs transition-colors" onclick="clearCurrentDay()" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">delete_outline</span>
+<span class="">Clear day</span>
+</button>
+</div>
+</div>
+<!-- Planned Itinerary Stop List -->
+<div class="flex flex-col gap-3.5" id="stops-container">
+<!-- Stop Card 1: Sunrise at Angkor Wat -->
+<div class="stop-item bg-white border border-[#E7E1D6] rounded-xl p-4 sm:p-5 shadow-2xs hover:shadow-xs hover:border-[#CCD8D4] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4" data-cost="37" data-time="05:30">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">temple_buddhist</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-2">
+<span class="text-xs font-bold tracking-wider text-primary uppercase bg-primary-fixed-dim/25 px-2 py-0.5 rounded" data-stop-time>05:30 AM</span>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Sight · Sacred Precinct</span>
+</div>
+<h3 class="font-title-lg text-base md:text-lg font-bold text-on-surface mt-1">Sunrise Reflection at Angkor Wat Central Spire</h3>
+<p class="text-xs sm:text-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
+<span class="">Angkor Archaeological Park, Siem Reap</span>
+<span class="text-outline-variant mx-1">·</span>
+<span class="text-tertiary font-medium">Guide: Vannak Seng (MoT Lic. #KHM-8842)</span>
+</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center border-t sm:border-t-0 pt-2 sm:pt-0 border-surface-container gap-1 shrink-0">
+<div class="text-base sm:text-lg font-bold text-on-surface">$37.00</div>
+<div class="flex items-center gap-2">
+<button aria-label="Change stop time" class="text-on-surface-variant hover:text-primary p-1 rounded transition-colors" onclick="editStopTime(this)" title="Change stop time" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button aria-label="Remove stop" class="text-on-surface-variant hover:text-error p-1 rounded transition-colors" onclick="removeStop(this, 37)" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stop Card 2: Khmer Breakfast -->
+<div class="stop-item bg-white border border-[#E7E1D6] rounded-xl p-4 sm:p-5 shadow-2xs hover:shadow-xs hover:border-[#CCD8D4] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4" data-cost="8" data-time="08:30">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/60 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">restaurant</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-2">
+<span class="text-xs font-bold tracking-wider text-tertiary uppercase bg-tertiary-fixed/50 px-2 py-0.5 rounded" data-stop-time>08:30 AM</span>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Food &amp; Drink · Village Eatery</span>
+</div>
+<h3 class="font-title-lg text-base md:text-lg font-bold text-on-surface mt-1">Num Banh Chok &amp; Palm Nectar at Preah Dak Village</h3>
+<p class="text-xs sm:text-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
+<span class="">Banteay Srei Road, Preah Dak</span>
+<span class="text-outline-variant mx-1">·</span>
+<span class="text-primary font-medium">Handmade Rice Noodles</span>
+</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center border-t sm:border-t-0 pt-2 sm:pt-0 border-surface-container gap-1 shrink-0">
+<div class="text-base sm:text-lg font-bold text-on-surface">$8.00</div>
+<div class="flex items-center gap-2">
+<button aria-label="Change stop time" class="text-on-surface-variant hover:text-primary p-1 rounded transition-colors" onclick="editStopTime(this)" title="Change stop time" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button aria-label="Remove stop" class="text-on-surface-variant hover:text-error p-1 rounded transition-colors" onclick="removeStop(this, 8)" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State Container (shown when empty or matching reference format) -->
+<div class="hidden p-6 sm:p-8 rounded-xl border border-[#E7E1D6] bg-white/70 text-center flex flex-col items-center justify-center text-on-surface-variant" id="empty-state-banner">
+<span class="material-symbols-outlined text-3xl text-outline-variant mb-2">map</span>
+<p class="text-sm font-medium max-w-md">Nothing planned for this day yet. Add a stop on the right, or pick places in Explore.</p>
+</div>
+</div>
+<!-- Quick Recommendations & Saved Places under Itinerary -->
+<div class="mt-4 p-5 rounded-2xl bg-white border border-[#E7E1D6] shadow-2xs">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-headline-sm text-base font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_fire_department</span>
+<span class="">Recommended Additions for Siem Reap</span>
+</h4>
+<a class="text-xs font-semibold text-primary hover:underline" href="explore-cambodia.html">View in Explore →</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-secondary">Heritage · 1.5 hrs</span>
+<p class="font-bold text-xs sm:text-sm text-on-surface mt-1">Ta Prohm Jungle Roots</p>
+<p class="text-xs text-on-surface-variant mt-0.5">$0 (Pass covers)</p>
+</div>
+<button class="mt-2.5 w-full py-1 text-xs font-semibold rounded bg-white hover:bg-primary hover:text-white border border-[#CCD8D4] text-primary transition-all" onclick="quickAdd('Ta Prohm Jungle Roots', 'Angkor East', 0, 'Sight')" type="button">
+                + Add to Day 1
+              </button>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-primary">Eco Nature · 2 hrs</span>
+<p class="font-bold text-xs sm:text-sm text-on-surface mt-1">Kulen Waterfall &amp; River</p>
+<p class="text-xs text-on-surface-variant mt-0.5">$20 (Transport &amp; Pass)</p>
+</div>
+<button class="mt-2.5 w-full py-1 text-xs font-semibold rounded bg-white hover:bg-primary hover:text-white border border-[#CCD8D4] text-primary transition-all" onclick="quickAdd('Phnom Kulen Holy Waterfall', 'Kulen Plateau', 20, 'Activity')" type="button">
+                + Add to Day 1
+              </button>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-tertiary">Cultural Arts · 1.5 hrs</span>
+<p class="font-bold text-xs sm:text-sm text-on-surface mt-1">Phare Circus Evening Show</p>
+<p class="text-xs text-on-surface-variant mt-0.5">$18 (General Tier)</p>
+</div>
+<button class="mt-2.5 w-full py-1 text-xs font-semibold rounded bg-white hover:bg-primary hover:text-white border border-[#CCD8D4] text-primary transition-all" onclick="quickAdd('Phare Cambodian Circus Show', 'Siem Reap Center', 18, 'Activity')" type="button">
+                + Add to Day 1
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky "Add a Stop" Panel matching Reference Structure -->
+<div class="lg:col-span-5 xl:col-span-4 sticky top-24">
+<div class="bg-white border border-[#E7E1D6] rounded-2xl p-5 sm:p-6 shadow-xs">
+<h2 class="font-headline-sm text-xl font-bold text-on-surface mb-4">Add a stop</h2>
+<form class="space-y-4" id="add-stop-form" onsubmit="handleAddStop(event)">
+<!-- Row: Add to Day + Time (optional) -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1" for="stop-day-select">Add to day</label>
+<select class="w-full text-sm rounded-lg border border-[#D5DDD9] bg-[#FAF8F5] py-2 px-2.5 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="stop-day-select">
+<option selected="" value="1">Day 1</option>
+<option value="2">Day 2</option>
+<option value="3">Day 3</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1" for="stop-time-input">Time (optional)</label>
+<div class="relative">
+<input class="w-full text-sm rounded-lg border border-[#D5DDD9] bg-[#FAF8F5] py-2 pl-2.5 pr-8 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="stop-time-input" type="time">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none">schedule</span>
+</div>
+</div>
+</div>
+<!-- What are you doing? -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1" for="stop-name-input">What are you doing?</label>
+<input class="w-full text-sm rounded-lg border border-[#D5DDD9] bg-[#FAF8F5] py-2 px-3 text-on-surface placeholder:text-on-surface-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="stop-name-input" placeholder="Sunrise at Angkor Wat" required="" type="text">
+</div>
+<!-- Where? -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1" for="stop-location-input">Where?</label>
+<input class="w-full text-sm rounded-lg border border-[#D5DDD9] bg-[#FAF8F5] py-2 px-3 text-on-surface placeholder:text-on-surface-variant/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="stop-location-input" placeholder="Siem Reap or Angkor Park" type="text">
+</div>
+<!-- Row: Cost (USD) + Type -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1" for="stop-cost-input">Cost (USD)</label>
+<input class="w-full text-sm rounded-lg border border-[#D5DDD9] bg-[#FAF8F5] py-2 px-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="stop-cost-input" min="0" step="any" type="number" value="0">
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1" for="stop-type-select">Type</label>
+<select class="w-full text-sm rounded-lg border border-[#D5DDD9] bg-[#FAF8F5] py-2 px-2.5 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="stop-type-select">
+<option value="Sight">Sight</option>
+<option value="Food &amp; Drink">Food &amp; Drink</option>
+<option value="Transport">Transport</option>
+<option value="Stay">Stay</option>
+<option value="Activity">Activity</option>
+<option value="Guide Escort">Guide Escort</option>
+</select>
+</div>
+</div>
+<!-- Primary Submit Button -->
+<button class="w-full py-2.5 px-4 rounded-xl bg-[#004541] hover:bg-[#0f5e59] text-white font-semibold text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer" type="submit">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="">Add to plan</span>
+</button>
+</form>
+<!-- Quick Tip Card -->
+<div class="mt-5 p-3.5 rounded-xl bg-surface-container border border-[#E7E1D6]/80 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">tips_and_updates</span>
+<div class="text-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Pro-tip for Angkor:</strong> Pre-book temple passes via official Angkor Enterprise portal or link Bakong KHQR wallet for zero-friction checkpoint validation.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Elegant Footer consistent with Brand & Khmer Cultural Escrow -->
+<!-- ===== Footer ===== --><footer class="w-full bg-[#F4EFEA] border-t border-[#E7E1D6] mt-16">
+<div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm font-bold text-primary">CamTrip AI</span>
+<span class="text-xs text-on-surface-variant font-medium">· Powered by Tos-Team KH</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-medium">Bakong Escrow Protected</span>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="licensed-tour-guides-local-experts.html">Angkor Guide Directory</a>
+<a class="hover:text-primary transition-colors" href="#">Offline Maps</a>
+<a class="hover:text-primary transition-colors" href="#">Emergency 117 SOS</a>
+<a class="hover:text-primary transition-colors" href="#">MoT Heritage Code</a>
+</div>
+<p class="text-xs text-on-surface-variant/70">
+        © 2025 Kingdom of Cambodia. All rights reserved.
+      </p>
+</div>
+</footer>
+<!-- Interactivity Script matching the UI workflow -->
+
+
+
+
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/components/site.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/user/my-plan-trip-builder.js" defer></script>
+</body>
+</html>

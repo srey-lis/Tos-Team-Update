@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Cambodia | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased" data-layout="site">
+<!-- ===== Header / top bar (shared component) ===== --><tos-user-site-header active="home" root></tos-user-site-header>
+<!-- ===== Main content ===== --><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- HERO SECTION WITH SUNRISE BLEED -->
+<section class="home-hero relative w-full -mt-20 overflow-hidden bg-primary min-h-[640px] lg:min-h-[720px] flex flex-col justify-end">
+<!-- Atmospheric Angkor Sunrise / Moat Image -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="Breathtaking panorama of Angkor Wat temple towers silhouetted at golden hour dawn with warm pink and saffron clouds, lotus-filled moat reflecting ancient sandstone architecture, deep green palm foliage in Cambodian landscape editorial style" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtV2k1vj-eDdM7ofxi6KiDdlj-tZZN16pLnyBu1EjFa3bbWnEjZHyCcc4YXDImyUQ7pb9Fm2nl7JyKwY3IIs6Pzw-4AHy34uzsLBxos5P9EHq2rEA9rmVoYkuCju9gpq0A_A-4T4otWXM4y5XsjjSkamecNXFJQpIOfbNsd6P5XrcQ4e3IhHT61_EXFLIO7DLsGD3tjIoBgco_-_JIh6SjOIRsNrm4nOILmhtQsMGT4puxYGC6KaiAvQ')"></div>
+<!-- Editorial Scrim Gradients -->
+<div class="home-hero-scrim-bottom absolute inset-0 bg-gradient-to-t from-background via-on-surface/40 to-primary/60"></div>
+<div class="home-hero-scrim-side absolute inset-0 bg-gradient-to-r from-on-surface/70 via-transparent to-transparent"></div>
+<!-- Hero Content Container -->
+<div class="relative z-10 max-w-7xl w-full mx-auto px-6 lg:px-12 pt-36 pb-16 lg:pb-24">
+<div class="max-w-2xl space-y-space-md">
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-lowest/90 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Official Ethical Travel Platform</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-surface-lowest drop-shadow-sm font-headline-lg">
+          Discover the Cambodia most people miss.
+        </h1>
+<p class="font-body-lg text-body-lg text-surface-container-low max-w-xl font-light">
+          Curated hidden sanctuaries, licensed guides, and community-owned homestays across 25 provinces.
+        </p>
+<!-- Quick Trust Metric Badges -->
+<div class="pt-space-xs flex flex-wrap items-center gap-space-md text-surface-lowest/90">
+<div class="flex items-center gap-1.5 font-label-md text-label-md">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">workspace_premium</span>
+<span class="">100% MoT Licensed Guides</span>
+</div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">forest</span>
+<span class="">Regenerative Community Stays</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FLOATING SEARCH CONCIERGE WIDGET -->
+<div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full -mt-10 lg:-mt-12">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl p-space-md lg:p-space-lg">
+<form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-md items-center" id="trip-search-form">
+<!-- Destination / Province -->
+<div class="lg:col-span-4 bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Destination &amp; Province</label>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none cursor-pointer">
+<option value="all">All 25 Provinces (Siem Reap, Koh Kong...)</option>
+<option selected="" value="siem-reap">Siem Reap &amp; Angkor Realm</option>
+<option value="koh-kong">Koh Kong (Cardamom Jungles)</option>
+<option value="kampot">Kampot &amp; Kep Riverways</option>
+<option value="ratanakiri">Ratanakiri &amp; Mondulkiri Highlands</option>
+<option value="battambang">Battambang Heritage Trail</option>
+<option value="phnom-penh">Phnom Penh &amp; Mekong Confluence</option>
+</select>
+</div>
+</div>
+<!-- Dates Selection -->
+<div class="lg:col-span-3 bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Expedition Dates</label>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+<input class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none cursor-pointer" readonly="" type="text" value="Nov 14 - Nov 21, 2025">
+</div>
+</div>
+<!-- Guests Counter -->
+<div class="lg:col-span-3 bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container transition-colors">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Travelers</label>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">group</span>
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface focus:outline-none cursor-pointer">
+<option value="1">1 Cultural Explorer</option>
+<option selected="" value="2">2 Travelers</option>
+<option value="family">Small Group (3-6 pax)</option>
+<option value="expedition">Expedition Cohort (7+)</option>
+</select>
+</div>
+</div>
+<!-- Search Action Button -->
+<div class="lg:col-span-2 w-full h-full flex items-center">
+<button class="w-full h-full min-h-[52px] bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg rounded-lg shadow-md flex items-center justify-center gap-space-xs transition-all hover:scale-[1.02] active:scale-[0.98]" type="submit">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span class="">Search Trips</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- QUICK CATEGORY CHIPS ROW -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 w-full pt-space-xl pb-space-sm">
+<div class="flex items-center justify-between gap-space-md flex-wrap">
+<div class="flex items-center gap-space-sm overflow-x-auto pb-2 scrollbar-none">
+<button class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-xs shadow-sm" data-category="temples" type="button">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span class="">Hidden Places</span>
+</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label-md text-label-md flex items-center gap-space-xs transition-colors" data-category="tours" type="button">
+<span class="material-symbols-outlined text-[18px]">tour</span>
+<span class="">Tours &amp; Expeditions</span>
+</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label-md text-label-md flex items-center gap-space-xs transition-colors" data-category="eco" type="button">
+<span class="material-symbols-outlined text-[18px]">cottage</span>
+<span class="">Stays &amp; Homestays</span>
+</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label-md text-label-md flex items-center gap-space-xs transition-colors" data-category="guides" type="button">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+<span class="">Verified Guides</span>
+</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant font-label-md text-label-md flex items-center gap-space-xs transition-colors" data-category="eco" type="button">
+<span class="material-symbols-outlined text-[18px]">kayaking</span>
+<span class="">River &amp; Waterways</span>
+</button>
+</div>
+<div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-label-caps text-label-caps">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="">1,420 Certified Sustainable Routes Active</span>
+</div>
+</div>
+</section>
+<!-- SECTION 1: HIDDEN GEMS (HORIZONTAL STORY CARDS) -->
+<!-- Section: Hidden Gems of the Khmer Realm --><section class="max-w-7xl mx-auto px-6 lg:px-12 w-full py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Sanctuary Registry</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Hidden Gems of the Khmer Realm</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Field-documented sacred waterways, forgotten jungle pagodas, and untouched sandstone outposts preserved away from tourist corridors.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button aria-label="Previous Gem" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface transition-colors" id="gem-prev" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<button aria-label="Next Gem" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center transition-colors hover:bg-primary-container" id="gem-next" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Carousel Container -->
+<div class="flex gap-gutter overflow-x-auto pb-space-md scroll-smooth snap-x snap-mandatory scrollbar-none" id="gems-slider">
+<!-- Gem Card 1 -->
+<div class="snap-start shrink-0 w-[320px] md:w-[380px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Ancient sacred carved riverbed of Kbal Spean with thousand lingas beneath clear rippling jungle stream in Phnom Kulen national park Cambodia with mossy stones and dappled rainforest lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnPtAKk54iIqlWPkJ_ohC8bmGvEUW0exmIXh2VVdk-DL9nCLgDuqzjG-dXXZn4UzZjqK8bd0qdKWD4aK9UKSSgeOCKaKhXTLvyf75UkhxLROtyDjRjwKCezvoTPTVsGxYEtpXZDEjh36UZVUxNiayC1CP_PJY22uDTgpwtfwarGLjnJgDytw1AL6gO0jXJwjEopeHaVVbDvRyvOLjnGJnA8VYX5lTklMv9i1I4XZBpI0Y5CS2_Pw1NoQ')"></div>
+<div class="absolute top-space-sm left-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-caps text-label-caps text-primary uppercase">Siem Reap - Kulen</span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps uppercase">Moderate Trek</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">Documented by Guide Sophea R.</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Kbal Spean Sacred Riverbed</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              The 'River of a Thousand Lingas' etched directly into crystalline sandstone river channels beneath rainforest canopies.
+            </p>
+</div>
+<div class="pt-space-sm bg-surface-container-low/50 rounded-lg p-space-sm flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Best Time: 07:00 AM Sunrise</span>
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-0.5" href="#">
+<span class="">View Coordinates</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Gem Card 2 -->
+<div class="snap-start shrink-0 w-[320px] md:w-[380px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Remote untouched ancient Khmer temple Prasat Prey Monti surrounded by quiet rice fields and towering sugar palm trees with warm golden late afternoon Cambodian sunlight" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtW4_eScw7WSJoW_EVLI9uULhX39agwDo4EHo8RjcfnkB3_mghZVg198wkVaLaMUQfL-Lc3ZKLv2D6wxsfjARErt1IyotQb3A_e4BFPirrfKQjgl5QWGEa5ygzBOokTAzN6WLnWo7Ps-wtkM-LHcwQqTOk8Fr-Iyw0MR29bNmiZYZFCfAjtcLjNSUKdgStLUgiXKsM67UNCiH4RgibV1jELT8hDL2rkjHWk9VLnm_YmsHE5y7WYMQVYg')"></div>
+<div class="absolute top-space-sm left-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-caps text-label-caps text-primary uppercase">Roluos Group</span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface font-label-caps text-label-caps uppercase">Quiet Heritage</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">Guide Chenda Vorn Approved</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Prasat Prey Monti Sanctuary</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              9th-century pre-Angkorian brick shrine untouched by tour bus routes, flanked by sugar palm trees and grazing water buffalo.
+            </p>
+</div>
+<div class="pt-space-sm bg-surface-container-low/50 rounded-lg p-space-sm flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Zero Crowd Index: 98%</span>
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-0.5" href="#">
+<span class="">View Coordinates</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Gem Card 3 -->
+<div class="snap-start shrink-0 w-[320px] md:w-[380px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Tatai River cascading over wide dark rocky rapids surrounded by lush pristine Cardamom Mountains rainforest in Koh Kong province Cambodia with traditional wooden longtail canoe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwZgUzzU1clGsNwa_QnD1Zm4GM3KdLWCO1dQKyJN7dmDNnDWXu8-Fks7lNRnftpXbGpPlKvbavBctpjNTkgbxILtn6JGtYIhIDyR2NaqeoArgtNHf-_yRjn43v2K1m7v4Yu9lDjjU6-R0DtqR5YT_GcLxfc8wHN0mHkISsdgPrzQFI2xOzSC4DV3vwpmzwz669-8ek4zmDD-QxilwkhY_CvKR8VCYfUkDq41C40vThaJh1EAc-uoDYnw')"></div>
+<div class="absolute top-space-sm left-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-caps text-label-caps text-primary uppercase">Koh Kong Rainforest</span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps uppercase">Eco Kayak</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">Cardamom Ranger Network</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Tatai River Jungle Rapids</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Deep emerald waters feeding secluded cascades where rare gibbons call at twilight and fireflies illuminate mangrove bends.
+            </p>
+</div>
+<div class="pt-space-sm bg-surface-container-low/50 rounded-lg p-space-sm flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Community Waterway</span>
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-0.5" href="#">
+<span class="">View Coordinates</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Gem Card 4 -->
+<div class="snap-start shrink-0 w-[320px] md:w-[380px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Quiet salt pans of Kampot at sunset with deep orange sky reflected in shallow mirror water and wooden salt storage barns in coastal Cambodia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhZA0g5-IG5NmaP8iRGKjT-yzkYsTDLcCtjyltKCr_WkxSFkCPtMX7IrvcTo6b9Z4hnJBwIKVBPxCDlBUEm6MrGUDGk3lROZe3_8oBEfw1rl5okWqlGcikCRzKzwo7srzPRWlKHBaB5w70JvuGb_TBwjghUt4ZYTQldcjtrI-oYmekQmuyaFyXQLPhMq9aQrwFsVk2MEtj6jlRJ2GLYYcWl_Lq93Yhm295Zd8axUitkZCqz0NADRrDQA')"></div>
+<div class="absolute top-space-sm left-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-caps text-label-caps text-primary uppercase">Kampot Salt Flats</span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface font-label-caps text-label-caps uppercase">Artisan Heritage</span>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">Salt Worker Cooperative</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">The Mirror Salt Fields</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Century-old fleur de sel pans mirroring Gulf of Thailand skies with zero motorized noise and authentic coastal livelihoods.
+            </p>
+</div>
+<div class="pt-space-sm bg-surface-container-low/50 rounded-lg p-space-sm flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Golden Hour Stroll</span>
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-0.5" href="#">
+<span class="">View Coordinates</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: FEATURED TOUR PACKAGES (3-COLUMN BESPOKE GRID) -->
+<!-- Section: Featured Tour Packages --><section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">explore</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Verified Expeditions</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Featured Tour Packages</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+            Ethical small-group adventures organized with local operators and compliant with UNESCO cultural protocols.
+          </p>
+</div>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-bold flex items-center gap-space-xs" href="pages/user/explore-cambodia.html">
+<span class="">Explore All 48 Tours</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Tour Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-60 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Misty morning cycling expedition along ancient red dirt trails passing Angkor Thom gate with towering stone faces carved in Bayon style surrounded by banyan trees in Siem Reap Cambodia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTkIfPHFAKzdkQUvZmkDVYyjKAqz5cWwmVXYoAJLSOI0aJjLuGr_TQw4Y1f-6drEOGoOf1_082qfYA-ArhAWVGXoR23ujLsPUpnx1wyZ9IVdesxf22Q9dwEKLWQ63EY19OEFmbW4dSbpKafgBz2eChU80mwl9RimtZodOtFAhmbcw6xtLZ2pWfdNOrsZIPoey2Ny6BebTXdOutsQxeA_u2aHDSBt9FjfLIE7URE9KRo9CFIQV8fwQxVg')"></div>
+<div class="absolute top-space-sm left-space-sm bg-surface-container-lowest/95 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-on-surface font-semibold uppercase">3 Days / 2 Nights</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm bg-primary/90 text-on-primary backdrop-blur-md px-2.5 py-1 rounded-md text-label-caps font-label-caps">
+              Angkor Heritage Circuit
+            </div>
+</div>
+<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="font-label-md text-label-md text-secondary font-bold">Angkor Conscious Trails</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.96</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(142)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">The Lost Outer Temples &amp; Secret Waterways</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Journey beyond Angkor Wat to Banteay Chhmar and Beng Mealea with certified archeologists and temple restoration historians.
+              </p>
+</div>
+<!-- Inclusions Icon Row -->
+<div class="py-space-sm bg-surface-container-low rounded-lg px-space-md grid grid-cols-4 gap-2 text-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">directions_bus</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">EV Transit</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">hotel</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Silk Lodge</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">restaurant</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Farm Meals</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">confirmation_number</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">MoT Passes</span>
+</div>
+</div>
+<!-- Price & Action -->
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase block">Starting Price</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$180</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ pax</span>
+</div>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm transition-colors" type="button">
+                Book Tour
+              </button>
+</div>
+</div>
+</div>
+<!-- Tour Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-60 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Traditional wooden solar riverboat navigating through flooded forest and stilted floating village of Kampong Phluk on Tonle Sap Lake Cambodia during sunset" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRsMB-wSvJ9MVHXeE45C3J_QmFaSLDlukr3-9zxNYhUWpxmAnkv4vlrouaYVjwTg8vRibp6YPUWA6cD_3dIFBLJflSaGYNWfHZYef0exXf-a6TfgcFhsIKdJEjD-6_4dSFUN9Tr2_kZiKTSG3CLF4SoiLCGo3_Zmhr_dyayUgMpLtEXR8jwpy2rEp8ZM4wOj8F_44z9oaUDpfz5gXrGJrxOcHQHClFYRk44bI33PX4Gf4F2PyHR02mcA')"></div>
+<div class="absolute top-space-sm left-space-sm bg-surface-container-lowest/95 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps text-on-surface font-semibold uppercase">2 Days / 1 Night</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm bg-primary/90 text-on-primary backdrop-blur-md px-2.5 py-1 rounded-md text-label-caps font-label-caps">
+              Tonle Sap Biosphere
+            </div>
+</div>
+<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="font-label-md text-label-md text-secondary font-bold">Tonle Water Collective</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.98</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(98)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Tonle Sap Flooded Forest &amp; Stilted Living</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Immerse in southeast Asia's largest freshwater lake with local fishermen, night boat rides to spot waterbirds, and sunset dining.
+              </p>
+</div>
+<!-- Inclusions Icon Row -->
+<div class="py-space-sm bg-surface-container-low rounded-lg px-space-md grid grid-cols-4 gap-2 text-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">sailing</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Solar Boat</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">cottage</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Stilted Home</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">set_meal</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Fish Amok</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">diversity_1</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Village Fund</span>
+</div>
+</div>
+<!-- Price & Action -->
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase block">Starting Price</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$145</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ pax</span>
+</div>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm transition-colors" type="button">
+                Book Tour
+              </button>
+</div>
+</div>
+</div>
+<!-- Tour Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+<div class="relative h-60 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Misty morning hike along dense jungle ridge in Cardamom Mountains Cambodia with deep tropical rainforest canopy and wildlife observation tower" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVYmWhmuKXYq-DanJxh00JQ1L7ieV6zhbXaTAi2JgyRK093OG3aufMq0kiu5pjhfkT3BEGe2DpjQey6g9RLVQgUEZ7Y26LLF6bEpoC4AShKOlGrLPZ9Ss_CdT_tkGyEDvdpc7F0RpUeu9AfHataCm2crDofFm7h3i-_ttGlFmPevStDngS7s6FG3XW9zMfVQJQx1dxYkrZlRsP-BS9i4QlPPt9ppxD51bMyJokzKLM59zseFbCpcf1aw')"></div>
+<div class="absolute top-space-sm left-space-sm bg-surface-container-lowest/95 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-caps text-label-caps text-on-surface font-semibold uppercase">4 Days / 3 Nights</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm bg-primary/90 text-on-primary backdrop-blur-md px-2.5 py-1 rounded-md text-label-caps font-label-caps">
+              Cardamom Rainforest
+            </div>
+</div>
+<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="font-label-md text-label-md text-secondary font-bold">Wild Cardamoms Trek</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">5.0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(64)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Wilderness Patrol &amp; Canopy Haven Expedition</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Walk alongside indigenous rangers protecting the Asian elephant habitat with hammock camping and secluded river tubing.
+              </p>
+</div>
+<!-- Inclusions Icon Row -->
+<div class="py-space-sm bg-surface-container-low rounded-lg px-space-md grid grid-cols-4 gap-2 text-center">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">hiking</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Ranger Led</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">camping</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Eco Tents</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">dinner_dining</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">All Meals</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[20px]">shield</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Forest Pass</span>
+</div>
+</div>
+<!-- Price & Action -->
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase block">Starting Price</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$265</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ pax</span>
+</div>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm transition-colors" type="button">
+                Book Tour
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: STAY LOCAL (ECO-LODGES & HOMESTAYS) -->
+<!-- Section: Stay Local: Regenerative Khmer Sanctuaries --><section class="max-w-7xl mx-auto px-6 lg:px-12 w-full py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">villa</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Conscious Hospitality</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Stay Local: Regenerative Khmer Sanctuaries</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Rest in authentic stilted architecture, organic pepper plantations, and floating river retreats where 90%+ fees remain within village hands.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">MoT Eco-Standard Certified</span>
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stay 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Exquisite authentic Cambodian stilted wooden timber villa surrounded by lotus pond and coconut palms in Siem Reap countryside at twilight with warm interior lantern lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXPejTxfSyt7Mlx7h9ib5R1LYliria3sftyQfM2XmIJnf41CwKve9f7ROqSiUHu3YTBwAhHq8NAYuR-oYghdvYg1e6J85etK2aV_4hfEpMTTgTCzd0FOlU2tG0p04U6htc96XshI-uHW121CJdKeuEYbkunzi-PiBeMHZWmC82Zu_8kjulIE82xmIRdfAXJqDZp5SCpHfFkPcsFgBtDzagS-RVpezSWbwEwlSBpNUdiIwOQu4re1efKg')"></div>
+<div class="absolute top-space-sm left-space-sm bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full font-label-caps text-label-caps text-primary">
+            Siem Reap - Banteay Srei
+          </div>
+<div class="absolute top-space-sm right-space-sm bg-primary text-on-primary px-2 py-0.5 rounded font-label-caps text-label-caps">
+            MoT Eco-Gold
+          </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.97</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(86 reviews)</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">The Mulberry Silk Stilted Haven</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Hand-hewn teak timber house with natural cross-ventilation, organic garden breakfasts, and private morning cycling to Banteay Srei.
+            </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$68</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<button class="px-space-md py-space-xs bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md rounded-lg transition-colors" type="button">
+              Reserve Stay
+            </button>
+</div>
+</div>
+</div>
+<!-- Stay 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Floating boutique wooden bungalow anchored on tranquil Tatai river surrounded by deep green jungle hills in Koh Kong Cambodia with private wooden sundeck and kayak" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-z5eJVKxfC2oVkFQrGmOIVcIrOieqDf_rW3yn36JN79M9eVL0kNDosq4D-s4LerlYcCIsV3KNDwusMGm1Es3vHUujDRF_r0D-vxG06YI9GP9B78tsEbobrexXmeYf-LVcwe7h7Wn6ktIIT8tirOyr_yU5Sj9yBfL0WmjQTAQvJT-mQ_dbZQqBy4cNJAEed5mkViFCwvQa1PCwbfdGcKUkgCtgFXMT6qMN3Q9CVEmAUaHqt3f4EnTR6g')"></div>
+<div class="absolute top-space-sm left-space-sm bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full font-label-caps text-label-caps text-primary">
+            Koh Kong Riverway
+          </div>
+<div class="absolute top-space-sm right-space-sm bg-primary text-on-primary px-2 py-0.5 rounded font-label-caps text-label-caps">
+            MoT Eco-Gold
+          </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.99</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(112 reviews)</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Cardamom Floating River Tent</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Solar-powered floating villa with direct river swimming access, silent electric skiffs, and zero single-use plastics guaranteed.
+            </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$125</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<button class="px-space-md py-space-xs bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md rounded-lg transition-colors" type="button">
+              Reserve Stay
+            </button>
+</div>
+</div>
+</div>
+<!-- Stay 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative h-56 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Restored French-Khmer colonial riverside boutique lodge in Kampot with terracotta tile roof lush bougainvillea flowers and views of Bokor mountain in Cambodia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8Tmmy34S8j5wbIWTpLybYNqdYdJEbXTlh6zj3KKFcOQNaKtdvCvRlYpN-TUm7E_3C53ZkUC8P0l_AaLIWG7S_YL1JrneYa67EN_Qk2H1EuD8MrgWCg1puaxASaZiwmFLRoFC5LS_RRlO6YCepo08IXLWhwbfG3CYB1GBbWcPqB6PMcW9vIG1g1vha2Bj26dq1bu9MPAkh1FkJdGPi3cB2IEUDN-UjZI4_PAPMHrLnJXUn0dWuSjmwJQ')"></div>
+<div class="absolute top-space-sm left-space-sm bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full font-label-caps text-label-caps text-primary">
+            Kampot Riverfront
+          </div>
+<div class="absolute top-space-sm right-space-sm bg-primary text-on-primary px-2 py-0.5 rounded font-label-caps text-label-caps">
+            Heritage Certified
+          </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.92</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(73 reviews)</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Pepper Grove Heritage House</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Nestled near organic Kampot pepper plantations, featuring restored Khmer carpentry, open-air rainwater showers, and farm dinners.
+            </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$54</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<button class="px-space-md py-space-xs bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md rounded-lg transition-colors" type="button">
+              Reserve Stay
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: MEET OUR VERIFIED GUIDES (FEATURING REQUIRED IMAGE_37) -->
+<!-- Section: Meet Our Verified Guides --><section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">badge</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Local Knowledge Keepers</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Meet Our Verified Guides</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+            Ministry of Tourism accredited historians, linguists, and naturalists providing insightful, respectful, and unhurried stewardship.
+          </p>
+</div>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-bold flex items-center gap-space-xs" href="pages/user/licensed-tour-guides-local-experts.html">
+<span class="">View All 310 Guides</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Guide 1: Using Required https://lh3.googleusercontent.com/aida/AEtjO1WzbXhLS7Rrqhr2TiAsfuQURmLz64M4rlcE5jHmVBDRXsxKHwCdnQXZ2EL8FpWifqvkoMSxfmSkJP2VZlILI4zzAmlQEV5rR4qRVjzyDpwM2CNMgW7zh8Bm_d6jGUcFfa3ClxvjxLDglinG7vzVnur-4aII_FLANefMNn5fAj4iMCSiUGyyNi4EZRe2VV6WnW97e74BhaPeCP2dEigl9wZiXshgK6Vhstl5XIE-DhGB_hFRZ8EZcrD5OrQ -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-start gap-space-md">
+<div class="relative shrink-0">
+<img alt="Vannak Seng - MoT Certified Heritage Guide" class="w-20 h-20 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1WzbXhLS7Rrqhr2TiAsfuQURmLz64M4rlcE5jHmVBDRXsxKHwCdnQXZ2EL8FpWifqvkoMSxfmSkJP2VZlILI4zzAmlQEV5rR4qRVjzyDpwM2CNMgW7zh8Bm_d6jGUcFfa3ClxvjxLDglinG7vzVnur-4aII_FLANefMNn5fAj4iMCSiUGyyNi4EZRe2VV6WnW97e74BhaPeCP2dEigl9wZiXshgK6Vhstl5XIE-DhGB_hFRZ8EZcrD5OrQ">
+<span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm" title="MoT Verified">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Vannak Seng</h3>
+<span class="font-label-caps text-label-caps text-secondary uppercase block mt-0.5">Khmer Epigraphy &amp; Angkor Architecture</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">MoT Lic. #KHM-8842-SR</span>
+</div>
+</div>
+<!-- Language Pills -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">English (Fluent)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">Français (Courant)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">ភាសាខ្មែរ (Native)</span>
+</div>
+<!-- Bio snippet -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              14 years translating stone inscriptions at Preah Vihear and Angkor. Specializes in decoding 12th-century bas-relief symbolism and Hindu-Buddhist synthesis.
+            </p>
+<div class="flex items-center gap-space-md pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.99</span>
+<span class="">(312 tours)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">workspace_premium</span>
+<span class="">Top Educator</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low/60 -mx-space-lg -mb-space-lg p-space-md rounded-b-xl flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$65</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm transition-colors" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+<!-- Guide 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-start gap-space-md">
+<div class="relative shrink-0">
+<img class="w-20 h-20 rounded-full object-cover shadow-sm" data-alt="Portrait headshot of an experienced Cambodian female ecologist guide in her early thirties smiling warmly with short hair wearing outdoor safari travel shirt in jungle backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzCR43PL_OuTyXbD_POueh_Q-M217-61Rp1DuVknPlPRU92swPYTO0_oOHdzO3ZVppVChrc78YuQY40QRUfIwEN2o2OC94b3eFMWsQSep1hlI3XUMM7TJoJ6MPy5icYNG7Sj_xpxv6AtyToUgNDHpF5q2GVPttJs5AwFQTOtTNV1SZQ4Yt5XD0G93GiNLOEtjZ380wJ8ac92B52CvmBrVe1cDvv_rSW4F-EKFzdKmJdA6h1Dr4vPGChA">
+<span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm" title="MoT Verified">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Serey Rath</h3>
+<span class="font-label-caps text-label-caps text-secondary uppercase block mt-0.5">Cardamom Naturalist &amp; Birding</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">MoT Lic. #KHM-6120-KK</span>
+</div>
+</div>
+<!-- Language Pills -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">English (Fluent)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">Deutsch (Konvers.)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">ភាសាខ្មែរ (Native)</span>
+</div>
+<!-- Bio snippet -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Trained field biologist leading peaceful nocturnal wildlife river safaris and rainforest canopy walks in Botum Sakor National Park.
+            </p>
+<div class="flex items-center gap-space-md pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">5.0</span>
+<span class="">(184 tours)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">forest</span>
+<span class="">Eco Ranger</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low/60 -mx-space-lg -mb-space-lg p-space-md rounded-b-xl flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$70</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm transition-colors" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+<!-- Guide 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-start gap-space-md">
+<div class="relative shrink-0">
+<img class="w-20 h-20 rounded-full object-cover shadow-sm" data-alt="Portrait headshot of an elder distinguished Cambodian gentleman historian guide with gentle warm eyes wearing traditional linen shirt and spectacles in Battambang heritage shophouse setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDss86yDXvgAE7zU1odI4pC5Y55K0dYRRQlxroa-iCapdJwBnV543ItAU9o_0OdCh0aSp0gIwSccXwK6jRkmLl9kT5nWYHScBhfjROOR-Ajny6Njo6uQTBsEb7OY2OdtxDB7pES-UYg8izAUNo6-vnDFvMQF0xSETjmsD1B80dDg8q73PGdXjfeyTy1etC3KQoADqWQZjlNECfB2Xcy-n4HzkWoawybqQXpXWEfbluE-xr3v3Z7zus8NA">
+<span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm" title="MoT Verified">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Bunreth Chea</h3>
+<span class="font-label-caps text-label-caps text-secondary uppercase block mt-0.5">Battambang &amp; Mekong Culinary Arts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">MoT Lic. #KHM-4019-BB</span>
+</div>
+</div>
+<!-- Language Pills -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">English (Fluent)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">日本語 (Fluent)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-caps text-label-caps text-on-surface">ភាសាខ្មែរ (Native)</span>
+</div>
+<!-- Bio snippet -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Master of colonial architectural archives and heritage culinary preservation. Leads intimate market mornings and secret woodfired pottery workshops.
+            </p>
+<div class="flex items-center gap-space-md pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.98</span>
+<span class="">(240 tours)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">menu_book</span>
+<span class="">Cultural Elder</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low/60 -mx-space-lg -mb-space-lg p-space-md rounded-b-xl flex items-center justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$60</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<button class="px-space-md py-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm transition-colors" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: TRUST & GOVERNANCE STRIP -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 w-full py-space-xl">
+<div class="bg-surface-container-highest rounded-xl p-space-lg lg:p-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter divide-y md:divide-y-0">
+<div class="flex items-start gap-space-md pb-space-md md:pb-0">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-md text-title-md text-primary">Admin-Verified Partners</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every homestay host, driver, and excursion holds official Ministry of Tourism licensing and annual safety accreditation.
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md py-space-md md:py-0 md:px-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">volunteer_activism</span>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-md text-title-md text-primary">Locally-Owned Impact</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Over 94% of your expedition payment goes straight to village cooperatives, local cooks, and homegrown conservation rangers.
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md pt-space-md md:pt-0 md:pl-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">price_check</span>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-md text-title-md text-primary">Transparent $0.50 Platform Micro-fee</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              We never take high OTA cuts. A tiny flat $0.50 fee sustains the open software, directly funding digital literacy for village artisans.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: PARTNER CTA BANNER -->
+<!-- Section: Are you a licensed guide, tour operator, or homestay owner? --><section class="max-w-7xl mx-auto px-6 lg:px-12 w-full pb-space-xl">
+<div class="relative overflow-hidden rounded-xl bg-primary text-on-primary p-space-lg lg:p-space-xl">
+<!-- Ambient Decorative Geometry -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-primary-container/40 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-secondary/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="max-w-2xl space-y-space-xs text-center lg:text-left">
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-widest uppercase">Collaborative Ecosystem</span>
+<h3 class="font-headline-lg text-headline-lg text-surface-lowest">
+            Are you a licensed guide, tour operator, or homestay owner?
+          </h3>
+<p class="font-body-md text-body-md text-surface-container-low">
+            Join Cambodia's official collaborative travel ecosystem. Keep 100% of your listed pricing, gain global ethical exposure, and receive direct digital payouts in KHR or USD.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm shrink-0 w-full sm:w-auto">
+<a class="w-full sm:w-auto px-space-lg py-space-md rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-md hover:bg-on-secondary-container transition-all text-center" data-path="partner-onboarding" href="pages/user/desktop-login-partner-portal.html">
+            Apply to Partner
+          </a>
+<a class="w-full sm:w-auto px-space-lg py-space-md rounded-lg bg-surface-lowest/10 hover:bg-surface-lowest/20 text-surface-lowest font-label-lg text-label-lg transition-colors text-center" data-path="partner-hub" href="pages/user/desktop-login-partner-portal.html">
+            Learn More
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE CAROUSEL SCRIPT -->
+
+</div></main>
+<!-- Section: Share the Wonder of Cambodia --><section class="w-full bg-surface-container-high py-space-xl"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-gutter rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_2px_8px_-2px_rgba(28,27,25,0.04)]"><div class="space-y-space-xs"><span class="font-label-caps text-label-caps text-secondary uppercase">Hospitality &amp; Guides Community</span><h3 class="font-headline-sm text-headline-sm text-primary">Share the Wonder of Cambodia</h3><p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Empower local communities, showcase verified eco-stays, and connect with respectful travelers across Angkor, Phnom Penh, and beyond.</p></div><a class="shrink-0 inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:bg-on-secondary-container transition-colors" data-path="partner-onboarding" href="pages/user/desktop-login-partner-portal.html">Become a Partner</a></div></section>
+<!-- ===== Footer ===== --><footer class="w-full bg-surface-container-low py-space-xl"><div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-space-xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="CamTrip AI Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiG_5GTl2Q2AwUjPncSpQDe6CofDIiIXhsaeOvk184tKSpJZ-TgYsDYGciSfisOOb0NVVjNjwKtx4cjG0x_lk4nHHmjfZ2hs1lvUs6DWTp9uvAj6HoiBr7tUP3myix9qpNWg-D3Ye3_pwhraQ7TovsMimU6bQqo-E5v2jFNJTzVruibIYzNj26BEVdCrwHqe6GNSpL4bm1diGqFIP-Nc160aCk5XmT8qcggu5vz7BFhhJBYqw5AHKctQ"><span class="font-headline-sm text-headline-sm text-primary">CamTrip AI</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">An AI-assisted ethical travel concierge honoring Cambodian heritage, ancient waterways, and community-led regenerative tourism.</p><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-label-md text-label-md">Ministry of Tourism Partner</span></div></div><div class="space-y-space-md"><h4 class="font-title-md text-title-md text-on-surface">About</h4><ul class="space-y-space-sm"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="our-mission" href="#">Our Mission &amp; Heritage</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="ai-ethics" href="#">Ethical AI Concierge</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="temple-etiquette" href="pages/user/travel-tips-cultural-guide.html">Temple Etiquette &amp; Dress Code</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="press-media" href="#">Press &amp; Field Journal</a></li></ul></div><div class="space-y-space-md"><h4 class="font-title-md text-title-md text-on-surface">Explore</h4><ul class="space-y-space-sm"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="tours" href="pages/user/explore-cambodia.html">Angkor Archaeological Park</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="stays" href="pages/user/hotels-eco-stays.html">Cardamom Rainforest Stays</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="guides" href="pages/user/licensed-tour-guides-local-experts.html">Certified Khmer Historians</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="explore" href="pages/user/explore-cambodia.html">Mekong River Expeditions</a></li></ul></div><div class="space-y-space-md"><h4 class="font-title-md text-title-md text-on-surface">Partners &amp; Support</h4><ul class="space-y-space-sm"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="partner-hub" href="pages/user/desktop-login-partner-portal.html">Operator Portal</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="partner-onboarding" href="pages/user/desktop-login-partner-portal.html">Local Guide Accreditation</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="help-center" href="#">24/7 Traveler Help Center</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact Field Offices</a></li></ul></div></div><div class="max-w-7xl mx-auto px-6 lg:px-12 pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 CamTrip AI Platform. All rights reserved. Kingdom of Cambodia.</p><div class="flex items-center gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary" data-path="terms-of-service" href="#">Terms of Service</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary" data-path="cultural-code" href="pages/user/travel-tips-cultural-guide.html">Cultural Heritage Code</a></div></div></footer>
+
+
+
+
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="assets/js/components/define-component.js" defer></script>
+  <script src="assets/js/components/site.js" defer></script>
+  <script src="assets/js/auth.js" defer></script>
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/pages/user/discover-cambodia-landing-explore.js" defer></script>
+</body>
+</html>

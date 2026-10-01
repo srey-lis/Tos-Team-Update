@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop Login Partner Portal | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface" data-layout="site">
+<!-- ===== Header / top bar ===== --><tos-user-site-header></tos-user-site-header>
+<!-- ===== Main content ===== --><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden py-space-md lg:py-space-xl">
+<div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -right-32 w-80 h-80 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Left Editorial Visual Showcase (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col justify-between relative rounded-2xl overflow-hidden p-space-lg lg:p-space-xl text-on-primary shadow-xl min-h-[220px] md:min-h-[320px] lg:min-h-[760px]">
+<!-- Background image with authentic Cambodian dawn over temple reflecting in lotus pond -->
+<div class="absolute inset-0 bg-cover bg-center z-0 scale-105 transition-transform duration-1000 ease-out hover:scale-100" data-alt="Magnificent panoramic sunrise over Angkor Wat in Cambodia with the historic sandstone spires mirrored perfectly on the peaceful lotus-covered reflective moat. Soft rose-gold morning mist, saffron sky, vibrant pink lotus blossoms floating in the foreground, silhouetted palm trees, warm organic editorial atmosphere, cinematic lighting, national geographic documentary quality." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDfzgTpoKLmDNT8c6dctyLSUTIPe_FVILBUYDo7i4Etg-HV-bvHFC-GUY9zn5PFUKJjDw3FRodJOXSCFb5AJBaWawFyPR0WTtArX4Lwln_OWXzObw7uJdbbGBtA2_qUEMJYKlVSr_AKZcX_yfIdBoOoWwGtCaB0187U0d6c8PhHnt9TcPbCMAUzt3m0pNYCeDEk97kEeCKfKzSJjpPj0VKlG7DFiySJDESdMFmT7fBeCvl1E6RiGkS-kg&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/75 to-primary/40 z-10 backdrop-blur-[2px]"></div>
+<!-- Top Brand Content -->
+<div class="relative z-20 flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-space-xs bg-surface-container-lowest/15 backdrop-blur-md px-space-sm py-1 rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="font-label-caps text-label-caps tracking-wider text-surface">KINGDOM OF WONDER PORTAL</span>
+</div>
+<div class="mt-space-xs">
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed block font-serif tracking-normal">សូមស្វាគមន៍</span>
+<h1 class="font-headline-lg text-headline-lg text-surface font-serif leading-tight">Welcome back to your Cambodian voyage.</h1>
+</div>
+<p class="hidden md:block font-body-md text-body-md text-surface/85 max-w-sm mt-space-xs">
+              Direct access to verified temple expeditions, accredited Khmer heritage docents, eco-reserves, and secured KHQR transactions.
+            </p>
+</div>
+<!-- Middle Value Indicators -->
+<div class="relative z-20 my-space-md hidden lg:grid grid-cols-1 gap-space-sm">
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-container-lowest/10 backdrop-blur-md rounded-xl">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/20 flex items-center justify-center shrink-0 text-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-surface">1,420+ Certified MoT Guides</span>
+<span class="font-body-sm text-body-sm text-surface/75">Multilingual, licensed by the Ministry of Tourism with temple code accreditation.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-container-lowest/10 backdrop-blur-md rounded-xl">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/20 flex items-center justify-center shrink-0 text-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-surface">NBC Bakong Smart Escrow</span>
+<span class="font-body-sm text-body-sm text-surface/75">Zero intermediary fees. Funds released upon tour check-in or certified ticket issuance.</span>
+</div>
+</div>
+</div>
+<!-- Bottom Official Seal & Testimonial -->
+<div class="relative z-20 pt-space-md bg-gradient-to-t from-primary/80 to-transparent rounded-xl hidden md:block">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/20 p-1 flex items-center justify-center border-none">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">temple_buddhist</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-surface/90">APSARA AUTHORITY &amp; MoT</span>
+<span class="font-body-sm text-body-sm text-surface/70">Official National Heritage Partner</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-tertiary-fixed px-space-xs py-0.5 rounded bg-tertiary/60">24/7 SUPPORT</span>
+<p class="font-label-caps text-label-caps text-surface/80 mt-0.5">SOS Hotline: 117</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Authentication Workspace (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col justify-center">
+<div class="bg-surface-container-lowest rounded-2xl p-space-md md:p-space-xl shadow-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase">Traveler account</span>
+<span class="inline-flex items-center gap-1 text-primary font-label-md text-label-md"><span class="material-symbols-outlined text-[16px]">lock</span>Secure sign-in</span>
+</div>
+<div aria-label="Account mode" class="flex p-1 rounded-xl bg-surface-container-low" role="tablist">
+<button aria-selected="true" class="flex-1 py-2 px-space-sm rounded-lg font-label-lg text-label-lg transition-all bg-surface-container-lowest text-primary shadow-sm" data-auth-tab="login" id="tabLogin" role="tab" type="button">Log in</button>
+<button aria-selected="false" class="flex-1 py-2 px-space-sm rounded-lg font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface" data-auth-tab="signup" id="tabSignup" role="tab" type="button">Create account</button>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" id="authTitle">Log in to Tos-Team KH</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="authSubtitle">Book hotels, buses and guides, and use the AI trip planner.</p>
+<p class="mt-space-xs px-space-sm py-space-xs rounded-lg bg-secondary-fixed/40 text-on-surface font-body-sm text-body-sm hidden" id="authNotice" role="status"></p>
+</div>
+<form class="flex flex-col gap-space-md" id="loginForm" novalidate>
+<div class="flex flex-col gap-1.5" id="roleBlock">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Sign in as</span>
+<div class="grid grid-cols-5 gap-1.5" id="roleGrid"><button aria-pressed="true" class="role-btn flex flex-col items-center gap-0.5 py-2 px-1 rounded-lg font-label-md text-label-md transition-all text-center bg-primary text-on-primary font-bold shadow-sm" data-role="traveler" type="button"><span class="material-symbols-outlined text-[20px]">luggage</span><span>Traveler</span></button><button aria-pressed="false" class="role-btn flex flex-col items-center gap-0.5 py-2 px-1 rounded-lg font-label-md text-label-md transition-all text-center bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" data-role="tour" type="button"><span class="material-symbols-outlined text-[20px]">explore</span><span>Tour guide</span></button><button aria-pressed="false" class="role-btn flex flex-col items-center gap-0.5 py-2 px-1 rounded-lg font-label-md text-label-md transition-all text-center bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" data-role="hotel" type="button"><span class="material-symbols-outlined text-[20px]">hotel</span><span>Hotel</span></button><button aria-pressed="false" class="role-btn flex flex-col items-center gap-0.5 py-2 px-1 rounded-lg font-label-md text-label-md transition-all text-center bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" data-role="bus" type="button"><span class="material-symbols-outlined text-[20px]">directions_bus</span><span>Bus</span></button><button aria-pressed="false" class="role-btn flex flex-col items-center gap-0.5 py-2 px-1 rounded-lg font-label-md text-label-md transition-all text-center bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" data-role="admin" type="button"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Admin</span></button></div>
+<div class="hidden items-center justify-between gap-2 px-space-sm py-space-xs rounded-lg bg-secondary-fixed/40 font-body-sm text-body-sm text-on-surface" id="demoHint"><span id="demoHintText"></span><button class="font-label-md text-label-md text-primary font-semibold hover:underline shrink-0" id="demoFill" type="button">Use demo</button></div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="loginEmail">Email address</label>
+<input autocomplete="email" class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-surface-container-lowest transition-all" id="loginEmail" name="email" placeholder="traveler@example.com" required type="email">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="loginPassword">Password</label>
+<div class="relative">
+<input autocomplete="current-password" class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-surface-container-lowest transition-all pr-11" id="loginPassword" minlength="6" name="loginPassword" placeholder="Your password" required type="password">
+<button aria-label="Show password" class="absolute right-2 top-1.5 w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-on-surface" data-toggle-password="loginPassword" type="button"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-2 cursor-pointer select-none"><input checked class="w-4 h-4 rounded accent-primary" id="loginRemember" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface">Keep me signed in</span></label>
+<a class="font-label-md text-label-md text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<p class="font-body-sm text-body-sm text-error hidden" id="loginError" role="alert"></p>
+<button class="w-full h-12 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-space-xs shadow-md transition-all" type="submit"><span>Log in</span><span class="material-symbols-outlined text-[20px]">login</span></button>
+</form>
+<form class="hidden flex-col gap-space-md" id="signupForm" novalidate>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="signupName">Full name</label>
+<input autocomplete="name" class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-surface-container-lowest transition-all" id="signupName" name="name" placeholder="Sophea Cham" required type="text">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="signupEmail">Email address</label>
+<input autocomplete="email" class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-surface-container-lowest transition-all" id="signupEmail" name="email" placeholder="traveler@example.com" required type="email">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="signupPassword">Password (6+ characters)</label>
+<div class="relative">
+<input autocomplete="new-password" class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:bg-surface-container-lowest transition-all pr-11" id="signupPassword" minlength="6" name="signupPassword" placeholder="Create a password" required type="password">
+<button aria-label="Show password" class="absolute right-2 top-1.5 w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-on-surface" data-toggle-password="signupPassword" type="button"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+</div>
+</div>
+<label class="flex items-start gap-2 cursor-pointer select-none"><input class="mt-1 w-4 h-4 rounded accent-primary" id="signupTerms" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface">I agree to the Terms of Service and Heritage Conduct guidelines.</span></label>
+<p class="font-body-sm text-body-sm text-error hidden" id="signupError" role="alert"></p>
+<button class="w-full h-12 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-space-xs shadow-md transition-all" type="submit"><span>Create account</span><span class="material-symbols-outlined text-[20px]">person_add</span></button>
+</form>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Just looking around?</span>
+<a class="font-label-lg text-label-lg text-secondary font-bold hover:underline flex items-center gap-1" href="../../index.html"><span>Continue as guest</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+</div>
+</div>
+<!-- Official Compliance Sub-Strip -->
+<div class="mt-space-md p-space-sm rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-sm text-center md:text-left">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">shield</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">
+                Direct cryptographic link to NBC Bakong Tourist Escrow. Regulated by Ministry of Tourism MoT-KR-2024-8891.
+              </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="#">Guide Verification</a>
+<span class="text-outline-variant">•</span>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface" href="#">Privacy &amp; Temple Law</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ===== Footer ===== --><footer class="w-full bg-surface-container-low text-on-surface-variant pt-space-xl pb-space-lg shadow-[0_-1px_12px_rgba(28,27,25,0.03)]"><div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg pb-space-lg"><div class="md:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Tos-Team</span><span class="text-title-lg">🇰🇭</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Official community-rooted platform for sustainable tourism, temple expeditions, and heritage transit across the Kingdom of Wonder.</p><div class="flex flex-wrap gap-space-sm mt-space-xs"><div class="inline-flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-full"><span class="material-symbols-outlined text-primary text-[16px]">verified</span><span class="font-label-caps text-label-caps text-on-surface">MoT-KR-2024-8891</span></div><div class="inline-flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">account_balance_wallet</span><span class="font-label-caps text-label-caps text-on-surface">NBC Bakong KHQR Escrow</span></div></div></div><div class="flex flex-col gap-space-xs"><span class="font-label-lg text-label-lg text-on-surface mb-space-xs">Navigation</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore" href="explore-cambodia.html">Explore Destinations</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="hotel" href="hotels-eco-stays.html">Eco Stays &amp; Hotels</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="bus" href="bus-inter-city-transit.html">Intercity Bus &amp; Ferry</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="guides" href="licensed-tour-guides-local-experts.html">Licensed Local Guides</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-lg text-label-lg text-on-surface mb-space-xs">Guarantees &amp; Safety</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="tips" href="travel-tips-cultural-guide.html">Temple Respect Code</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-plan" href="my-plan-trip-builder.html">Escrow Protected Bookings</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="plan-trip" href="ai-trip-planner-itinerary-generator.html">Sustainable Itineraries</a></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm"><p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 Tos-Team KH. Ministry of Tourism Accredited (MoT-KR-2024-8891). Backed by NBC Bakong KHQR Escrow.</p><div class="flex items-center gap-space-md"><span class="font-label-caps text-label-caps text-on-surface-variant">Kingdom of Wonder</span><span class="font-label-caps text-label-caps text-on-surface-variant">Phnom Penh • Siem Reap • Battambang</span></div></div></div></footer>
+
+
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/components/site.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/user/desktop-login-partner-portal.js" defer></script>
+</body>
+</html>

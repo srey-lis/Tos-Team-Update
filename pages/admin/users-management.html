@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Users Management | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="admin"><!-- Shared component: admin-sidebar-operations (assets/js/components/admin.js) --><tos-admin-sidebar-operations active="users"></tos-admin-sidebar-operations><div class="pl-72"><!-- Shared component: admin-header-operations (assets/js/components/admin.js) --><tos-admin-header-operations></tos-admin-header-operations>
+<!-- ===== Main content ===== --><main class="relative pt-20 w-full min-h-screen bg-surface px-space-lg py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps uppercase text-outline">
+<span>Operational Hub</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">User Management</span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mt-space-xs">
+<div class="max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">User &amp; Traveler Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Manage registered international travelers, domestic eco-tourists, partner guide accounts, and tour operator administrators across the kingdom.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-auto flex-wrap">
+<button class="h-11 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg flex items-center gap-space-xs transition-colors shadow-sm" id="btn-export-csv">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Users (CSV)</span>
+</button>
+<button class="h-11 px-space-md rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-lg text-label-lg flex items-center gap-space-xs transition-all shadow-sm" onclick="document.getElementById('invite-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Invite / Add User</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Total Registered Users</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">18,420</div>
+<div class="flex items-center gap-1.5 mt-1 font-label-md text-label-md text-[#15803D]">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+840 this month</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-1">across 48 nations</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-secondary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Active in Cambodia</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">3,140</div>
+<div class="flex items-center gap-1.5 mt-1 font-label-md text-label-md text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span>Currently exploring</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-1">Angkor, Cardamoms &amp; coast</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 62%"></div>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Local Tour Guides</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">142 <span class="text-title-lg font-title-lg font-normal text-on-surface-variant">Verified</span></div>
+<div class="flex items-center gap-2 mt-1 font-label-md text-label-md text-on-surface-variant">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container font-semibold text-primary">89 Class 1</span>
+<span>53 Regional</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 91%"></div>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-tertiary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Operators &amp; Hospitality</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</div>
+</div>
+<div class="mt-space-md">
+<div class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">58 <span class="text-title-lg font-title-lg font-normal text-on-surface-variant">Orgs</span></div>
+<div class="flex items-center gap-1.5 mt-1 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-[#15803D]">verified</span>
+<span>100% MoT Registered</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#B45309] h-full rounded-full" style="width: 84%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-md p-space-md bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full h-11 pl-11 pr-space-md rounded-lg bg-surface-container-low focus:bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-md font-body-md outline-none transition-all focus:ring-2 focus:ring-primary/20" id="user-search-input" placeholder="Search by traveler name, email, phone, passport/national ID, country..." type="text"/>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap sm:flex-nowrap">
+<div class="relative min-w-[200px] flex-1 sm:flex-initial">
+<select class="w-full h-11 px-space-md pr-8 rounded-lg bg-surface-container-low text-on-surface text-label-lg font-label-lg appearance-none outline-none cursor-pointer" id="status-filter">
+<option value="all">All Statuses (Active, Suspended, Pending)</option>
+<option value="active">Active &amp; Verified</option>
+<option value="pending">Pending Verification</option>
+<option value="suspended">Suspended / Review</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[18px]">expand_more</span>
+</div>
+<div class="relative min-w-[190px] flex-1 sm:flex-initial">
+<select class="w-full h-11 px-space-md pr-8 rounded-lg bg-surface-container-low text-on-surface text-label-lg font-label-lg appearance-none outline-none cursor-pointer" id="country-filter">
+<option value="all">All Countries</option>
+<option value="Cambodia">Cambodia 🇰🇭</option>
+<option value="France">France 🇫🇷</option>
+<option value="Germany">Germany 🇩🇪</option>
+<option value="Australia">Australia 🇦🇺</option>
+<option value="USA">USA 🇺🇸</option>
+<option value="Japan">Japan 🇯🇵</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[18px]">expand_more</span>
+</div>
+<button class="h-11 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center gap-1 transition-colors" id="reset-filters" title="Reset Filters">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 pt-1">
+<button class="role-tab h-8 px-space-sm rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap transition-all shadow-sm" data-role="all">
+        All Roles (18,420)
+      </button>
+<button class="role-tab h-8 px-space-sm rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md whitespace-nowrap transition-all" data-role="traveler">
+        Travelers (18,220)
+      </button>
+<button class="role-tab h-8 px-space-sm rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md whitespace-nowrap transition-all" data-role="guide">
+        Tour Guides (142)
+      </button>
+<button class="role-tab h-8 px-space-sm rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md whitespace-nowrap transition-all" data-role="operator">
+        Operators (58)
+      </button>
+<button class="role-tab h-8 px-space-sm rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md whitespace-nowrap transition-all" data-role="admin">
+        Admins (8)
+      </button>
+</div>
+</div>
+<div class="overflow-hidden rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider select-none">
+<tr>
+<th class="py-space-md px-space-md">User Profile &amp; Contact</th>
+<th class="py-space-md px-space-md">Role / Type</th>
+<th class="py-space-md px-space-md">Nationality</th>
+<th class="py-space-md px-space-md">Trips / Bookings</th>
+<th class="py-space-md px-space-md">Total Flow</th>
+<th class="py-space-md px-space-md">Bakong KHQR</th>
+<th class="py-space-md px-space-md">KYC Status</th>
+<th class="py-space-md px-space-md">Registered</th>
+<th class="py-space-md px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface" id="users-table-body">
+<tr class="hover:bg-surface-container-low/50 transition-colors" data-country="Cambodia" data-role="traveler">
+<td class="py-space-md px-space-md min-w-[240px]">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden bg-surface-variant shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Warm portrait of Sophea Cham, a young Cambodian female traveler in Phnom Penh outdoors in natural morning golden light, smiling with a clean organic linen shirt and soft bokeh background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgzMy0CauajiBO0urm6BeuT7JaDjEyTFjzmzMvDOTN9FKFJYOZaLsWvXKw0SNf2TyniAOR3tfA8D-ARSIzXlU98KfEZ6BdfEWBxwuxm6RMvVYLBS3b_6K3g-U3lDVfFhIw6LlMvhmPpcCcd4iZ2PzY_p5GZnYviiu03vrY_1F6fm2EUo8Zswemi8EGG4GYs1wzSiebs8TUSu3jp7qISjaMxSe6Xh0ByWpsMXnzhg0zTnrhxTKo-beMRg"/>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md font-semibold text-on-surface truncate">Sophea Cham</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">sophea.cham@gmail.com</div>
+<div class="font-label-caps text-label-caps text-outline tracking-wider">+855 12 889 011</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">nature_people</span>
+<span>Traveler (Explorer)</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap font-label-lg text-label-lg">
+              Cambodia 🇰🇭
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-medium text-on-surface">6 Trips</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">14 days recorded</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-semibold text-primary">$480.00</div>
+<div class="font-label-caps text-label-caps text-outline uppercase">Settled</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+<span>sophea@aba</span>
+</div>
+<div class="text-[10px] text-[#15803D] font-label-caps tracking-wider flex items-center gap-0.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span> LINKED &amp; ACTIVE
+              </div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-caps text-label-caps uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap text-on-surface-variant font-label-md text-label-md">
+              Jan 12, 2024
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" onclick="openUserDossier('Sophea Cham', 'Traveler (Explorer)', 'Cambodia 🇰🇭', 'sophea.cham@gmail.com', '$480.00')">
+                  View Dossier
+                </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors" data-country="France" data-role="traveler">
+<td class="py-space-md px-space-md min-w-[240px]">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden bg-surface-variant shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Portrait of Marc Dubois, French traveler in his thirties with a rugged straw hat, smiling gently in warm diffuse tropical lighting, natural Khmer courtyard in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMeTuhzZdWVvWexg5sD5knOpyHVf5_po1rlsbvWr58kTxU1Fi-qFFA3_ZKccL0P-XQu5GIPnrqQ5N3B_ejj61Gx1o_3N-rA4cfzUe1ncZeaE1hpg1PWw5WRsYMCqqgcNr1dsT64kN-_xI12DyPuY4bg253E1KqVONfpmeq9SWNU9Ma_kk7QauMmhJJ7KGwZ7cl1PJrhK28MivhIZN4r7IDrFQB1di2F_E6a9mjlimUjcyx-Pz1-JtQfA"/>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md font-semibold text-on-surface truncate">Marc Dubois</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">marc.dubois@voyage-paris.fr</div>
+<div class="font-label-caps text-label-caps text-outline tracking-wider">+33 6 12 34 56 78</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">flight</span>
+<span>Traveler</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap font-label-lg text-label-lg">
+              France 🇫🇷
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-medium text-secondary">2 Active</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Siem Reap &amp; Koh Rong</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-semibold text-primary">$620.00</div>
+<div class="font-label-caps text-label-caps text-outline uppercase">Settled</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px]">credit_card</span>
+<span>Tourist Wallet (e-Visa)</span>
+</div>
+<div class="text-[10px] text-outline font-label-caps tracking-wider mt-0.5">Auto-cleared via NBC</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-caps text-label-caps uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap text-on-surface-variant font-label-md text-label-md">
+              Oct 02, 2025
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" onclick="openUserDossier('Marc Dubois', 'Traveler', 'France 🇫🇷', 'marc.dubois@voyage-paris.fr', '$620.00')">
+                  View Dossier
+                </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-primary/2" data-country="Cambodia" data-role="guide">
+<td class="py-space-md px-space-md min-w-[240px]">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden bg-primary-container text-on-primary flex items-center justify-center shrink-0 font-title-lg font-bold shadow-sm">
+                  SL
+                </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Sokha Leap</span>
+<span class="material-symbols-outlined text-primary text-[16px]" title="Ministry of Tourism Certified">verified</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">sokha.leap@angkor-heritage.kh</div>
+<div class="font-label-caps text-label-caps text-outline tracking-wider">+855 92 441 223</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">school</span>
+<span>MoT Guide (#SR-8841)</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap font-label-lg text-label-lg">
+              Cambodia 🇰🇭
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-medium text-on-surface">412 Tours</div>
+<div class="font-body-sm text-body-sm text-[#15803D] font-semibold">4.97 ★ Rating (310)</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-bold text-primary">$18,540.00</div>
+<div class="font-label-caps text-label-caps text-outline uppercase">Total Payouts</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">qr_code_2</span>
+<span>sokha.guide@acleda</span>
+</div>
+<div class="text-[10px] text-[#15803D] font-label-caps tracking-wider flex items-center gap-0.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span> BAKONG REGISTERED
+              </div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-caps text-label-caps uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+<span>MoT Class 1</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap text-on-surface-variant font-label-md text-label-md">
+              Mar 15, 2023
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-md text-label-md transition-colors hover:bg-[#0b4643]" onclick="openUserDossier('Sokha Leap', 'MoT Guide (#SR-8841)', 'Cambodia 🇰🇭', 'sokha.leap@angkor-heritage.kh', '$18,540.00')">
+                  View Dossier
+                </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors" data-country="Germany" data-role="traveler">
+<td class="py-space-md px-space-md min-w-[240px]">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden bg-surface-variant shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of Elena Rostova, blonde German traveler with adventurous attire and camera strap, natural diffuse jungle light, warm stone temple backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASwLcAAEC4L0c-yPuVJhxgxxu6BXQ1D1nDxdDcEjZiGnKWR01RB8Zf6mmlr7n4BJcFuZeW7pDZjOgUJTlkQGdVCpj9iSqg9VKKvHZPzRrMsKmL03U4Hy_3m4OetTQiaOtWtNpaIZzMqW2AKsfH-L5wfbx0G7fj26ed-i4oBohFrzlIV9M9FvDaIDXG6D1xFpNcdV8-XQIPLXhHpIWmJQCzydDHSjhSFWD9w3Ji563jVtwh0H1vhn4soQ"/>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md font-semibold text-on-surface truncate">Elena Rostova</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">elena.rostova@traveler.eu</div>
+<div class="font-label-caps text-label-caps text-outline tracking-wider">+49 170 941 883</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">backpack</span>
+<span>Traveler</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap font-label-lg text-label-lg">
+              Germany 🇩🇪
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-medium text-[#B45309]">1 Upcoming</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Banteay Srei Sunrise</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-semibold text-primary">$135.00</div>
+<div class="font-label-caps text-label-caps text-outline uppercase">Escrow Hold</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px]">smartphone</span>
+<span>Bakong Tourist App</span>
+</div>
+<div class="text-[10px] text-outline font-label-caps tracking-wider mt-0.5">Direct QR Scan Enabled</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-caps text-label-caps uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap text-on-surface-variant font-label-md text-label-md">
+              Oct 10, 2025
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" onclick="openUserDossier('Elena Rostova', 'Traveler', 'Germany 🇩🇪', 'elena.rostova@traveler.eu', '$135.00')">
+                  View Dossier
+                </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors" data-country="Cambodia" data-role="operator">
+<td class="py-space-md px-space-md min-w-[240px]">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 font-title-lg font-bold shadow-sm">
+                  HT
+                </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Heritage Trails Co.</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" title="Accredited Operator">corporate_fare</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">operations@heritagetrails.com.kh</div>
+<div class="font-label-caps text-label-caps text-outline tracking-wider">+855 23 881 992</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[14px]">business_center</span>
+<span>Tour Operator</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap font-label-lg text-label-lg">
+              Cambodia 🇰🇭
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-medium text-on-surface">128 Group Tours</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Siem Reap &amp; Battambang</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-bold text-on-surface">$34,200.00</div>
+<div class="font-label-caps text-label-caps text-outline uppercase">Transacted</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+<span>heritagetrails@canadia</span>
+</div>
+<div class="text-[10px] text-[#15803D] font-label-caps tracking-wider mt-0.5">Corporate Settled</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>MoT License #0482</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap text-on-surface-variant font-label-md text-label-md">
+              Nov 04, 2023
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" onclick="openUserDossier('Heritage Trails Co.', 'Tour Operator', 'Cambodia 🇰🇭', 'operations@heritagetrails.com.kh', '$34,200.00')">
+                  View Dossier
+                </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors" data-country="Australia" data-role="traveler">
+<td class="py-space-md px-space-md min-w-[240px]">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-10 h-10 rounded-full overflow-hidden bg-surface-variant shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Portrait of James Wilson, distinguished university researcher with spectacles and linen expedition shirt, warm archaeological temple site of Koh Ker in background softly blurred." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxmyYr2qp-p4So-_bOHFbPRf9OblIhwSQQCdYav3zBvRARIqa-AYwLN8F20gULvNV8vMZlyEQBPzNPaCGr0GmzRk_MWzG7TtfhjmzReUvsZmCYvYtHTow4dzQnUycTMD6IJbR1mHeNS9XUrEPDTtnq66vvLZpnX5DgQu6kxRlKy-cdkCJ9XlH36qWYw3EtWYnRyKyGQQ2oFJtWfspncOi_gUB7n_Ez34jlS8AEwPcx5BcgllADwhglVg"/>
+</div>
+<div class="min-w-0">
+<div class="font-title-md text-title-md font-semibold text-on-surface truncate">James Wilson</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">j.wilson@sydney.edu.au</div>
+<div class="font-label-caps text-label-caps text-outline tracking-wider">+61 4 91 570 110</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span>Traveler (Researcher)</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap font-label-lg text-label-lg">
+              Australia 🇦🇺
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-medium text-on-surface">4 Completed</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Preah Vihear Expedition</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-title-md text-title-md font-semibold text-primary">$920.00</div>
+<div class="font-label-caps text-label-caps text-outline uppercase">Settled</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-md text-label-md text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px]">credit_card</span>
+<span>Linked VISA/KHQR</span>
+</div>
+<div class="text-[10px] text-[#15803D] font-label-caps tracking-wider flex items-center gap-0.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span> CROSS-BORDER CLEARED
+              </div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-label-caps text-label-caps uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap text-on-surface-variant font-label-md text-label-md">
+              Aug 20, 2024
+            </td>
+<td class="py-space-md px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" onclick="openUserDossier('James Wilson', 'Traveler (Researcher)', 'Australia 🇦🇺', 'j.wilson@sydney.edu.au', '$920.00')">
+                  View Dossier
+                </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span>Showing <strong class="text-on-surface">1 - 6</strong> of <strong class="text-on-surface">18,420</strong> users across Cambodia</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded flex items-center justify-center bg-surface-container-highest text-on-surface disabled:opacity-40 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md font-semibold">
+          1
+        </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high font-label-md text-label-md">
+          2
+        </button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high font-label-md text-label-md">
+          3
+        </button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-surface-container-high font-label-md text-label-md">
+          307
+        </button>
+<button class="w-8 h-8 rounded flex items-center justify-center bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-md max-w-2xl">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">NBC Bakong Tourist QR Compliance Gate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Traveler identities cross-verify against the National Bank of Cambodia’s Bakong tourist payment gateway and Ministry of Interior electronic visas. Accounts flagged for compliance review hold bookings under conditional escrow.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-10 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors">
+        Audit Registry (NBC-04)
+      </button>
+<button class="h-10 px-space-md rounded-lg bg-primary hover:bg-[#0b4643] text-on-primary font-label-lg text-label-lg transition-colors" onclick="document.getElementById('invite-modal').classList.remove('hidden')">
+        Add Licensed Guide
+      </button>
+</div>
+</div>
+<div class="hidden fixed inset-0 z-50 bg-on-surface/40 backdrop-blur-sm flex items-center justify-center p-space-md" id="invite-modal">
+<div class="w-full max-w-xl rounded-xl bg-surface-container-lowest p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Invite / Provision User Account</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Add new traveler, licensed guide, or agency account directly to the registry.</p>
+</div>
+<button class="w-8 h-8 rounded flex items-center justify-center text-outline hover:text-on-surface" onclick="document.getElementById('invite-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-space-sm" id="invite-form" onsubmit="event.preventDefault(); document.getElementById('invite-modal').classList.add('hidden'); alert('User invitation dispatched successfully.');">
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Full Legal Name</label>
+<input class="h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary/20" placeholder="e.g. Channary Meas" required="" type="text"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Email Address</label>
+<input class="h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary/20" placeholder="name@domain.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Account Role</label>
+<select class="h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface font-label-lg text-label-lg outline-none cursor-pointer">
+<option value="traveler">Traveler / Tourist</option>
+<option value="guide">Tour Guide (MoT Certified)</option>
+<option value="operator">Tour Operator Admin</option>
+<option value="officer">Heritage Officer</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Nationality</label>
+<input class="h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none" placeholder="e.g. Cambodia, France, Japan..." type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Bakong ID / Account (Optional)</label>
+<input class="h-11 px-space-sm rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none" placeholder="username@aba" type="text"/>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm mt-space-md pt-space-xs">
+<button class="h-10 px-space-md rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container transition-colors" onclick="document.getElementById('invite-modal').classList.add('hidden')" type="button">
+            Cancel
+          </button>
+<button class="h-10 px-space-md rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-[#0b4643] transition-colors shadow-sm" type="submit">
+            Send Invitation
+          </button>
+</div>
+</form>
+</div>
+</div>
+<div class="hidden fixed inset-0 z-50 bg-on-surface/40 backdrop-blur-sm flex items-center justify-center p-space-md" id="dossier-modal">
+<div class="w-full max-w-lg rounded-xl bg-surface-container-lowest p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">Government Tourism Dossier</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1" id="dossier-name">User Dossier</h2>
+<div class="font-label-md text-label-md text-on-surface-variant mt-0.5" id="dossier-role">Role</div>
+</div>
+<button class="w-8 h-8 rounded flex items-center justify-center text-outline hover:text-on-surface" onclick="document.getElementById('dossier-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Primary Email:</span>
+<span class="font-semibold text-on-surface" id="dossier-email">email@domain.com</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Nationality:</span>
+<span class="font-semibold text-on-surface" id="dossier-country">Country</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Total Financial Throughput:</span>
+<span class="font-semibold text-primary" id="dossier-spent">$0.00</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Ministry Clearing Status:</span>
+<span class="text-[#15803D] font-bold">Cleared (Gate 04 / NBC)</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm">
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg" onclick="document.getElementById('dossier-modal').classList.add('hidden')">
+          Close
+        </button>
+<button class="h-10 px-space-md rounded-lg bg-primary text-on-primary font-label-lg text-label-lg" onclick="alert('Audit logs downloaded.'); document.getElementById('dossier-modal').classList.add('hidden')">
+          Download Full Audit Log
+        </button>
+</div>
+</div>
+</div>
+</div>
+</main><!-- Shared component: admin-footer-compact (assets/js/components/admin.js) --><tos-admin-footer-compact></tos-admin-footer-compact></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/admin.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/admin/users-management.js" defer></script>
+</body>
+</html>

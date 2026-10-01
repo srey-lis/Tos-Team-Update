@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Transit Operator Dashboard | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="partner"><!-- Shared component: partner-sidebar-operations (assets/js/components/partner.js) --><tos-partner-sidebar-operations active="operator-dashboard"></tos-partner-sidebar-operations><div class="pl-72"><!-- Shared component: partner-header-operations (assets/js/components/partner.js) --><tos-partner-header-operations></tos-partner-header-operations>
+<!-- ===== Main content ===== --><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-8 py-8 flex flex-col gap-8 max-w-[1440px] mx-auto w-full">
+<!-- Top Context & Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-surface-container-low p-6 rounded-2xl shadow-sm relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-primary/5 pointer-events-none blur-2xl"></div>
+<div class="flex flex-col gap-1.5 relative z-10">
+<div class="flex items-center gap-2.5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-caps text-label-caps uppercase tracking-wider font-semibold">
+            MoT Transit Lic. #HT-BUS-TRANSIT-2025
+          </span>
+<span class="text-on-surface-variant font-label-md text-label-md">•</span>
+<span class="text-secondary font-label-md text-label-md font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sensors</span> Live Telemetry Connected
+          </span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">
+          សួស្តី, Bopha Rath <span class="text-on-surface-variant font-title-lg text-title-lg font-normal">(Vireak Buntham &amp; Heritage Express)</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Transit fleet and seat dispatch overview for today, October 24, 2025. You have <strong class="text-secondary font-semibold">3 seat booking batches</strong> awaiting ticket issue confirmation.
+        </p>
+</div>
+<div class="flex items-center gap-3 relative z-10 self-start lg:self-center">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold hover:opacity-90 transition-all shadow-sm" id="reviewPendingBtn">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span>
+<span>Review Pending (3)</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all shadow-sm" id="addRouteTrigger">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Add New Route / Departure</span>
+</button>
+</div>
+</div>
+<!-- Key Operational KPI Cards (Row of 4) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- KPI 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Action Required</span>
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">notification_important</span>
+</div>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">3 Batches Pending</span>
+<span class="font-label-md text-label-md text-on-surface-variant block mt-0.5">Seat Booking Confirmations</span>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-1.5 text-secondary font-label-md text-label-md bg-secondary/10 px-2.5 py-1.5 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Next bus departs in 1h 45m</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">Active Fleet Dispatched</span>
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">directions_bus</span>
+</div>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">8 Coaches en Route</span>
+<span class="font-label-md text-label-md text-on-surface-variant block mt-0.5">Live GPS on NR6 &amp; NR5</span>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-1.5 text-primary font-label-md text-label-md bg-primary-fixed/20 px-2.5 py-1.5 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[16px]">security</span>
+<span>142 passengers travelling safely</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/5 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest font-bold">Monthly Ticket Sales</span>
+<div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">1,420 Seats Booked</span>
+<span class="font-label-md text-label-md text-on-surface-variant block mt-0.5">Total Confirmed Bookings</span>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-1.5 text-on-surface font-label-md text-label-md bg-surface-container-high px-2.5 py-1.5 rounded-lg w-fit">
+<span class="material-symbols-outlined text-primary text-[16px]">trending_up</span>
+<span>+22% MoM • Bakong Escrow cleared</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-variant rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest font-bold">Route Catalog Health</span>
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[22px]">alt_route</span>
+</div>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">12 Active Routes</span>
+<span class="font-label-md text-label-md text-on-surface-variant block mt-0.5">Daily Inter-City Lines</span>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md bg-surface-container px-2.5 py-1.5 rounded-lg truncate max-w-full">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+<span class="truncate">PP ↔ SR, Battambang, Kampot</span>
+</div>
+</div>
+</div>
+<!-- Urgent Action Callout Banner -->
+<div class="p-5 rounded-2xl bg-surface-container border-l-4 border-secondary shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-5 transition-all" id="urgentBanner">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+<span class="material-symbols-outlined text-[24px]">airline_seat_recline_extra</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-secondary text-on-secondary font-label-caps text-label-caps uppercase">Urgent Ticket Issue</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-bold">Booking #BK-BUS-7741</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-lowest text-primary font-label-md text-label-md font-semibold">Bakong Escrow: $64.00 Paid</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface font-bold">
+            Elena Rostova <span class="font-body-md text-body-md text-on-surface-variant font-normal">(4 VIP Sleeper Seats) — Phnom Penh to Siem Reap Night Express</span>
+</p>
+<div class="flex flex-wrap items-center gap-4 text-on-surface-variant font-label-md text-label-md mt-0.5">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 21:30 Departure
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">airline_seat_flat</span> Seats: #A3, #A4, #B3, #B4
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span> Pickup: Night Market Terminal
+            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<button class="px-4 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg font-bold hover:bg-surface-container-high transition-all shadow-sm" id="viewQueueBtn">
+          View Queue (3)
+        </button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all shadow-sm" id="confirmUrgentBtn">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Confirm &amp; Issue Tickets</span>
+</button>
+</div>
+</div>
+<!-- Two Main Grid Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column (60%): Today's Fleet Dispatches & Live Coach Schedules -->
+<div class="lg:col-span-7 flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Today's Fleet Dispatches</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Live coach telematics and seat load factors</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest font-label-md text-label-md text-primary font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filter
+            </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest font-label-md text-label-md text-on-surface font-medium shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">refresh</span> Live Sync
+            </button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Dispatch 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-xl bg-primary-fixed/30 text-primary font-title-md text-title-md font-bold">
+                  07:00 AM
+                </span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Phnom Penh ➔ Siem Reap (VIP Hyundai Universe)</h3>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span>Coach: <strong class="text-on-surface">#PP-BUS-04</strong></span>
+<span>•</span>
+<span>Driver: <strong class="text-on-surface">Chanthou Long</strong></span>
+</div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps uppercase font-bold self-start sm:self-center flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                In-Transit (Kampong Thom)
+              </span>
+</div>
+<!-- Seat Load & Telemetry -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">airline_seat_recline_normal</span>
+                  Passenger Occupancy: 38 / 40 Seats
+                </span>
+<span class="text-primary font-bold">95% Load</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">speed</span> Speed: 74 km/h (Gov. Limit 80)
+                </span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span> GPS Live: 98% on-time
+                </span>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Manifest (38 Pax)</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>Radio Driver</span>
+</button>
+</div>
+<button class="text-primary hover:text-primary-container font-label-md text-label-md font-bold flex items-center gap-1">
+<span>View Route Cam</span>
+<span class="material-symbols-outlined text-[16px]">videocam</span>
+</button>
+</div>
+</div>
+<!-- Dispatch 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-xl bg-tertiary-fixed/40 text-tertiary font-title-md text-title-md font-bold">
+                  09:30 AM
+                </span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Siem Reap ➔ Battambang (Luxury Mini Van)</h3>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span>Coach: <strong class="text-on-surface">#SR-VAN-02</strong></span>
+<span>•</span>
+<span>Driver: <strong class="text-on-surface">Mengly Som</strong></span>
+</div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed/50 text-secondary font-label-caps text-label-caps uppercase font-bold self-start sm:self-center flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Boarding (Sivutha Station)
+              </span>
+</div>
+<!-- Seat Load & Telemetry -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">airline_seat_recline_normal</span>
+                  Passenger Occupancy: 12 / 12 Seats Full
+                </span>
+<span class="text-secondary font-bold">100% Sold Out</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 100%"></div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">luggage</span> Luggage: 14 bags scanned
+                </span>
+<span class="text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">timer</span> Gate closes in 14 mins
+                </span>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Manifest (12 Pax)</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">qr_code_scanner</span>
+<span>Boarding Scan</span>
+</button>
+</div>
+<button class="text-secondary hover:underline font-label-md text-label-md font-bold flex items-center gap-1">
+<span>Hold 1 Emergency Berth</span>
+</button>
+</div>
+</div>
+<!-- Dispatch 3 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-xl bg-surface-container text-on-surface font-title-md text-title-md font-bold">
+                  01:30 PM
+                </span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Phnom Penh ➔ Kampot &amp; Kep (Express Coastal Coach)</h3>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span>Coach: <strong class="text-on-surface">#PP-BUS-09</strong></span>
+<span>•</span>
+<span>Driver: <strong class="text-on-surface">Sophat Rath</strong></span>
+</div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase font-bold self-start sm:self-center">
+                Staging (Central Terminal)
+              </span>
+</div>
+<!-- Seat Load & Telemetry -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">airline_seat_recline_normal</span>
+                  Passenger Occupancy: 28 / 32 Seats Booked
+                </span>
+<span class="text-primary font-bold">88% Load</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 88%"></div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">event_seat</span> 4 seats still available online
+                </span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">local_gas_station</span> Pre-flight check OK
+                </span>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Manifest (28 Pax)</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit_calendar</span>
+<span>Edit Seat Cap</span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Departs in 4h 10m</span>
+</div>
+</div>
+<!-- Dispatch 4 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-xl bg-surface-container text-on-surface font-title-md text-title-md font-bold">
+                  09:00 PM
+                </span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Siem Reap ➔ Phnom Penh (Hotel Bus Sleeping Cabin)</h3>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span>Coach: <strong class="text-on-surface">#SR-NIGHT-01</strong></span>
+<span>•</span>
+<span>Driver: <strong class="text-on-surface">Sok Heng</strong></span>
+</div>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-primary-fixed/40 text-primary font-label-caps text-label-caps uppercase font-bold self-start sm:self-center">
+                Departure Ready
+              </span>
+</div>
+<!-- Seat Load & Telemetry -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">bed</span>
+                  Passenger Occupancy: 20 / 22 Berths Reserved
+                </span>
+<span class="text-primary font-bold">91% Load</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 91%"></div>
+</div>
+<div class="flex items-center justify-between pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">ac_unit</span> Cabin sanitized &amp; bedding prepped
+                </span>
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">lock_clock</span> 2 Pending confirmations
+                </span>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Manifest (20 Pax)</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">hotel</span>
+<span>Cabin Layout</span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Departs in 11h 40m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (40%): Route Catalog & Seat Inventory -->
+<div class="lg:col-span-5 flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Route Catalog &amp; Rates</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Inventory management &amp; ticket yields</span>
+</div>
+<a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1" href="#">
+<span>Manage All</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Route Card 1 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps uppercase font-bold w-fit mb-1">
+                  Active Express
+                </span>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">Phnom Penh ↔ Siem Reap</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Luxury Express Coach &amp; Sleeper Cabins</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg text-secondary font-bold">$16.00</span>
+<span class="block font-label-caps text-label-caps text-on-surface-variant uppercase">per seat</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-transparent bg-surface-container-low p-2.5 rounded-xl font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary">star</span>
+<span class="font-bold">4.91</span>
+<span class="text-on-surface-variant">(640 reviews)</span>
+</div>
+<div class="flex items-center justify-end gap-1.5 text-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">stacked_line_chart</span>
+<span>96% Avg Load</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md pt-1">
+<span>6 Departures Daily</span>
+<button class="text-primary hover:text-primary-container font-semibold flex items-center gap-1">
+<span>Adjust Fare Matrix</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Route Card 2 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps uppercase font-bold w-fit mb-1">
+                  Active Regional
+                </span>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">Siem Reap ↔ Battambang</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Riverlink Minibus via National Road 5</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg text-secondary font-bold">$11.00</span>
+<span class="block font-label-caps text-label-caps text-on-surface-variant uppercase">per seat</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-transparent bg-surface-container-low p-2.5 rounded-xl font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary">star</span>
+<span class="font-bold">4.88</span>
+<span class="text-on-surface-variant">(318 reviews)</span>
+</div>
+<div class="flex items-center justify-end gap-1.5 text-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">stacked_line_chart</span>
+<span>90% Avg Load</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md pt-1">
+<span>4 Departures Daily</span>
+<button class="text-primary hover:text-primary-container font-semibold flex items-center gap-1">
+<span>Adjust Fare Matrix</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Route Card 3 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps uppercase font-bold w-fit mb-1">
+                  Active Coastal
+                </span>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">Phnom Penh ↔ Sihanoukville</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Expressway &amp; Koh Rong Island Ferry Link</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg text-secondary font-bold">$18.50</span>
+<span class="block font-label-caps text-label-caps text-on-surface-variant uppercase">per seat</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-transparent bg-surface-container-low p-2.5 rounded-xl font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary">star</span>
+<span class="font-bold">4.85</span>
+<span class="text-on-surface-variant">(492 reviews)</span>
+</div>
+<div class="flex items-center justify-end gap-1.5 text-primary font-bold">
+<span class="material-symbols-outlined text-[18px]">stacked_line_chart</span>
+<span>92% Avg Load</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-md text-label-md pt-1">
+<span>5 Departures Daily</span>
+<button class="text-primary hover:text-primary-container font-semibold flex items-center gap-1">
+<span>Adjust Fare Matrix</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Notice Box: MoT Safety & GPS Compliance -->
+<div class="p-5 rounded-2xl bg-surface-container border-l-4 border-tertiary-container shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[22px]">policy</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">MoT Inter-City Safety &amp; GPS Compliance</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              All 8 active coaches transmit telematics every 15s to the National Transport Safety Registry. Speed governor alarms set at 80 km/h highway ceiling.
+            </p>
+<div class="flex items-center justify-between pt-2 border-t border-surface-variant font-label-md text-label-md">
+<span class="text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">call</span> Emergency: 1288
+              </span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Telemetry: Active
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Route / Schedule CRUD Section -->
+<div class="p-6 rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Quick Departure &amp; Seat Dispatch Console</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Rapidly configure extra holiday coaches, adjust fares, or modify departure manifests.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-caps text-label-caps uppercase font-semibold w-fit">
+          Direct Inventory Lock
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Route Destination</label>
+<select class="h-11 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+<option>Phnom Penh ➔ Siem Reap</option>
+<option>Siem Reap ➔ Battambang</option>
+<option>Phnom Penh ➔ Kampot &amp; Kep</option>
+<option>Phnom Penh ➔ Sihanoukville Express</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Departure Time</label>
+<input class="h-11 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20" type="time" value="16:00"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Coach Type &amp; Fleet #</label>
+<select class="h-11 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+<option>Hyundai Universe (#PP-BUS-12)</option>
+<option>VIP Sleeper 22-Berth (#SR-NIGHT-03)</option>
+<option>Luxury 12-Seater Van (#VAN-05)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Seat Fare (USD)</label>
+<div class="relative">
+<span class="absolute left-3.5 top-2.5 text-on-surface-variant font-body-sm text-body-sm">$</span>
+<input class="h-11 pl-8 pr-3 w-full rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20" step="0.5" type="number" value="16.00"/>
+</div>
+</div>
+<div class="flex flex-col justify-end">
+<button class="h-11 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-sm" id="dispatchConfirmBtn">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Publish Departure</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast -->
+<div class="fixed bottom-6 right-6 transform translate-y-32 opacity-0 transition-all duration-300 z-50 bg-primary text-on-primary px-5 py-4 rounded-2xl shadow-xl flex items-center gap-3" id="toastNotification">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">check_circle</span>
+<div>
+<span class="font-title-md text-title-md block leading-tight font-bold">Tickets Issued Successfully</span>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim">Booking #BK-BUS-7741 sent to Elena Rostova via Telegram &amp; SMS.</span>
+</div>
+</div>
+
+</div></main></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/partner.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/partner/bus-transit-operator-dashboard.js" defer></script>
+</body>
+</html>

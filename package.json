@@ -1,0 +1,9 @@
+{
+  "name": "tos-team-kh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tos-Team KH - Cambodia travel platform (public site, admin portal, partner portals). Static HTML + Tailwind CDN.",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

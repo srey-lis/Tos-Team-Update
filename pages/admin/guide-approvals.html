@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Guide Approvals | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="admin"><!-- Shared component: admin-sidebar-content (assets/js/components/admin.js) --><tos-admin-sidebar-content active="guide-approvals"></tos-admin-sidebar-content><div class="pl-72 flex flex-col min-h-screen"><!-- Shared component: admin-header-content (assets/js/components/admin.js) --><tos-admin-header-content></tos-admin-header-content>
+<!-- ===== Main content ===== --><main class="flex-1 w-full pt-16 bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Alert Banner -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-secondary">Statutory Oversight</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Law on Tourism Art. 28</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">
+          3 pending MoT guide credential applications awaiting administrative review and background clearance.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+        Sync MoT Registry
+      </button>
+</div>
+</div>
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-xs text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Accreditation Protocol</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
+        Guide Approvals &amp; Verification Queue
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+        Review license documentation, APSARA permits, national police background checks, and language proficiencies before granting sovereign platform dispatch privileges.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+        Export Ledger
+      </button>
+<button class="px-space-md py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-colors flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">rule_folder</span>
+        Batch Sign-off
+      </button>
+</div>
+</div>
+<!-- Stats Overview Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Stat 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary">Queue Status</span>
+<span class="p-1.5 rounded-lg bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-[18px]">hourglass_top</span>
+</span>
+</div>
+<div class="my-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">3</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Active dossiers</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Requires immediate manual verification</p>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-primary">Throughput</span>
+<span class="p-1.5 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+</span>
+</div>
+<div class="my-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">18</span>
+<span class="font-label-md text-label-md text-primary font-semibold">+22% MoM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Approved this calendar month</p>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-error">Compliance Failures</span>
+<span class="p-1.5 rounded-lg bg-error-container text-error">
+<span class="material-symbols-outlined text-[18px]">assignment_late</span>
+</span>
+</div>
+<div class="my-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">2</span>
+<span class="font-label-md text-label-md text-error font-semibold">Flagged</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Expired permits / incomplete OCR</p>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 14%;"></div>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-tertiary">SLA Latency</span>
+<span class="p-1.5 rounded-lg bg-tertiary-fixed text-tertiary">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+</span>
+</div>
+<div class="my-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">24.5</span>
+<span class="font-title-md text-title-md text-on-surface-variant">hrs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Avg verification turn-around time</p>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<!-- Queue Filter Tabs & Action Strip -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm bg-surface-container-low p-1.5 rounded-xl">
+<div class="flex items-center gap-1 overflow-x-auto" id="filterTabs">
+<button class="tab-btn px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-xs whitespace-nowrap transition-colors" data-filter="all" type="button">
+<span>All Pending</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface/20 text-on-primary font-label-caps text-label-caps">3</span>
+</button>
+<button class="tab-btn px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-space-xs whitespace-nowrap transition-colors" data-filter="priority" type="button">
+<span>High Priority</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps">1</span>
+</button>
+<button class="tab-btn px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-space-xs whitespace-nowrap transition-colors" data-filter="docs" type="button">
+<span>Additional Docs Required</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">1</span>
+</button>
+<button class="tab-btn px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-space-xs whitespace-nowrap transition-colors" data-filter="preapproved" type="button">
+<span>Pre-Approved</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps">1</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs px-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Sort:</span>
+<select class="bg-surface-container text-on-surface font-label-md text-label-md rounded-lg px-space-sm py-1.5 focus:outline-none">
+<option>Application Date (Oldest First)</option>
+<option>Priority Level</option>
+<option>Region (Angkor First)</option>
+</select>
+</div>
+</div>
+<!-- Main Content Layout: Dossier List + Protocol Checklist Sidebar -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Dossier Column -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Candidate 1: Vireak Soun -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md relative overflow-hidden" data-candidate="1">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Professional portrait of Cambodian male tour guide Vireak Soun in natural lighting, wearing a clean beige expedition shirt with Angkor Wat sandstone background softly blurred in deep teal and warm amber tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRNl-m6kWLhvKRXQU6u2qMAyB5BxNjqt5Im2ZKpuOmE3viWN_nz8AfA-ITp_HRAjb3xzlzI5vv9rdS8zP0RwHnqxuylNxZOgPkCr-i_CX127WJh9LZOoMt4dIUIoUo-z7wp0QHencUVvGGHk4C_n5-OgtqB_gN7NJRtwk-7EQvO_ytpeQiO8xSjT84SV0oR_f7nAE7Ky8O3vNiCw7QKEJ5e22JvzFxnW1eQaRiE_8wiXT1BEEVzQRiYw"/>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Vireak Soun</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps">#APP-2025-0841</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps font-bold">HIGH PRIORITY</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm mt-0.5 flex-wrap">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                  Siem Reap &amp; Angkor
+                </span>
+<span>•</span>
+<span class="font-medium text-tertiary">Senior Archaeological Historian</span>
+<span>•</span>
+<span>12 years zone exp</span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between sm:justify-start gap-1">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Proposed Standard Rate</span>
+<div class="flex items-baseline gap-0.5 text-primary">
+<span class="font-display-hero text-headline-sm font-bold">$45</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ day</span>
+</div>
+</div>
+</div>
+<!-- Language competencies -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-outline mr-1">Languages:</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            Khmer <span class="text-primary font-semibold">(Native)</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            English <span class="text-primary font-semibold">(Fluent C1)</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            French <span class="text-on-surface-variant">(Conversational B2)</span>
+</span>
+</div>
+<!-- Document Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm p-space-md rounded-lg bg-surface-container-low">
+<!-- Doc 1 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">badge</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm text-on-surface truncate font-medium">MoT National Guide Card</span>
+<span class="font-label-caps text-label-caps text-primary">OCR Match: 99.4% • Lic #SR-0891</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">check_circle</span>
+</div>
+<!-- Doc 2 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">temple_hindu</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm text-on-surface truncate font-medium">APSARA Heritage Gate Pass</span>
+<span class="font-label-caps text-label-caps text-primary">Valid thru Dec 2025</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">check_circle</span>
+</div>
+<!-- Doc 3 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">shield</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm text-on-surface truncate font-medium">Ministry of Interior Clearance</span>
+<span class="font-label-caps text-label-caps text-primary">Clean Record (Issued 14d ago)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">check_circle</span>
+</div>
+<!-- Doc 4 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-[20px] text-secondary shrink-0">medical_services</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm text-on-surface truncate font-medium">Red Cross First-Aid Card</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Exp. Nov 2026 • CPR-L2</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">check_circle</span>
+</div>
+</div>
+<!-- Dossier Bottom Actions Bar -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm pt-space-xs">
+<button class="dossier-preview-btn flex items-center justify-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+            Preview Submitted Dossier PDF
+          </button>
+<div class="flex items-center gap-space-xs justify-end">
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error/20 text-error font-label-md text-label-md transition-colors" type="button">
+              Decline
+            </button>
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+              Request Resubmission
+            </button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+              Approve &amp; Issue Credentials
+            </button>
+</div>
+</div>
+</article>
+<!-- Candidate 2: Kalyan Keo -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md relative overflow-hidden" data-candidate="2">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Portrait of female Cambodian adventure guide Kalyan Keo with high-spirited smile, wearing trekking attire in front of lush green karst cave limestone hills of Battambang at dawn." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqV_ugtEXpzaP_lXmw6JxzVWk-rc5lokE0mVyh_w7-F_Zm_StFbRn2dDJ58ii3me_YsofRWPaalaHnfigBJazsdLx_nJ35EXNYJ6AIYXINaqHG3R4n3_o-hrGkKAVMeyHfa9ELw1WzziDD6op0alSXuPogT_NHwGzJihddHE0YLfHgIY5IGOJ6NzvA1b8qQCcQorQBcpagovJgaiTEgiVw4jKxiso8WeH05xiFCYd6KkJQocceOzLxpA"/>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]">pending</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Kalyan Keo</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps">#APP-2025-0842</span>
+<span class="px-space-xs py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps font-bold">DOCS REQUIRED</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm mt-0.5 flex-wrap">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                  Battambang &amp; Western Heritage
+                </span>
+<span>•</span>
+<span class="font-medium text-tertiary">Agro-Ecotourism &amp; Cave Specialist</span>
+<span>•</span>
+<span>7 years exp</span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between sm:justify-start gap-1">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Proposed Standard Rate</span>
+<div class="flex items-baseline gap-0.5 text-primary">
+<span class="font-display-hero text-headline-sm font-bold">$38</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ day</span>
+</div>
+</div>
+</div>
+<!-- Languages -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-outline mr-1">Languages:</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            Khmer <span class="text-primary font-semibold">(Native)</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            English <span class="text-primary font-semibold">(Fluent)</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            Thai <span class="text-on-surface-variant">(Basic)</span>
+</span>
+</div>
+<!-- Notice Box regarding missing doc -->
+<div class="rounded-lg bg-tertiary-fixed/30 p-space-md flex items-start gap-space-md">
+<span class="material-symbols-outlined text-tertiary text-[22px] shrink-0">error</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-title-md text-title-md text-on-tertiary-fixed font-semibold">Vehicle Passenger Liability Insurance Pending</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              MoT Provincial Tour Guide Badge (#BTB-419) is authenticated. However, the passenger liability certificate for safari remand vehicles lapsed on Jan 31, 2025.
+            </p>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm pt-space-xs">
+<button class="flex items-center justify-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+            Review Dossier
+          </button>
+<div class="flex items-center gap-space-xs justify-end">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">send</span>
+              Send Document Reminder
+            </button>
+<button class="px-space-md py-2 rounded-lg bg-secondary-container text-on-secondary-fixed font-label-md text-label-md hover:bg-secondary transition-colors hover:text-on-secondary flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+              Approve Conditionally
+            </button>
+</div>
+</div>
+</article>
+<!-- Candidate 3: Rithy Pen -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md relative overflow-hidden" data-candidate="3">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Sophisticated portrait of Cambodian male guide Rithy Pen wearing sharp linen jacket and architectural glasses, standing in front of colonial French architecture in Phnom Penh with warm sun reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn-I_jDQDpZ8N9bruhtKh045hNYFtACBqpLL3UsPfyUtfApBmhUXaZTaqMo6EH-9hY8XvRJ9hNNT_m8RCRTo7j2PnF2EWWLxyzuQ24vSiWURsQc1kdct2lue-v3je9kd5BMYGXTHm_wKowGUoUfImcVhBaJCaOCLHzrvXuARorvo_yTLV9f4csbJdk1osXIt-EJfmCUwBgSIA_iD97K6vNBNB7XKvlqllJ-l30pxq8jxcoy8ICWE2wIQ"/>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Rithy Pen</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps">#APP-2025-0843</span>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps font-bold">PRE-APPROVED</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm mt-0.5 flex-wrap">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                  Phnom Penh Capital &amp; Heritage Architecture
+                </span>
+<span>•</span>
+<span class="font-medium text-tertiary">Urban Architecture &amp; French Colonial</span>
+<span>•</span>
+<span>9 years exp</span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between sm:justify-start gap-1">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Proposed Standard Rate</span>
+<div class="flex items-baseline gap-0.5 text-primary">
+<span class="font-display-hero text-headline-sm font-bold">$50</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ day</span>
+</div>
+</div>
+</div>
+<!-- Languages -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-outline mr-1">Languages:</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            Khmer <span class="text-primary font-semibold">(Native)</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            French <span class="text-primary font-semibold">(DALF C2 Master)</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            English <span class="text-primary font-semibold">(Fluent C1)</span>
+</span>
+</div>
+<!-- Complete dossier verification pill strip -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low overflow-x-auto">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface shrink-0 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+            MoT Capital Card (#PP-1102)
+          </div>
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface shrink-0 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+            RuPP Architectural Degree
+          </div>
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface shrink-0 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+            Police Clearance MOI-2025
+          </div>
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface shrink-0 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span>
+            Bakong KHQR Active
+          </div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+<span>All 4 validation gates clear. Ready for platform broadcast.</span>
+</div>
+<div class="flex items-center gap-space-xs justify-end">
+<button class="px-space-md py-2 rounded-lg bg-error-container hover:bg-error/20 text-error font-label-md text-label-md transition-colors" type="button">
+              Reject Application
+            </button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-space-xs shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+              Approve &amp; Issue Credentials
+            </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Verification Protocol Sidebar Widget -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Checklist Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">checklist_rtl</span>
+<span class="font-title-md text-title-md font-semibold">Verification Gate Protocol</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">v2.4 NBC/MoT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Mandatory tripartite authentication flow governed by Kingdom of Cambodia platform rules.
+        </p>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Gate 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-on-surface font-semibold">MoT Database Cross-Check</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Live API handshake with Phnom Penh Ministry records. Card ID &amp; facial biometric match.
+              </p>
+<div class="mt-space-xs flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary">STATUS: CONNECTED</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">LATENCY 142ms</span>
+</div>
+</div>
+</div>
+<!-- Gate 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">temple_buddhist</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-on-surface font-semibold">APSARA Authority Gate Clearance</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Validates Angkor Archaeological Park access codes, temple zoning rights &amp; conservation tier.
+              </p>
+<div class="mt-space-xs flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary">STATUS: ACTIVE KEY</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">ZONE 1 &amp; 2 PASS</span>
+</div>
+</div>
+</div>
+<!-- Gate 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">assured_workload</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Bakong Escrow KYC</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Confirms National Bank of Cambodia account for real-time daily KHQR settlement disbursements.
+              </p>
+<div class="mt-space-xs flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary">NBC ESCROW 04</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">KHR / USD POOL</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-high/60 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Batch Quality Metric</span>
+<span class="font-label-md text-label-md text-primary font-bold">96.8%</span>
+</div>
+<!-- SVG Bar Gauge -->
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 96.8%;"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Zero fraudulent submission flags this week</span>
+</div>
+</div>
+<!-- Quick Guidance & Khmer Heritage Ethics Advisory -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+<span class="font-title-md text-title-md font-semibold">Heritage Protocol Advisory</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Per Ministry of Tourism Circular 014/2024, guides authorized under Tos-Team must strictly enforce dress codes (covered shoulders &amp; knees) and prohibit touching bas-relief carvings across all Pre-Angkorian and Angkorian sites.
+        </p>
+<div class="flex items-center justify-between pt-space-xs">
+<a class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1" href="#">
+<span>Read 2025 Ethics Codex</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+<span class="font-label-caps text-label-caps text-outline">MO-TOURISM-KH</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Document Preview Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden flex items-center justify-center p-space-md" id="pdfModal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-2xl w-full p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Official MoT Credential Dossier</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">CANDIDATE: VIREAK SOUN (#APP-2025-0841)</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" id="closeModalBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Digital OCR Document Extract</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps">AUTHENTICATED SIGNATURE</span>
+</div>
+<!-- Document Simulation Box -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-xs font-mono text-body-sm text-on-surface-variant">
+<div class="flex justify-between text-on-surface font-semibold">
+<span>KINGDOM OF CAMBODIA</span>
+<span>NATION • RELIGION • KING</span>
+</div>
+<div class="text-center py-2 text-primary font-bold">
+            MINISTRY OF TOURISM • DEPARTMENT OF TOUR GUIDE LICENSING
+          </div>
+<div class="grid grid-cols-2 gap-2 text-xs py-2">
+<div>Holder: <strong>SOUN, Vireak</strong></div>
+<div>Category: <strong>Angkor Senior Historian</strong></div>
+<div>Badge No: <strong>MOT-SR-0891-2020</strong></div>
+<div>Expires: <strong>31-DEC-2026</strong></div>
+<div>Background Check: <strong>PASSED (Clean 2025)</strong></div>
+<div>Escrow Account: <strong>BAKONG-092-281-990</strong></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="closeModalBottomBtn" type="button">
+          Close Preview
+        </button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+          Download Master PDF
+        </button>
+</div>
+</div>
+</div>
+<!-- Inline Script for Filter Tabs and PDF Modal interaction -->
+
+</div></main><!-- Shared component: admin-footer-legal (assets/js/components/admin.js) --><tos-admin-footer-legal></tos-admin-footer-legal></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/admin.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/admin/guide-approvals.js" defer></script>
+</body>
+</html>

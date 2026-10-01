@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Eco Stay Manager Dashboard | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="partner"><!-- Shared component: partner-sidebar-operations (assets/js/components/partner.js) --><tos-partner-sidebar-operations hrefs="operator-dashboard=hotel-eco-stay-manager-dashboard.html,booking-confirmations=hotel-confirm-bookings.html" active="operator-dashboard"></tos-partner-sidebar-operations><div class="pl-72"><!-- Shared component: partner-header-operations (assets/js/components/partner.js) --><tos-partner-header-operations></tos-partner-header-operations>
+<!-- ===== Main content ===== --><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-8 py-8 flex flex-col gap-8 max-w-7xl mx-auto w-full">
+<!-- Top Operational Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
+<div class="flex flex-col gap-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">MoT Hospitality Lic. #HT-SR-HOTEL-2025</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          សួស្តី, <span class="text-primary italic">Sreymom Chan</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          Hospitality operations overview for today, October 24, 2025. You have <strong class="text-secondary font-bold">3 guest room bookings</strong> awaiting urgent check-in confirmation at FCC Angkor Heritage &amp; Eco-Resort.
+        </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all font-label-lg text-label-lg shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">pending_actions</span>
+<span>Review Pending (3)</span>
+</button>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-all font-label-lg text-label-lg shadow-md">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Add New Room / Villa</span>
+</button>
+</div>
+</div>
+<!-- 4 Operational KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- KPI 1 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-secondary-container/15 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider font-bold">Action Required</span>
+<span class="font-headline-md text-headline-md text-on-surface mt-2">3 Reservations</span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">notification_important</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md flex items-center gap-1.5 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Next arrival in 4h 15m
+          </span>
+<span class="font-label-caps text-label-caps bg-surface-container px-2 py-0.5 rounded-full">Urgent</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-primary-fixed/20 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider font-bold">Live Occupancy</span>
+<span class="font-headline-md text-headline-md text-on-surface mt-2">86% Occupancy</span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">hotel</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 86%"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">24 of 28 rooms occupied • 14 checked in</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-tertiary-fixed/30 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider font-bold">Monthly Volume</span>
+<span class="font-headline-md text-headline-md text-on-surface mt-2">182 Room Nights</span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">trending_up</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+            +14% MoM
+          </span>
+<span class="font-label-md text-label-md text-on-surface-variant">Oct 2025 to date</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-surface-container-high pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider font-bold">Inventory Status</span>
+<span class="font-headline-md text-headline-md text-on-surface mt-2">6 Room Types</span>
+</div>
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">villa</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">eco</span>
+<span class="font-label-md text-label-md text-primary font-medium">100% MoT Eco-Stay verified</span>
+</div>
+</div>
+</div>
+<!-- Urgent Action Callout Banner -->
+<div class="p-6 rounded-2xl bg-surface-container-low shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">priority_high</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase tracking-wider">Booking Action Required</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest font-label-caps text-label-caps text-on-surface font-semibold">#HT-RM-4081</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps font-bold">
+<span class="material-symbols-outlined text-[13px]">account_balance_wallet</span>
+              Bakong Escrow $420.00 Paid
+            </span>
+</div>
+<div class="font-title-lg text-title-lg text-on-surface mt-1">
+            Jean-Luc Dubois <span class="font-normal text-on-surface-variant">(Party of 2 adults)</span> — Deluxe Colonial Suite (3 Nights)
+          </div>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">schedule</span> Check-in: Today, 14:00 ICT</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary">cottage</span> High floor garden view requested</span>
+<span class="flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">alarm</span> Early check-in requested</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<button class="px-4 py-2.5 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg">
+          View Queue (3)
+        </button>
+<button class="px-5 py-2.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-all font-label-lg text-label-lg shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Confirm Booking</span>
+</button>
+</div>
+</div>
+<!-- Main Operational Grid: 60% Left / 40% Right -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column (60%): Today's Check-ins & Room Turnarounds -->
+<div class="lg:col-span-7 flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">Front Desk Operations</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Today's Guest Check-Ins &amp; Turnaround</h2>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">filter_list</span>
+<span>4 Scheduled</span>
+</div>
+</div>
+<!-- Schedule Items -->
+<div class="flex flex-col gap-4">
+<!-- Item 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed/40 text-primary flex flex-col items-center justify-center shrink-0">
+<span class="font-label-caps text-label-caps uppercase font-bold leading-none">OCT</span>
+<span class="font-headline-sm text-headline-sm font-bold leading-none mt-1">24</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-label-caps text-on-surface font-semibold">02:00 PM</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">done_all</span> Ready &amp; Inspected
+                    </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mt-1">Deluxe Colonial Heritage Suite</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guest: <strong class="text-on-surface font-semibold">Sophea Cham</strong> • 2 Guests • Room #204</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$140</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">/night (2 Nights)</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary text-[18px]">airport_shuttle</span>
+<span>Remorque / Electric Tuk-Tuk pickup arranged from REP Airport (Flight K6 102)</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container text-label-md font-label-md transition-colors">Key Ready</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors">Check-In</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/40 text-secondary flex flex-col items-center justify-center shrink-0">
+<span class="font-label-caps text-label-caps uppercase font-bold leading-none">OCT</span>
+<span class="font-headline-sm text-headline-sm font-bold leading-none mt-1">24</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-label-caps text-on-surface font-semibold">03:30 PM</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-caps text-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">cleaning_services</span> Housekeeping In-Progress
+                    </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mt-1">Saltwater Pool Villa</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guest: <strong class="text-on-surface font-semibold">Lucas Weber</strong> • 3 Guests (1 Child) • Villa #08</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$260</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">/night (4 Nights)</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-tertiary text-[18px]">nutrition</span>
+<span>Eco-welcome seasonal fruit basket &amp; lemongrass cold towels prepared</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container text-label-md font-label-md transition-colors">Alert Maid</button>
+<button class="px-3 py-1.5 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 text-label-md font-label-md transition-colors">Mark Ready</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed/40 text-primary flex flex-col items-center justify-center shrink-0">
+<span class="font-label-caps text-label-caps uppercase font-bold leading-none">OCT</span>
+<span class="font-headline-sm text-headline-sm font-bold leading-none mt-1">24</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-label-caps text-on-surface font-semibold">05:00 PM</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-caps text-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Pre-registered (Bakong Escrow)
+                    </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mt-1">Riverside Premier Pavilion</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guest: <strong class="text-on-surface font-semibold">Kosal &amp; Monica Tan</strong> • 2 Guests • Pavilion #12</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$185</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">/night (1 Night)</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">temple_buddhist</span>
+<span>Angkor Wat sunrise breakfast box requested for 04:30 AM tomorrow</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container text-label-md font-label-md transition-colors">Kitchen Note</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors">Pre-Assign</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed/30 text-tertiary flex flex-col items-center justify-center shrink-0">
+<span class="font-label-caps text-label-caps uppercase font-bold leading-none">OCT</span>
+<span class="font-headline-sm text-headline-sm font-bold leading-none mt-1">24</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-label-caps text-on-surface font-semibold">07:30 PM</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-caps text-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">nights_stay</span> Late Arrival Guaranteed
+                    </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mt-1">Traditional Wooden Stilt House</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guest: <strong class="text-on-surface font-semibold">David Miller</strong> • 1 Guest • House #03</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$115</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">/night (5 Nights)</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary text-[18px]">bedtime</span>
+<span>Night porter assigned for gate arrival; late dinner reservation kept at resort bistro</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container text-label-md font-label-md transition-colors">View Details</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors">Lock Room</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (40%): Room & Villa Inventory Health & CRUD Quick Controls -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">Resort Portfolio</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Room &amp; Villa Inventory Health</h2>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1">
+<span>Manage All</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Inventory List Cards -->
+<div class="flex flex-col gap-4">
+<!-- Room Card 1 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 group hover:shadow-md transition-shadow">
+<div class="flex gap-4 items-center">
+<div class="w-20 h-20 rounded-xl bg-surface-container overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Warm sunlit colonial boutique hotel room in Siem Reap Cambodia with teak wood floors high ceilings French shutter doors and crisp white linen bed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDM5OnF7fptX-ocM1AsQUdX3zJU-J_VpsRTqJUaq8AbZIBYak0loYUx3su0vxIxKo7G3zb6HsKVn16vR-NPk4HXgf1RAhlWr4o9mHmexAvxBpjF4TkrZ1A2aOiLi14OpwasefBxwTzMIUmodI-p2BNHaZZD71xkBOgIvdHQtzTgfek8YiCXlEUFLe1cWrzoHkBED-GxZ7bmz8C9mXOoOjuWox7x9UQSYmm7FCUPIDASPolnNcOOVEZYw"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Deluxe Colonial Suite</h4>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps font-bold shrink-0">Active</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="text-primary font-bold">$140/night</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.95 (142)
+                  </span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 text-on-surface-variant font-label-md text-label-md">
+<span>94% Occupancy (8 Units)</span>
+<div class="flex items-center gap-2">
+<button class="text-primary hover:underline font-semibold">Edit</button>
+<span>•</span>
+<button class="text-secondary hover:underline font-semibold">Pricing</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Room Card 2 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 group hover:shadow-md transition-shadow">
+<div class="flex gap-4 items-center">
+<div class="w-20 h-20 rounded-xl bg-surface-container overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Luxury private plunge pool villa enclosed by tropical frangipani and banana palms in Siem Reap with sandstone deck and outdoor rain shower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXu-3SaHU6wJGGQM5-li5Tg67xPq-PB3t622VdeGfsKclA6xlwo7w3cempu7BlbaE382WLeUHCV7kcVKBBO7F_h27BoDRVDJavE9-8KhD9W5PCcUlMgCjfysQXL31vD6GMY9cuxNYhpQbAzrEq2tesMimqLmq-KAT42bd6oDsyWR6wwfXBZ6RM7BuqVCJE0ESQtMAU5EXD8f_IrcH_foXPtOfhR-_FcMmXprMdn30-6MEtBAN2Kv1SxA"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Saltwater Pool Villa</h4>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps font-bold shrink-0">Active</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="text-primary font-bold">$260/night</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.98 (86)
+                  </span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 text-on-surface-variant font-label-md text-label-md">
+<span>88% Occupancy (6 Units)</span>
+<div class="flex items-center gap-2">
+<button class="text-primary hover:underline font-semibold">Edit</button>
+<span>•</span>
+<button class="text-secondary hover:underline font-semibold">Pricing</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Room Card 3 -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 group hover:shadow-md transition-shadow">
+<div class="flex gap-4 items-center">
+<div class="w-20 h-20 rounded-xl bg-surface-container overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Serene garden veranda overlooking lush Siem Reap lotus ponds and landscaped tropical greenery with wicker daybed and ambient warm lantern light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx-0aeVoxG-G6OWLkLzmwHtrVPfV6TCoCJ0qp3H30yTZpQ9l9lUFqc4343ojbXaxkZoOLINpsOw9OQgoUYU-9CMjWIUAmQyjuQbLbeGyyUqBzr2dgqLeJDo2Ndkfj_mhQQL9CPDKut6C9uokGtI3MFEyc5KbWVJ-WKMPnTXJZ7I850chxnMiK3YZj2TG2yEwhpdDv1-xbhbA9jEKhniA7lBQ-IQGS2g8tYMgIvu_e3eDIzBU__nQGbOg"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h4 class="font-title-md text-title-md text-on-surface truncate">Riverside Garden Pavilion</h4>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-label-caps font-bold shrink-0">Active</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="text-primary font-bold">$95/night</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.88 (210)
+                  </span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2 text-on-surface-variant font-label-md text-label-md">
+<span>98% Occupancy (10 Units)</span>
+<div class="flex items-center gap-2">
+<button class="text-primary hover:underline font-semibold">Edit</button>
+<span>•</span>
+<button class="text-secondary hover:underline font-semibold">Pricing</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Inventory CRUD & Batch Controls -->
+<div class="p-5 rounded-2xl bg-surface-container-high/60 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">Quick Availability Controls</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Instant Sync</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<button class="p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-left transition-colors flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Instant Blackout</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Block dates / repairs</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">lock</span>
+</button>
+<button class="p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-left transition-colors flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Seasonal Rates</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Water Festival Peak</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">currency_exchange</span>
+</button>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ Add Room Category</span>
+</button>
+</div>
+<!-- APSARA & MoT Heritage Green Code Notice Box -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-tertiary"></div>
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-tertiary-fixed/40 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">energy_savings_leaf</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-tertiary font-bold uppercase tracking-wider">MoT Hospitality &amp; APSARA Green Code</span>
+<h4 class="font-title-md text-title-md text-on-surface">Angkor Heritage Eco-Pact Compliance</h4>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Annual inspection scheduled for <strong>November 12, 2025</strong>. Ensure zero single-use plastics in suites, greywater recycling logs are up to date, and local organic sourcing certificates from Siem Reap farming co-ops are posted.
+          </p>
+<div class="flex items-center justify-between pt-2 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1.5 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">call</span> MoT Hotline: +855 23 213 741
+            </span>
+<span class="text-tertiary font-bold hover:underline cursor-pointer">Inspector Protocol →</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/components/partner.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+</body>
+</html>

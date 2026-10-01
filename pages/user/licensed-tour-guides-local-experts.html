@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licensed Tour Guides Local Experts | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased" data-layout="site">
+<!-- ===== Header / top bar ===== --><tos-user-site-header active="guides"></tos-user-site-header>
+<!-- ===== Main content ===== --><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Trust Bar & Currency Ticker -->
+<div class="w-full bg-surface-container-low border-b border-surface-container-high/60">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-2.5 flex flex-col md:flex-row items-center justify-between gap-2 text-on-surface-variant">
+<nav aria-label="Breadcrumb" class="flex items-center gap-1.5 font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="../../index.html">
+<span class="material-symbols-outlined text-[16px]">home</span>
+          Home
+        </a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Licensed Guides &amp; Local Experts</span>
+</nav>
+<div class="flex flex-wrap items-center gap-3 md:gap-6 font-label-caps text-label-caps text-on-surface-variant">
+<div class="flex items-center gap-1.5 text-primary bg-primary-fixed/30 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="tracking-wide">MoT &amp; APSARA Certified • 100% Vetted</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-0.5 rounded-full text-secondary">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
+<span>Bakong KHQR Escrow Protected</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface font-semibold bg-surface-container-high px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px] text-tertiary">currency_exchange</span>
+<span>USD/KHR: $1 = 4,085៛</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Page Header -->
+<!-- Section: Discover Cambodia with Licensed Heritage Guides &amp; Local  --><section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-lowest via-background to-background py-10 md:py-14">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin relative z-10">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps mb-4 uppercase">
+<span class="material-symbols-outlined text-[14px]">temple_buddhist</span>
+            Kingdom of Wonder • Accredited Cultural Storytellers
+          </div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-4">
+            Discover Cambodia with Licensed Heritage Guides &amp; Local Experts
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Connect with certified local historians, epigraphers, and eco-rangers across Siem Reap, Phnom Penh, Battambang, and Mondulkiri. Every guide holds an official Ministry of Tourism badge with protected Bakong daily escrow rates.
+          </p>
+</div>
+<!-- Quick Summary Box -->
+<div class="flex items-center gap-4 bg-surface-container rounded-2xl p-4 shadow-sm self-start lg:self-auto min-w-[280px]">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">badge</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary leading-tight">142</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Ministry Guides</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium">0% Hidden Agency Surcharges</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter & Discovery Console -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin w-full -mt-4 mb-10">
+<div class="bg-surface-container-lowest rounded-2xl p-5 md:p-6 shadow-md border border-surface-container-high/80">
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Top Row Search Bar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
+<div class="lg:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full h-11 pl-11 pr-4 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Search by name, language (French, Khmer, Japanese), or specialty..." type="text"/>
+</div>
+<div class="lg:col-span-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">map</span>
+<select class="w-full h-11 pl-11 pr-8 rounded-xl bg-surface-container-low text-on-surface text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all cursor-pointer">
+<option value="all">All Regions &amp; Provinces</option>
+<option value="siem-reap">Siem Reap &amp; Angkor Complex</option>
+<option value="phnom-penh">Phnom Penh &amp; Kandal</option>
+<option value="battambang">Battambang Heritage Quarter</option>
+<option value="kampot-kep">Kampot &amp; Kep Coastlines</option>
+<option value="mondulkiri">Mondulkiri &amp; Cardamom Range</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<div class="lg:col-span-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">category</span>
+<select class="w-full h-11 pl-10 pr-8 rounded-xl bg-surface-container-low text-on-surface text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all cursor-pointer">
+<option value="all">All Specialties</option>
+<option value="archaeology">Angkorian Architecture</option>
+<option value="history">Royal &amp; Genocidal History</option>
+<option value="eco">Eco-Trek &amp; Rainforest</option>
+<option value="culinary">Street Food &amp; Farm</option>
+<option value="photo">Photography &amp; Sunrise</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<div class="lg:col-span-2">
+<button class="w-full h-11 bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant transition-all font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-sm" type="submit">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+              Find Guides
+            </button>
+</div>
+</div>
+<!-- Languages Filter Chips -->
+<div class="pt-2 flex flex-wrap items-center gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase mr-1">Languages:</span>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-primary text-on-primary" type="button">All Languages</button>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">English (EN)</button>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">Français (FR)</button>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">日本語 (JA)</button>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">中文 (ZH)</button>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">Deutsch (DE)</button>
+<button class="px-3 py-1 rounded-full text-label-md font-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">ភាសាខ្មែរ (KM)</button>
+</div>
+<!-- Sub Filter Checkbox Badges -->
+<div class="pt-3 border-t border-surface-container-high/60 flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-4">
+<label class="flex items-center gap-2 cursor-pointer font-body-sm text-body-sm text-on-surface select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span>MoT Class 1 License Only</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer font-body-sm text-body-sm text-on-surface select-none">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span>Sunrise Ready (04:30 AM)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer font-body-sm text-body-sm text-on-surface select-none">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span>Private Vehicle Included</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer font-body-sm text-body-sm text-on-surface select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span>Bakong Instant Escrow</span>
+</label>
+</div>
+<div class="flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant">
+<span>Sort by:</span>
+<select class="bg-transparent font-semibold text-primary focus:outline-none cursor-pointer">
+<option>Highest Rated (Top Reviews)</option>
+<option>Most Years Experience</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+</form>
+</div>
+</section>
+<!-- Guides Directory Results Grid -->
+<!-- Section: Accredited Local Guides --><section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin w-full mb-16">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-baseline gap-2">
+<h2 class="font-headline-sm text-headline-sm text-primary">Accredited Local Guides</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(Showing 1 to 8 of 142 licensed specialists)</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 font-label-caps text-label-caps text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+        Verified APSARA &amp; MoT Badges
+      </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Guide Card 1 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<!-- Photo & Status -->
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img alt="Sokha Leap, MoT Certified Senior Historian" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VrXAape764zu4P6-hZmV9I4OqKnBz8_odseGPOPK0qQYIKtgBUtuJ2Gp6ZzxW5OVTrPyBUvoV8wLBPv19Iw14eLYx7al-PHEmOg-r8ehZqiHT-w0EOuaMDxkIiaIdktZJNhSAlvNE4Hcp99yIQUzUAZ3Puorenmfv7rrdfH0Wl8VI62BlsdDDGHasz2updkDA2J7mK_b3DklDq4WXruL41d0ArYf-7RAXuhzitTuaB2eiNwGJOPvpQZoMN"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                MoT Senior Historian
+              </span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                APSARA #SR-4092
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.98</span>
+<span class="text-on-surface-variant font-normal">(412)</span>
+</div>
+</div>
+<!-- Body Info -->
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Sokha Leap</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">12 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Siem Reap • Angkor Region</p>
+</div>
+<!-- Languages -->
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English (Fluent)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">French (C1)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer (Native)</span>
+</div>
+<!-- Specialties -->
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Angkor Wat Architecture, Banteay Srei Carvings, Vedic &amp; Buddhist Epigraphy, Sunset vantage points.
+            </p>
+<!-- Feature Tags -->
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">wb_twilight</span>
+                04:30 AM Ready
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+                MoT Class 1
+              </span>
+</div>
+</div>
+</div>
+<!-- Footer & Pricing -->
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$45</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~183,825 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 2 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img alt="Dara Chan, MoT Licensed Cultural Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WzbXhLS7Rrqhr2TiAsfuQURmLz64M4rlcE5jHmVBDRXsxKHwCdnQXZ2EL8FpWifqvkoMSxfmSkJP2VZlILI4zzAmlQEV5rR4qRVjzyDpwM2CNMgW7zh8Bm_d6jGUcFfa3ClxvjxLDglinG7vzVnur-4aII_FLANefMNn5fAj4iMCSiUGyyNi4EZRe2VV6WnW97e74BhaPeCP2dEigl9wZiXshgK6Vhstl5XIE-DhGB_hFRZ8EZcrD5OrQ"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                MoT Licensed Cultural Guide
+              </span>
+<span class="bg-secondary text-on-secondary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Capital Specialist
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.95</span>
+<span class="text-on-surface-variant font-normal">(320)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Dara Chan</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">9 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Phnom Penh • Capital</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English (Fluent)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Japanese (N2)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Royal Palace Heritage, Toul Sleng &amp; Genocidal History, French Colonial Architecture walk.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">directions_car</span>
+                SUV Option
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">qr_code_scanner</span>
+                KHQR Verified
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$40</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~163,400 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 3 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up portrait of Bopha Rath, a Cambodian culinary historian and female guide wearing traditional krama around her neck, standing smiling in an open vibrant morning spice market in Siem Reap, warm natural light, cinematic documentary photography with soft background blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpN5b6tYNUFrPbg-TUP2zt_IZffaTg5nqBMkyzTUSig83niC81T5NMamaavO0t6c0VZW1p7VOyj3jNcQTaM8FpMWA3tzwUhH_eZdxvOgPXPSH8X_ZD_bjXFqAYikVud3YaUESU5KLy4IJEkXmlJg8VnFlxGxHMh4kdTKcfKkDuB7dwWO42m3KyP7Yszz6xM9uXxp1D5_3qjNIMbcLnXHnm1Rf7XFCBOY6WIge3tkK74xVArJh7kfUEKg"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Culinary Historian
+              </span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Market Specialist
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.99</span>
+<span class="text-on-surface-variant font-normal">(285)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Bopha Rath</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">7 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Siem Reap • Culinary</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English (Fluent)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">German (B2)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Old Market breakfast tours, organic Kampot pepper workshops, ancient fermentation and prahok history.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">skillet</span>
+                Chef Collab
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">storefront</span>
+                Morning Route
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$38</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~155,230 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 4 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Outdoor documentary portrait of Vannak Meas, an experienced male Cambodian wilderness guide in forest green patrol gear, smiling in front of the lush dense canopy of Cardamom Mountains, soft mist, early morning rainforest adventure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa8NgEC6LBnfc6RoIaYhCWx5I5nUrO9dqvPPDclwPlKqvsM0xFmSVXOInp8Al44SZI6smRpDYyfWUbhvTr3F88xh8XLH9BH2ehjExDnYNFSNtEcnty66xlq8M58rTu3uHC1n6DTElCcT0DqIGD9XYSyN29RNG2pShhL3B5GZ6mDqzcacQgaQ0Q3mgzduPDMAilA_eOlBoCGZr48LmjYQcCTGCgq5gmXvJtCXZIJUNBky8nNIG2l5ReZg"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Cardamom Eco-Ranger
+              </span>
+<span class="bg-surface-container text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Wildlife Patrol
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.94</span>
+<span class="text-on-surface-variant font-normal">(198)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Vannak Meas</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">11 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Koh Kong • Cardamoms</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English (Fluent)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer (Native)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Tatai River kayak navigation, deep rainforest treks, hornbill watching, ethical gibbon observation.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">medical_services</span>
+                Wilderness WFA
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">camping</span>
+                Gear Included
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$50</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~204,250 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 5 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Editorial portrait of Sreyneang Prom, a female Cambodian photographer and guide holding a DSLR camera with professional strap, smiling warmly in the golden dawn light outside Preah Khan temple ruins, warm sunlight and ancient temple stone walls in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO0O3O0b4I4RM5HtCbeEi6llW1-06k_GKl-GPZqVHZE71Zif37STqmK6kgEmxZh-rOTY21Nz3JkOlG0Zo_ZYwdswUtotkL-fAJVJwAcDiXiHs8ueWzwdEVRDqPRdsKcO56v_hxRMUYUgI5rc0GcR7EsJoNSa87hEae4TPhdFKWHnChLF6fEevGNvHbKKreHEVpDxJt57GTQMnEhjPkkfhSObum07tzPTpUxqUz2r8R6d793UNpi4fZiA"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Master Photographer
+              </span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Sunrise Specialist
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.97</span>
+<span class="text-on-surface-variant font-normal">(350)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Sreyneang Prom</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">8 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Siem Reap • Photography</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Chinese (Mandarin)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Angkor Wat reflection pond composition, golden hour light angles, secluded jungle doorway frames.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">camera_alt</span>
+                Camera Gear Care
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">lock_clock</span>
+                Early Access
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$55</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~224,675 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 6 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Authentic portrait of Kosal Heng, a friendly middle-aged Cambodian tour guide with broad warm smile standing near his traditional decorated remorque tuk-tuk in rural Battambang with green rice paddy fields and coconut palm trees in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwNNaKUZhc8JqRW5ZxVMQhWs10t-TEvzG8alBLD1yVbq1gws33r7f_qdJPMLZEe57PiWzmu04ke_oGGJGtMZSCT7Rmd9pfLJoQTOWVmwDzhJiV-7Hmo63F6rtAY426UL0o_EUsOBI0W4aXhd2BUfZLye7wbPyuy4SotueclSu4yC6pFB3k7yKWF7X0AS-X4JM69Fzdxe5pJ_CaKtMo-ZwDVjldURyKB4BuCTS_2Vz9ogRSUWK2_qOhoA"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Battambang Heritage
+              </span>
+<span class="bg-secondary text-on-secondary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Rural Living Guide
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.92</span>
+<span class="text-on-surface-variant font-normal">(210)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Kosal Heng</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">10 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Battambang • Countryside</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English (Fluent)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">French (B1)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Norry bamboo railway ride, Phnom Sampeau bat cave sunset, century-old Wat Kor wooden homes.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">electric_rickshaw</span>
+                Tuk-Tuk Included
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">nutrition</span>
+                Fruit Tasting
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$35</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~142,975 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 7 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Portrait of Chhaya Neth, an indigenous Bunong community guide in Mondulkiri wearing a woven artisan sash and badge, smiling in front of the pine tree hills and coffee plantations of Sen Monorom, misty highland light, authentic ethnographic travel portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoftnAo_5DlUJCmLSxPGRhvLCioLM76kY2SaZIXBhG616i4nvAILTC01O4PvIW1nQCtT7SFyjVZnlvYfd1-aPEji2bebvgadcC94AldPfIkzLKBgVjQ7xouoL2oI5QJR1gN7cDs7EHRal352ltrgjgS76S_N22hzfAkmvkoCCvVC0Km9oTk28iwMAQfcbOwmYM7N6DrSlD0W8rrBBLzUZ3J5_uHI8ZWZ1AcGwn_or9eg4zX5JArQk6lg"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Bunong Cultural Liaison
+              </span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Ethical Wildlife
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.96</span>
+<span class="text-on-surface-variant font-normal">(175)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Chhaya Neth</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">6 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Mondulkiri Highlands</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Bunong Dialect</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Elephant Valley ethical sanctuary visits, ancestral spirit forest ceremonies, organic coffee harvesting.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">nature_people</span>
+                Indigenous Direct
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">eco</span>
+                MoT Eco-Badge
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$48</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~196,080 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+<!-- Guide Card 8 -->
+<article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group border border-surface-container-high/60">
+<div>
+<div class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dignified portrait of Thida Seng, a senior Cambodian female epigraphy scholar and heritage guide holding archaeological notes, standing before intricately carved pink sandstone bas-reliefs of Banteay Srei temple, soft warm dappled sunlight, refined scholarly aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2kITlqZRRKw6QqieEEGx26GR89dAq0CdDSQ1-Ck50D_b5o9dnxGkjimj63Fey881dPB1SyB8UciffrlAGXfGV-juXh4g_BCRcgPCU3lIDQAv6m_ud-KUv197oP0VkV7jmidAAd3FN_-7xCaODZkM3I0NTQ5BBaBP63eeQLWntA3gx6FtG_NC9DIMM7HkxrhV7oxZ-n8CiXPpA0e9g42Lr7VvIRD10DEI7CwB5PsOZx-_JrSVVrOX8Qg"/>
+<div class="absolute top-3 left-3 flex flex-col gap-1">
+<span class="bg-primary/90 backdrop-blur text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                MoT Senior Lecturer
+              </span>
+<span class="bg-surface-container text-on-surface font-label-caps text-label-caps px-2 py-0.5 rounded-full shadow-sm">
+                Epigraphy Master
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.99</span>
+<span class="text-on-surface-variant font-normal">(440)</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Thida Seng</h3>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">14 Yrs Exp</span>
+</div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Siem Reap • Remote Ruins</p>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">English (Fluent)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Español (C1)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-label-caps text-label-caps">Khmer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Sanskrit &amp; Old Khmer lintel translations, Koh Ker pyramid expeditions, Beng Mealea ruin explorations.
+            </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-md text-label-md">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">history_edu</span>
+                Sanskrit Fellow
+              </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">explore</span>
+                Remote Temples
+              </span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-0 border-t border-surface-container/60 mt-2">
+<div class="flex items-baseline justify-between py-2.5">
+<div>
+<span class="font-title-lg text-title-lg text-primary font-bold">$52</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ day</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">~212,420 KHR</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1" onclick="this.innerText = 'Added ✓'; this.classList.add('bg-primary-container', 'text-on-primary-container');" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+              + My Plan
+            </button>
+<button class="h-9 rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors flex items-center justify-center shadow-sm" type="button">
+              Book Guide
+            </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination Controls -->
+<div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+        Displaying 1–8 of 142 accredited Cambodian heritage professionals
+      </span>
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-outline-variant hover:text-on-surface hover:bg-surface-container disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center font-label-md text-label-md bg-primary text-on-primary font-bold shadow-sm">1</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">2</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">3</button>
+<span class="px-2 text-outline-variant">...</span>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">18</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Interactive Map & Region Insight Visual Component -->
+<!-- Section: Find Guides Stationed at Key Archeological Hubs --><section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin w-full mb-16">
+<div class="bg-surface-container-low rounded-3xl p-6 md:p-8 relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-5 space-y-4">
+<div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+            Provincial Deployment
+          </div>
+<h3 class="font-headline-md text-headline-md text-primary">Find Guides Stationed at Key Archeological Hubs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Our guides live directly within the communities they interpret. From the sacred sandstone of the Angkor Park to the floating villages of Tonlé Sap, hire local knowledge that preserves authentic heritage.
+          </p>
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-title-md text-title-md text-on-surface">Siem Reap • Angkor Zone</span>
+</div>
+<span class="font-label-caps text-label-caps bg-surface-container px-2 py-0.5 rounded text-primary font-bold">84 Guides</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-title-md text-title-md text-on-surface">Phnom Penh • Capital District</span>
+</div>
+<span class="font-label-caps text-label-caps bg-surface-container px-2 py-0.5 rounded text-secondary font-bold">29 Guides</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="font-title-md text-title-md text-on-surface">Battambang • Western Heritage</span>
+</div>
+<span class="font-label-caps text-label-caps bg-surface-container px-2 py-0.5 rounded text-tertiary font-bold">17 Guides</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-surface-tint"></span>
+<span class="font-title-md text-title-md text-on-surface">Mondulkiri • Highland Eco</span>
+</div>
+<span class="font-label-caps text-label-caps bg-surface-container px-2 py-0.5 rounded text-surface-tint font-bold">12 Guides</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="w-full h-80 md:h-96 bg-cover bg-center rounded-2xl shadow-inner relative flex items-end p-4 overflow-hidden border border-surface-container-high/80" data-location="Siem Reap, Cambodia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9jetmqHuNfES_j4hCaDF47llqBGnB2naY9xLfSc2b8sKlvCfJ1doovV2W1i9aLJFMLNBhT4jNkKV5IW4OsyWbJP4Rfi9ad_4n_-mBOgimzr-H6tra19qgK1tovwo5qsr4J2GlbEsRe_W29Lpr9H9mu0Dpqz40FqQmIEVGUMQzc59pGFYyM66Pk19tpW5hSZGmcYuLsJ_TXTg0zWnYtb1QK35xA1cOYQ_VeJ3ikYGW3NmBwAprHejqdw')">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md p-4 rounded-xl max-w-sm shadow-md">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">Active Dispatch Status</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Live guide check-ins confirmed at Angkor Archaeological Park entrance check-post and Phnom Bakheng.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ethical Guiding & Official Accreditation Pillars -->
+<!-- Section: Ethical Guiding Accord &amp; Traveler Guarantees --><section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin w-full mb-16">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold">Kingdom Standards</span>
+<h2 class="font-headline-md text-headline-md text-primary mt-1">Ethical Guiding Accord &amp; Traveler Guarantees</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+        Tos-Team operates strictly under the Royal Government of Cambodia Ministry of Tourism framework to uplift professional cultural ambassadors.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Pillar 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-surface-container-high/60 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-4">
+<span class="material-symbols-outlined text-[26px]">assignment_turned_in</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">MoT Licensing Guarantee</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Every guide holds an authentic photo badge issued by the Ministry of Tourism or APSARA National Authority. Background checks, national history examinations, and ethics credentials are re-certified bi-annually.
+          </p>
+</div>
+<div class="pt-3 border-t border-surface-container text-primary font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Official Registration Registry</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-surface-container-high/60 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-4">
+<span class="material-symbols-outlined text-[26px]">shield</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Bakong Escrow Protection</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Your booking funds are securely locked in the National Bank of Cambodia Bakong escrow protocol. Payments are only released to your guide upon successful daily itinerary completion or pass validation.
+          </p>
+</div>
+<div class="pt-3 border-t border-surface-container text-secondary font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Zero Payment Fraud Risk</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-surface-container-high/60 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed mb-4">
+<span class="material-symbols-outlined text-[26px]">volunteer_activism</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Fair Living Wage Standard</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+            Unlike foreign corporate aggregator platforms charging up to 35% commission, 100% of the agreed guide tariff directly supports Cambodian families, rural educations, and temple preservation funds.
+          </p>
+</div>
+<div class="pt-3 border-t border-surface-container text-tertiary font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span>Community Reinvestment</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner Guide Callout Banner & AI Synchronizer -->
+<!-- Section: Are You a Licensed MoT Guide or Cambodian Eco-Liaison? --><section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin w-full mb-16">
+<div class="bg-primary rounded-3xl p-8 md:p-12 text-on-primary shadow-xl relative overflow-hidden">
+<!-- Decorative Backdrop Pattern -->
+<div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-primary-container/40 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-8 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed-dim/20 text-primary-fixed font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+            Guide Community Network
+          </div>
+<h2 class="font-headline-lg text-headline-lg tracking-tight">
+            Are You a Licensed MoT Guide or Cambodian Eco-Liaison?
+          </h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl leading-relaxed">
+            Join the Tos-Team verified guide ecosystem with 0% platform commissions. Enjoy instant Bakong settlements directly to your phone, automated multi-language tourist calendar sync, and verified traveler insurance coverage.
+          </p>
+<div class="flex flex-wrap gap-4 pt-2">
+<div class="flex items-center gap-2 font-label-md text-label-md text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+              Instant KHQR Payouts
+            </div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+              Automated Route Matching
+            </div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+              Dedicated Dispatch Hotline
+            </div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-3">
+<button class="w-full h-12 bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg rounded-xl transition-all flex items-center justify-center gap-2 shadow-md" type="button">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+            Apply as Licensed Guide
+          </button>
+<button class="w-full h-12 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary font-label-lg text-label-lg rounded-xl transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">sync_alt</span>
+            Open AI Itinerary Sync
+          </button>
+<p class="font-label-caps text-label-caps text-center text-primary-fixed-dim/80 pt-1">
+            Requires valid Ministry ID card &amp; National Police check
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Temple Etiquette & Heritage Preservation Box -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin w-full mb-12">
+<div class="p-6 bg-surface-container rounded-2xl border-l-4 border-tertiary-fixed-dim flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Angkor Visitor Code of Conduct Notice</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl mt-0.5">
+            When touring sacred monuments, shoulders and knees must remain covered at all times. Touching carvings or sitting on fragile lintels is strictly forbidden. Your licensed guide will provide cultural dress guidance prior to morning departure.
+          </p>
+</div>
+</div>
+<a class="font-label-lg text-label-lg text-secondary hover:text-primary transition-colors flex items-center gap-1 shrink-0 font-semibold" href="#">
+        Read Code of Conduct
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</section>
+</div>
+</main>
+<!-- ===== Footer ===== --><footer class="w-full bg-surface-container-low pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter mb-space-xl"><div class="lg:col-span-2 pr-0 lg:pr-space-lg"><div class="flex items-center gap-space-sm mb-space-sm"><span class="flex items-center justify-center w-8 h-8 rounded-lg bg-surface-container-high text-primary font-headline-sm text-headline-sm">🇰🇭</span><span class="font-headline-md text-headline-md text-primary">Tos-Team</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-space-md">Curated Cambodian journeys, heritage itineraries, and provincial adventures connecting travelers to the heart of the Kingdom of Wonder.</p><div class="p-space-md bg-surface-container rounded-xl flex items-center gap-space-md shadow-[0_2px_8px_-2px_rgba(28,27,25,0.04)]"><div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed"><span class="material-symbols-outlined text-[20px]">verified_user</span></div><div class="flex flex-col"><span class="font-label-caps text-label-caps text-tertiary uppercase">Financial Security Guarantee</span><span class="font-title-md text-title-md text-on-surface">Bakong Escrow Protected</span><span class="font-body-sm text-body-sm text-on-surface-variant">Verified National Bank of Cambodia Tourism Escrow</span></div></div></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Exploration</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="explore-cambodia.html">Angkor Archaeological Park</a></li><li><a class="hover:text-primary transition-colors" href="explore-cambodia.html">Mondulkiri Wildlife Sanctuary</a></li><li><a class="hover:text-primary transition-colors" href="explore-cambodia.html">Koh Rong Archipelago</a></li><li><a class="hover:text-primary transition-colors" href="explore-cambodia.html">Cardamom Rainforest Trails</a></li><li><a class="hover:text-primary transition-colors" href="explore-cambodia.html">Battambang Heritage Quarter</a></li></ul></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Trip Planning</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="ai-trip-planner-itinerary-generator.html">Automated Itinerary Builder</a></li><li><a class="hover:text-primary transition-colors" href="travel-tips-cultural-guide.html">Cultural Dress &amp; Etiquette</a></li><li><a class="hover:text-primary transition-colors" href="travel-tips-cultural-guide.html">Wet &amp; Dry Season Matrix</a></li><li><a class="hover:text-primary transition-colors" href="#">Temple Pass (e-Ticket)</a></li><li><a class="hover:text-primary transition-colors" href="licensed-tour-guides-local-experts.html">Community Eco-Guides</a></li></ul></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Stays &amp; Travel</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="hotels-eco-stays.html">Boutique Heritage Lodges</a></li><li><a class="hover:text-primary transition-colors" href="bus-inter-city-transit.html">Intercity VIP Buses</a></li><li><a class="hover:text-primary transition-colors" href="#">Private River Charters</a></li><li><a class="hover:text-primary transition-colors" href="#">Tuk-Tuk Daily Bookings</a></li><li><a class="hover:text-primary transition-colors" href="#">Provincial Express Vans</a></li></ul></div></div><div class="pt-space-md bg-surface-container-high/40 rounded-xl px-space-md py-space-sm mb-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-label-md text-label-md"><span>Official Tourism Partner • Ministry of Tourism of Cambodia</span><div class="flex items-center gap-space-md"><a class="hover:text-primary transition-colors" href="#">Tourism License No. 0482/MoT</a><a class="hover:text-primary transition-colors" href="#">Heritage Preservation Accord</a></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-sm text-on-surface-variant font-body-sm text-body-sm"><span>© 2025 Tos-Team KH. All rights reserved. Crafted with care for the Khmer Kingdom.</span><div class="flex items-center gap-space-md"><a class="hover:text-primary transition-colors" href="#">Terms of Service</a><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors" href="#">Bakong Settlement Disclosures</a></div></div></div></footer>
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/components/site.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/user/licensed-tour-guides-local-experts.js" defer></script>
+</body>
+</html>

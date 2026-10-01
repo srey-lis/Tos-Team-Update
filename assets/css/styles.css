@@ -1,0 +1,400 @@
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  /* Page content sits flush against the fixed header / footer. */
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+/* Hide scrollbars (design decision carried over from the original mockups). */
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --tos-control-radius: 10px;
+  --tos-card-radius: 16px;
+  --tos-control-border: #bec9c7;
+  --tos-focus-ring: rgba(0, 69, 65, 0.22);
+}
+
+html[lang="km"] [data-layout="site"] {
+  font-family: "Noto Sans Khmer", "Plus Jakarta Sans", sans-serif;
+}
+
+[data-layout] button:not(.rounded-full) {
+  border-radius: var(--tos-control-radius);
+  font-family: inherit;
+}
+
+[data-layout] button:focus-visible,
+[data-layout] input:focus-visible,
+[data-layout] select:focus-visible,
+[data-layout] textarea:focus-visible,
+[data-layout] a:focus-visible {
+  outline: 2px solid var(--tos-focus-ring);
+  outline-offset: 2px;
+}
+
+[data-layout] main :is(.bg-surface-container-lowest, .bg-white).rounded-xl,
+[data-layout] main :is(.bg-surface-container-lowest, .bg-white).rounded-2xl {
+  border-radius: var(--tos-card-radius);
+}
+
+[data-layout] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+[data-layout] select,
+[data-layout] textarea {
+  border-radius: var(--tos-control-radius);
+}
+
+.site-notice {
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
+  z-index: 100;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 0.75rem 1rem;
+  border-radius: var(--tos-control-radius);
+  background: #32302e;
+  color: #f5f0ec;
+  box-shadow: 0 8px 24px rgba(28, 27, 25, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.5rem);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.site-notice.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html.dark body {
+  background: #101715;
+  color: #e8efed;
+  color-scheme: dark;
+}
+html.dark [class~="bg-background"],
+html.dark [class~="bg-surface"] {
+  background-color: #101715;
+}
+html.dark [class~="bg-surface-container-lowest"],
+html.dark [class~="bg-white"] {
+  background-color: #18211f;
+}
+html.dark [class~="bg-surface-container-lowest/90"],
+html.dark [class~="bg-surface-container-lowest/95"] {
+  background-color: rgba(24, 33, 31, 0.94);
+}
+html.dark [class~="bg-surface-container-lowest/10"] {
+  background-color: rgba(24, 33, 31, 0.22);
+}
+html.dark [class~="bg-surface-container-low"] {
+  background-color: #1d2926;
+}
+html.dark [class~="bg-surface-container"],
+html.dark [class~="bg-surface-container-high"] {
+  background-color: #26332f;
+}
+html.dark [class~="bg-surface-container-highest"] {
+  background-color: #33413c;
+}
+html.dark [class~="bg-surface/85"],
+html.dark [class~="bg-surface/90"] {
+  background-color: rgba(16, 23, 21, 0.92);
+}
+html.dark [class~="text-on-surface"],
+html.dark [class~="text-on-background"] {
+  color: #e8efed;
+}
+html.dark [class~="text-on-surface-variant"],
+html.dark [class~="text-outline"] {
+  color: #bdcac5;
+}
+html.dark [class~="text-primary"] {
+  color: #75d5c8;
+}
+html.dark [class~="bg-primary"] {
+  background-color: #0b7168;
+}
+html.dark [class~="bg-primary-container"] {
+  background-color: #155b55;
+}
+html.dark [class~="bg-primary/90"] {
+  background-color: rgba(11, 113, 104, 0.92);
+}
+html.dark [class~="bg-secondary"] {
+  background-color: #b94d2c;
+}
+html.dark [class~="bg-secondary-container"] {
+  background-color: #71351f;
+}
+html.dark [class~="bg-tertiary"] {
+  background-color: #76540f;
+}
+html.dark [class~="text-secondary"] {
+  color: #ff9b79;
+}
+html.dark [class~="text-tertiary"] {
+  color: #f4c46f;
+}
+html.dark [class~="text-on-primary-container"] {
+  color: #c4eee9;
+}
+html.dark [class~="text-on-secondary-container"] {
+  color: #ffe0d5;
+}
+html.dark [class~="bg-primary-fixed"] {
+  background-color: #20433e;
+}
+html.dark [class~="bg-primary-fixed-dim"] {
+  background-color: #28514a;
+}
+html.dark [class~="text-primary-fixed"],
+html.dark [class~="text-primary-fixed-dim"] {
+  color: #b7eee7;
+}
+html.dark [class~="bg-secondary-fixed"] {
+  background-color: #563126;
+}
+html.dark [class~="bg-tertiary-fixed"] {
+  background-color: #51401f;
+}
+html.dark [class~="bg-secondary-fixed-dim"] {
+  background-color: #603b2e;
+}
+html.dark [class~="bg-tertiary-fixed-dim"] {
+  background-color: #594820;
+}
+html.dark [class~="text-on-primary-fixed"],
+html.dark [class~="text-on-primary-fixed-variant"] {
+  color: #c4eee9;
+}
+html.dark [class~="text-on-secondary-fixed"],
+html.dark [class~="text-on-secondary-fixed-variant"] {
+  color: #ffe0d5;
+}
+html.dark [class~="text-on-tertiary-fixed"],
+html.dark [class~="text-on-tertiary-fixed-variant"] {
+  color: #ffe1a8;
+}
+html.dark header.fixed[class~="bg-surface/85"] {
+  border-bottom: 1px solid #33413c;
+}
+html.dark .home-hero-scrim-bottom {
+  background-image: linear-gradient(to top, #101715 0%, rgba(16, 23, 21, 0.58) 48%, rgba(0, 69, 65, 0.28) 100%);
+}
+html.dark .home-hero-scrim-side {
+  background-image: linear-gradient(to right, rgba(16, 23, 21, 0.68), transparent 78%);
+}
+html.dark [class~="border-outline-variant"],
+html.dark [class~="border-surface-container"],
+html.dark [class~="border-[#E7E1D6]"] {
+  border-color: #45554f;
+}
+html.dark .mobile-nav-panel.is-open {
+  background: rgba(24, 33, 31, 0.98);
+}
+html.dark .site-nav-toggle,
+html.dark .sidebar-toggle {
+  background: #26332f;
+  color: #e8efed;
+}
+
+/* Custom elements such as <tos-admin-sidebar> replace themselves on load;
+   this only matters for the split second before the component script runs. */
+:not(:defined) {
+  display: contents;
+}
+
+/* ---- 2. Dashboard layout (admin + partner portals) --------------------------
+   Desktop (>= 1024px) is untouched: fixed 18rem sidebar + `pl-72` content.
+   Below 1024px the sidebar becomes an off-canvas drawer opened by the
+   hamburger button that assets/js/script.js injects into the header.        */
+.sidebar-toggle,
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 1023.98px) {
+  /* Drawer */
+  [data-layout="dashboard"] aside:not(main aside) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    max-width: 85vw;
+    z-index: 60;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+  [data-layout="dashboard"].sidebar-open aside:not(main aside) {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.25s ease, visibility 0s;
+    box-shadow: 0 0 40px rgba(28, 27, 25, 0.25);
+  }
+
+  /* Content no longer needs to leave room for the sidebar */
+  [data-layout="dashboard"] > div.pl-72 {
+    padding-left: 0;
+  }
+  [data-layout="dashboard"] header.fixed.left-72 {
+    left: 0;
+  }
+  /* Room for the hamburger button at the start of the header */
+  [data-layout="dashboard"] > header.fixed,
+  [data-layout="dashboard"] header.fixed.left-72 {
+    padding-left: 3.5rem;
+  }
+
+  /* Hamburger + backdrop */
+  .sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 55;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--tos-toggle-bg, #f2ede9);
+    color: #3f4947;
+    cursor: pointer;
+  }
+  .sidebar-toggle:focus-visible {
+    outline: 2px solid #0f5e59;
+    outline-offset: 2px;
+  }
+  [data-layout="dashboard"].sidebar-open .sidebar-toggle {
+    z-index: 70; /* stay above the drawer and act as its close button (left is set by script.js) */
+  }
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 58;
+    background: rgba(28, 27, 25, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  [data-layout="dashboard"].sidebar-open .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  [data-layout="dashboard"].sidebar-open {
+    overflow: hidden;
+  }
+}
+
+/* ---- 3. Mobile header menu (public site) ------------------------------------
+   The public header hides its links below `lg`; script.js clones them into
+   this dropdown and wires it to the existing "menu" icon button.            */
+.mobile-nav-panel {
+  display: none;
+}
+.site-nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: #f2ede9;
+  color: #3f4947;
+  cursor: pointer;
+}
+.site-nav-toggle:focus-visible {
+  outline: 2px solid #0f5e59;
+  outline-offset: 2px;
+}
+@media (max-width: 1279.98px) {
+  header nav[data-active-classes] {
+    display: none !important;
+  }
+  .mobile-nav-panel.is-open {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    padding: 0.75rem 1.25rem 1rem;
+    background: rgba(253, 248, 245, 0.97);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 24px rgba(28, 27, 25, 0.08);
+  }
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 15px;
+    color: #3f4947;
+    text-decoration: none;
+  }
+  .mobile-nav-link:hover,
+  .mobile-nav-link.is-active {
+    background: #ece7e4;
+    color: #1c1b19;
+  }
+}
+
+/* ---- 4. Responsive helpers for dashboard content ----------------------------
+   Phones only. Grids that have no responsive column classes of their own stack
+   into one column, and tables scroll sideways instead of overflowing.        */
+@media (max-width: 767.98px) {
+  [data-layout="dashboard"] main .grid[class*="grid-cols-"]:not([class*="sm:grid-cols"]):not([class*="md:grid-cols"]):not([class*="lg:grid-cols"]):not([class*="xl:grid-cols"]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-layout="dashboard"] main .grid > [class*="col-span-"] {
+    grid-column: 1 / -1;
+  }
+  [data-layout="dashboard"] main :has(> table) {
+    overflow-x: auto;
+  }
+}
+
+/* ---- Auth dialogs (assets/js/auth.js) ---- */
+@keyframes tos-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tos-sheet { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes tos-spin { to { transform: rotate(360deg); } }
+@keyframes tos-progress { from { width: 0; } to { width: 100%; } }
+.tos-overlay { animation: tos-fade 160ms ease-out; }
+.tos-sheet { animation: tos-sheet 220ms ease-out; }
+.tos-spin { animation: tos-spin 0.9s linear infinite; }
+.tos-progress { width: 0; animation: tos-progress linear forwards; }
+.mobile-auth-row { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--tos-control-border); }
+@media (prefers-reduced-motion: reduce) {
+  .tos-overlay, .tos-sheet, .tos-spin { animation: none; }
+}
+/* Toasts: full-width strip on phones instead of a floating corner card. */
+@media (max-width: 639px) {
+  .site-notice { left: 1rem; right: 1rem; top: 5rem; text-align: center; }
+}
+/* Keep the fixed header content from overflowing on very small phones. */
+@media (max-width: 380px) {
+  header [data-auth-slot] a { padding-left: 0.5rem; padding-right: 0.5rem; }
+}

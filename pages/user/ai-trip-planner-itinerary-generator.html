@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Trip Planner Itinerary Generator | Tos-Team KH</title>
+
+  <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col" data-layout="site">
+<!-- ===== Header / top bar ===== --><tos-user-site-header active="plan-trip"></tos-user-site-header>
+<!-- ===== Main content ===== --><main class="w-full pt-20 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Interactive Ambient Header Grid -->
+<section class="relative w-full overflow-hidden bg-surface pb-space-xl">
+<!-- Subtle Ambient Glow -->
+<div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[720px] h-[320px] bg-gradient-to-b from-primary-container/10 via-tertiary-fixed-dim/10 to-transparent blur-3xl rounded-full"></div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pt-space-xl">
+<!-- Editorial Header Content -->
+<div class="flex flex-col items-start max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">auto_awesome</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-bold">CamTrip Intelligent Route Engine 3.5</span>
+</div>
+<h1 class="font-display-hero text-headline-lg md:text-display-hero text-on-surface mt-space-md tracking-tight leading-[1.12]">
+          Generate Your Bespoke <span class="italic font-normal text-primary">Cambodian Journey</span> with AI
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-md leading-relaxed">
+          Describe your dream expedition or fine-tune algorithmic parameters below. Our engine synchronizes certified Ministry of Tourism historians, sacred temple decorum, quiet corridor forecasts, and high-efficiency overland transit across all 25 provinces.
+        </p>
+<!-- Quick AI Credibility Metric Badges -->
+<div class="flex flex-wrap items-center gap-space-md mt-space-lg pt-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<span class="font-label-md text-label-md">APSARA Authority Pass Compliant</span>
+</div>
+<span class="text-surface-dim">/</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px]">currency_exchange</span>
+<span class="font-label-md text-label-md">Bakong KHQR Live Conversion</span>
+</div>
+<span class="text-surface-dim">/</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+<span class="font-label-md text-label-md">Context-Aware Crowd Dispersion</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Functional Stage: Input Generator & Output Canvas -->
+<section class="w-full bg-surface-container-low pb-space-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin -mt-8">
+<!-- AI Generator Control Panel Card -->
+<div class="w-full bg-surface-container-lowest rounded-2xl shadow-xl p-space-md md:p-space-xl relative overflow-hidden">
+<!-- Subtle Top Accent Tint Strip -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-tertiary-fixed-dim"></div>
+<form class="flex flex-col gap-space-lg" id="aiPlannerForm" onsubmit="event.preventDefault(); triggerAiSynthesis();">
+<!-- Natural Language AI Prompt Box -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-title-md text-title-md text-on-surface flex items-center gap-space-xs" for="aiPromptInput">
+<span class="material-symbols-outlined text-primary text-[20px]">neurology</span>
+                Natural Language Expedition Brief
+              </label>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Prompt Synthesis Ready</span>
+</div>
+<div class="relative w-full">
+<textarea class="w-full bg-surface rounded-xl p-space-md text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest transition-all placeholder:text-outline outline-none focus:ring-2 focus:ring-primary-container/20 focus:outline-none" id="aiPromptInput" placeholder="e.g., A 4-day immersive cultural and culinary exploration in Siem Reap and Battambang for 2 adults, focusing on sunrise ancient temples with MoT certified historians, hidden street food stalls, and scenic pottery villages with minimal crowds..." rows="4">A 4-day immersive cultural and culinary exploration in Siem Reap and Battambang for 2 adults, focusing on sunrise ancient temples with MoT certified historians, hidden street food stalls, and scenic pottery villages with minimal crowds.</textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-md bg-surface-container-high hover:bg-surface-dim text-on-surface-variant font-label-caps text-label-caps uppercase transition-colors" onclick="clearPrompt()" type="button">
+                  Clear
+                </button>
+</div>
+</div>
+<!-- Quick Inspiration Prompt Chips -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-xs sm:gap-space-sm mt-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider shrink-0">Inspiration:</span>
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" onclick="setPrompt(this.innerText)" type="button">
+                  3 Days Angkor Wat Sunrise &amp; Hidden Monasteries
+                </button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" onclick="setPrompt(this.innerText)" type="button">
+                  5 Days Cardamom Rainforest &amp; Coastal Eco-Glamping
+                </button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" onclick="setPrompt(this.innerText)" type="button">
+                  2 Days Phnom Penh Royal Heritage &amp; Mekong Sunset
+                </button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" onclick="setPrompt(this.innerText)" type="button">
+                  4 Days Kampot Pepper Farms &amp; Bokor Mountain Mist
+                </button>
+</div>
+</div>
+</div>
+<!-- Parameter Configuration Grid -->
+<div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg flex flex-col gap-space-lg">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">tune</span>
+<span class="font-title-md text-title-md text-on-surface">Structured Expedition Parameters</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Adaptive Multi-Factor Tuning</span>
+</div>
+<!-- Parameters Grid (4 Cols on desktop) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- 1. Destination Province -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="destinationSelect">Destination Province</label>
+<div class="relative">
+<select class="w-full h-11 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg px-space-md pr-10 appearance-none shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container/20" id="destinationSelect">
+<option selected="" value="siem-reap">Siem Reap (Angkorian Hub)</option>
+<option value="phnom-penh">Phnom Penh (Capital &amp; Pearl)</option>
+<option value="battambang">Battambang (Heritage &amp; Arts)</option>
+<option value="koh-kong">Koh Kong (Cardamom Wilds)</option>
+<option value="kampot">Kampot &amp; Bokor (River &amp; Spices)</option>
+<option value="kep">Kep Province (Coastal Royalty)</option>
+<option value="multi-province">Multi-Province Grand Circuit</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-3 top-3 text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- 2. Trip Duration -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Trip Duration</label>
+<div class="flex items-center h-11 bg-surface-container-lowest rounded-lg px-space-sm justify-between shadow-sm">
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" onclick="adjustDuration(-1)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="font-title-md text-title-md text-primary font-semibold" id="durationDisplay">4 Days / 3 Nights</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" onclick="adjustDuration(1)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- 3. Travel Pace -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Travel Pace</label>
+<div class="grid grid-cols-3 gap-1 h-11 bg-surface-container-lowest rounded-lg p-1 shadow-sm">
+<button class="pace-btn py-1 rounded text-center font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-all" onclick="selectPace(this)" type="button">
+                    Relaxed
+                  </button>
+<button class="pace-btn py-1 rounded text-center font-label-caps text-label-caps bg-primary text-on-primary shadow-sm font-semibold transition-all" onclick="selectPace(this)" type="button">
+                    Balanced
+                  </button>
+<button class="pace-btn py-1 rounded text-center font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-all" onclick="selectPace(this)" type="button">
+                    Adventure
+                  </button>
+</div>
+</div>
+<!-- 4. Travel Companions -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="companionsSelect">Travel Companions</label>
+<div class="relative">
+<select class="w-full h-11 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg px-space-md pr-10 appearance-none shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container/20" id="companionsSelect">
+<option value="solo">Solo Cultural Wanderer</option>
+<option selected="" value="couple">Couple / 2 Persons</option>
+<option value="family">Family with Kids</option>
+<option value="friends">Friends Expedition Group</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-3 top-3 text-on-surface-variant text-[20px]">groups</span>
+</div>
+</div>
+</div>
+<!-- Parameters Row 2: Budget & Guides & Interests -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-start pt-space-xs">
+<!-- Daily Budget Segment (4 cols) -->
+<div class="md:col-span-5 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface">Estimated Daily Budget</label>
+<span class="font-label-md text-label-md text-secondary font-semibold" id="budgetValueLabel">Authentic Explorer ($50-$100/day)</span>
+</div>
+<div class="flex flex-col gap-2 bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<input class="accent-primary w-full cursor-pointer h-2 bg-surface-container rounded-lg" id="budgetRangeInput" max="3" min="1" oninput="updateBudgetPreset(this.value)" type="range" value="2">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span class="">Eco ($25-45)</span>
+<span class="text-primary font-bold">Explorer ($50-100)</span>
+<span class="">Sanctuary ($150+)</span>
+</div>
+</div>
+</div>
+<!-- Certified Guide Preference Toggle (3 cols) -->
+<div class="md:col-span-3 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">MoT Certified Guide</label>
+<div class="h-[68px] bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Heritage Specialist</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">+$35-45 / day via Bakong</span>
+</div>
+<!-- Switch Component -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="guideToggle" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+<!-- Primary Focus Tags (4 cols) -->
+<div class="md:col-span-4 flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Expedition Core Interests</label>
+<div class="flex flex-wrap gap-1.5 bg-surface-container-lowest p-2 rounded-lg shadow-sm">
+<label class="interest-chip inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all bg-primary-container text-on-primary">
+<input checked="" class="hidden" onchange="toggleChip(this)" type="checkbox">
+<span class="">Ancient Temples</span>
+</label>
+<label class="interest-chip inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all bg-primary-container text-on-primary">
+<input checked="" class="hidden" onchange="toggleChip(this)" type="checkbox">
+<span class="">Khmer Gastronomy</span>
+</label>
+<label class="interest-chip inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all bg-surface text-on-surface-variant">
+<input class="hidden" onchange="toggleChip(this)" type="checkbox">
+<span class="">Jungle Trekking</span>
+</label>
+<label class="interest-chip inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all bg-primary-container text-on-primary">
+<input checked="" class="hidden" onchange="toggleChip(this)" type="checkbox">
+<span class="">Artisan Crafts</span>
+</label>
+<label class="interest-chip inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all bg-surface text-on-surface-variant">
+<input class="hidden" onchange="toggleChip(this)" type="checkbox">
+<span class="">Waterways &amp; Kayak</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button Row & Micro-Notice -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-md w-full md:w-auto">
+<button class="w-full sm:w-auto px-space-xl py-3.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-sm shadow-md transition-all active:scale-[0.99]" id="generateButton" type="submit">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">auto_awesome</span>
+<span class="">Generate Itinerary with AI</span>
+</button>
+<button class="w-full sm:w-auto px-space-lg py-3.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-space-xs" onclick="resetParameters()" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span class="">Reset Parameters</span>
+</button>
+</div>
+<!-- Guarantee Notice -->
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="">Includes Bakong KHQR estimates, official Apsara pass rules, &amp; real-time transit calculation.</span>
+</div>
+</div>
+</form>
+</div>
+<!-- Live Synthesis Loading State (Hidden by default, triggered on regenerate) -->
+<div class="hidden w-full my-space-lg p-space-lg bg-surface-container-lowest rounded-xl shadow-md flex items-center justify-center gap-space-md animate-pulse" id="aiLoadingIndicator">
+<span class="material-symbols-outlined text-primary text-[32px] animate-spin">refresh</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold">Querying CamTrip Provincial Knowledge Graph...</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Synthesizing optimal temple sunlight hours, road surfaces, and licensed MoT guide schedules.</span>
+</div>
+</div>
+<!-- Generated Multi-Day Itinerary Preview -->
+<div class="w-full mt-space-xl flex flex-col gap-space-lg" id="itineraryResultSection">
+<!-- Generation Status Banner / Header Strip -->
+<div class="w-full bg-surface-container-lowest rounded-2xl shadow-md p-space-md md:p-space-lg flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">map</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold uppercase">Optimal AI Route Generated</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Ref: #CT-8942-SRB</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1">
+                The Sacred Spires &amp; Artisan Hearth of Northwest Cambodia
+              </h2>
+<div class="flex items-center gap-space-md mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class=""><strong>4 Days</strong> (3 Nights)</span>
+<span class="">•</span>
+<span class=""><strong>2 Travelers</strong></span>
+<span class="">•</span>
+<span class="text-secondary font-semibold">Estimated <strong>$280 Total</strong> (excl. lodging)</span>
+</div>
+</div>
+</div>
+<!-- Secondary Action Bar -->
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<button class="px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center gap-2 shadow-md hover:shadow-lg transition-all font-bold active:scale-[0.98] ring-2 ring-primary/20" onclick="addToMyPlan(this)" type="button"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed">add_circle</span><span class="">Add Full Trip to 'My Plan'</span><span class="px-2 py-0.5 rounded-full bg-surface/20 text-on-primary font-label-caps text-label-caps">4 Days</span></button>
+<button class="px-space-sm py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" onclick="alert('Itinerary saved to your CamTrip traveler account.')" type="button">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+<span class="">Save</span>
+</button>
+<button class="px-space-sm py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+<button class="px-space-sm py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" onclick="triggerAiSynthesis()" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="">Regenerate Tweaks</span>
+</button>
+</div>
+</div>
+<!-- 2-Column Split: Itinerary Timeline & Sidebar Route Intelligence -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT / MAIN: Timeline Accordion Cards (8 Columns) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Day 1 Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b pb-space-sm border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold flex items-center justify-center">01</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Siem Reap · The Sacred Dawn &amp; Classical Angkor</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sunrise reflection at Angkor Wat • Ancient moat corridors • Preah Dak breakfast</p>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-wrap"><span class="px-2.5 py-1 rounded bg-surface-container font-label-caps text-label-caps text-primary font-bold">12.4 km Transit</span><button type="button" onclick="addDayToPlan(this, 'Day 1: Classical Angkor')" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-secondary/10 hover:bg-secondary text-secondary hover:text-on-secondary font-label-caps text-label-caps font-bold transition-all shadow-sm"><span class="material-symbols-outlined text-[16px]">bookmark_add</span><span class="">+ Add Day 1</span></button></div>
+</div>
+<!-- Day 1 Image Placeholder with required data-alt -->
+<div class="relative w-full h-48 md:h-56 rounded-xl overflow-hidden shadow-inner">
+<img alt="Angkor Wat Lotus Sunrise" class="w-full h-full object-cover" data-alt="Majestic sunrise behind the iconic stone spires of Angkor Wat reflecting in the tranquil sacred lotus pond in Siem Reap Cambodia. Warm saffron gold and rose dawn light washing over ancient sandstone textures with lush emerald palms framing the water reflection in high editorial documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7R1ckKJHUvadRmpCQ1_wOE4Ced43cwsffZOtQdpkb0Iw_wKp2Lr70y9PT-jY2eJlBQUyDzX-QsrIvmwXim2G-d9qrXlNylNDnxl6ABnrR85MxtHMhqfUe-sNROrveYvNXz9PznTcTveOkudvkvJQ3aSeQA9XbbXQD1UL-n9riRFBhYP9obuTETwqOSZR0OkD1xx9P_czNI4y_88THo1d-Ssh6WFzfCcgpo0s4tPCdF9hYPGJDfi9A-A">
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded bg-inverse-surface/85 backdrop-blur-md text-inverse-on-surface font-label-caps text-label-caps">
+                  Angkor Wat West Gate • MoT Certified Early Pass Access
+                </div>
+</div>
+<!-- Day 1 Timeline Nodes -->
+<div class="relative pl-6 space-y-space-md before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- Stop 1 -->
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">05:00 AM</span>
+<h4 class="font-title-md text-title-md text-on-surface">Sunrise at Angkor Wat Lotus Pool</h4>
+</div>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">$37 Pass / Traveler</span><button type="button" onclick="addStopToPlan(this, 'Sunrise at Angkor Wat')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Enter through the quieter southwest causeway. Guide Vannak Seng positions your viewing spot 25 minutes prior to peak sunrise light over the northern reflection basin.
+                  </p>
+<div class="mt-2 flex items-center gap-space-xs text-xs text-primary font-medium">
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">$37 Pass / Traveler</span><button type="button" onclick="addStopToPlan(this, 'Sunrise at Angkor Wat')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">$37 Pass / Traveler</span><button type="button" onclick="addStopToPlan(this, 'Sunrise at Angkor Wat')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+</div>
+<!-- Stop 2 -->
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-tertiary-fixed-dim shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-tertiary font-bold uppercase">09:30 AM</span>
+<h4 class="font-title-md text-title-md text-on-surface">Preah Dak Village Breakfast &amp; Noodle Hearth</h4>
+</div>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">~$6 for 2 persons</span><button type="button" onclick="addStopToPlan(this, 'Preah Dak Village Breakfast')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Authentic breakfast in a heritage wood stilt village. Taste fresh handmade <em>Num Banh Chok</em> (fermented rice noodles in aromatic lemongrass green fish curry) and fresh tree coconut.
+                  </p>
+</div>
+<!-- Stop 3 -->
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">02:00 PM</span>
+<h4 class="font-title-md text-title-md text-on-surface">Shaded Exploration: Ta Prohm &amp; Banteay Kdei</h4>
+</div>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-primary font-semibold">Low Heat Window</span><button type="button" onclick="addStopToPlan(this, 'Ta Prohm &amp; Banteay Kdei')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Traverse colossal strangler fig roots enveloping stone doorways. Timing chosen during primary tour bus departures for tranquil audio recordings of jungle birds.
+                  </p>
+</div>
+<!-- Stop 4 -->
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-secondary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">06:30 PM</span>
+<h4 class="font-title-md text-title-md text-on-surface">Phare Cambodian Circus &amp; Night Market Tasting</h4>
+</div>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">$18 / ticket</span><button type="button" onclick="addStopToPlan(this, 'Phare Cambodian Circus')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    High-energy narrative performance by Battambang social circus graduates followed by grilled freshwater river prawns and sticky rice in bamboo cane.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Day 2 Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b pb-space-sm border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold flex items-center justify-center">02</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Deep Jungle &amp; Remote Laterite Enclaves</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Carved rose sandstone of Banteay Srei • River of Thousand Lingas</p>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-wrap"><span class="px-2.5 py-1 rounded bg-surface-container font-label-caps text-label-caps text-primary font-bold">38.1 km Transit</span><button type="button" onclick="addDayToPlan(this, 'Day 2: Banteay Srei &amp; Lingas')" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-secondary/10 hover:bg-secondary text-secondary hover:text-on-secondary font-label-caps text-label-caps font-bold transition-all shadow-sm"><span class="material-symbols-outlined text-[16px]">bookmark_add</span><span class="">+ Add Day 2</span></button></div>
+</div>
+<!-- Day 2 Image Placeholder with required data-alt -->
+<div class="relative w-full h-48 md:h-56 rounded-xl overflow-hidden shadow-inner">
+<img alt="Banteay Srei Carvings" class="w-full h-full object-cover" data-alt="Intricate fine filigree carvings on ancient pink and rose laterite sandstone walls at Banteay Srei temple in Cambodia under soft diffused jungle canopy lighting. Warm earthy terracotta tones, delicate devata stone relief sculptures, and authentic historic Khmer architectural craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSeNgpIn-aid4UoNZrA8b2R4vPww0hfAch00xHM7VDDdgTqlebEngPV2wfythUle0jqd2QZk4BZirAn4_tTJtYv43sSZh0WnIHF-1e72pqOL373EhDObyNQ0qWGuRJSXvMhGc4h9kvGXGL3gwTSQmusIg1nq-HegqGeAVE8rIyutFoVKsjIt-wH1LTktgxOGLheQ1oqzqY5zV2rTRVgoQanKC54wrDnZX9Jr5lat2Xt9-vuF8toNVcAw">
+<div class="absolute bottom-2 left-2 px-2.5 py-1 rounded bg-inverse-surface/85 backdrop-blur-md text-inverse-on-surface font-label-caps text-label-caps">
+                  Banteay Srei • Rose Sandstone Jewel of Khmer Art
+                </div>
+</div>
+<!-- Day 2 Timeline Nodes -->
+<div class="relative pl-6 space-y-space-md before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-secondary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">07:30 AM • Scenic Northbound Drive</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Private Tuk-Tuk</span><button type="button" onclick="addStopToPlan(this, 'Banteay Srei')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Banteay Srei (Citadel of Women)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Arrive before midday humidity to study the 10th-century miniature lintels depicting the Ramayana in warm pink sandstone.
+                  </p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold uppercase">11:30 AM • Forest Canopy Hike</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">1.5 km Walk</span><button type="button" onclick="addStopToPlan(this, 'Kbal Spean River of Lingas')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Kbal Spean Sacred River of a Thousand Lingas</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Shaded trek up the Kulen hillside to the stone carved riverbed where ancient waters were consecrated before flowing down to Angkor.
+                  </p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-tertiary-fixed-dim shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary font-bold uppercase">03:00 PM • Rural Community</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Artisan Stop</span><button type="button" onclick="addStopToPlan(this, 'Organic Palm Sugar Hearth')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Cambodia Landmine Museum &amp; Organic Palm Sugar Hearth</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Meet local families simmering raw palmyra nectar in iron woks over burning palm husks. Sample warm palm caramels.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Day 3 Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b pb-space-sm border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold flex items-center justify-center">03</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Battambang Heritage &amp; French Colonial Architecture</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cross-provincial transit • Bamboo train • Phnom Sampeau sunset</p>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-wrap"><span class="px-2.5 py-1 rounded bg-surface-container font-label-caps text-label-caps text-primary font-bold">164 km Transit</span><button type="button" onclick="addDayToPlan(this, 'Day 3: Battambang Heritage')" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-secondary/10 hover:bg-secondary text-secondary hover:text-on-secondary font-label-caps text-label-caps font-bold transition-all shadow-sm"><span class="material-symbols-outlined text-[16px]">bookmark_add</span><span class="">+ Add Day 3</span></button></div>
+</div>
+<!-- Day 3 Timeline Nodes -->
+<div class="relative pl-6 space-y-space-md before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold uppercase">08:00 AM • Overland Express</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Eco-Van Express</span><button type="button" onclick="addStopToPlan(this, 'Sisophon Paddy Road Transit')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Scenic Road Transit via Sisophon Paddy Country</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Watch the shifting rural panorama of green rice terraces, lotus waterways, and traditional stilted houses.
+                  </p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-secondary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">01:30 PM • Historic Transit</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Local Heritage</span><button type="button" onclick="addStopToPlan(this, 'Battambang Bamboo Train')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Historic Battambang Bamboo Train &amp; Wat Kor Heritage Village</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Glide over old railway tracks on a 'norry' motorized bamboo platform, followed by walking through century-old teakwood houses.
+                  </p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-tertiary-fixed-dim shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary font-bold uppercase">05:30 PM • Natural Phenomenon</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Sunset Viewpoint</span><button type="button" onclick="addStopToPlan(this, 'Phnom Sampeau Bat Cave')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Phnom Sampeau Bat Cave Exodus</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Witness millions of wrinkle-lipped free-tailed bats spiraling in undulating ribbons into the dusk sky across limestone karst bluffs.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Day 4 Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md md:p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b pb-space-sm border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-bold flex items-center justify-center">04</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Artisan Silk Weaving &amp; Culinary Finale</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Golden silkworm ateliers • Wood sculpture • Social enterprise farewell</p>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-wrap"><span class="px-2.5 py-1 rounded bg-surface-container font-label-caps text-label-caps text-primary font-bold">Return Loop</span><button type="button" onclick="addDayToPlan(this, 'Day 4: Silk Weaving &amp; Jaan Bai')" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-secondary/10 hover:bg-secondary text-secondary hover:text-on-secondary font-label-caps text-label-caps font-bold transition-all shadow-sm"><span class="material-symbols-outlined text-[16px]">bookmark_add</span><span class="">+ Add Day 4</span></button></div>
+</div>
+<!-- Day 4 Timeline Nodes -->
+<div class="relative pl-6 space-y-space-md before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-primary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold uppercase">08:30 AM • Living Heritage</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Hands-On Studio</span><button type="button" onclick="addStopToPlan(this, 'Artisans Angkor Silk Farm')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Artisans Angkor Silk Farm &amp; Lacquerware Guild</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Follow the lifecycle of indigenous Cambodian golden silkworms from mulberry leaves to loom weaving and gold leaf guilding.
+                  </p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-secondary shadow-sm ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">12:30 PM • Culinary Finale</span>
+<div class="flex items-center gap-2 shrink-0"><span class="font-label-caps text-label-caps text-on-surface-variant">Social Dining</span><button type="button" onclick="addStopToPlan(this, 'Jaan Bai Social Enterprise Lunch')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-primary hover:text-on-primary font-label-caps text-label-caps text-on-surface-variant transition-colors" title="Add stop to My Plan"><span class="material-symbols-outlined text-[15px]">add</span><span class="">Add</span></button></div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mt-0.5">Farewell Riverside Lunch at Jaan Bai Social Enterprise</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    Celebrate your completed expedition with Kampot green peppercorn soft shell crab and banana blossom salad supporting local youth training.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT / SIDEBAR: AI Route Intelligence & Assigned Guide Profile (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md sticky top-24">
+<!-- AI Route Intelligence Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">analytics</span>
+                  Route Intelligence
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold">98% OPTIMAL</span>
+</div>
+<!-- SVG Route Efficiency Score Visualizer -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl">
+<div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+<circle class="text-surface-dim" cx="18" cy="18" fill="none" r="15.9155" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary-container" cx="18" cy="18" fill="none" r="15.9155" stroke="currentColor" stroke-dasharray="98, 100" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<span class="absolute font-title-md text-title-md text-primary font-bold">98</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Low Transit Drag</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Saves 3.5 hrs transit compared to standard bus tour circuits.</span>
+</div>
+</div>
+<!-- Key Analytics Metric List -->
+<div class="space-y-space-xs text-body-sm">
+<div class="flex items-center justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface-variant">Carbon Footprint:</span>
+<span class="font-semibold text-primary">0.08 tCO₂e (Offset by Kulen Reforestation)</span>
+</div>
+<div class="flex items-center justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface-variant">Total Distance:</span>
+<span class="font-semibold text-on-surface">214.5 Kilometers</span>
+</div>
+<div class="flex items-center justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface-variant">Recommended Ride:</span>
+<span class="font-semibold text-on-surface">Tuk-Tuk (D1-2) + Eco-Van (D3-4)</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-on-surface-variant">Bakong KHQR Total:</span>
+<span class="font-semibold text-secondary">~1,148,000 KHR ($280 USD)</span>
+</div>
+</div>
+<!-- Map Anchor Trigger -->
+<div class="w-full h-36 bg-surface-container-high rounded-xl relative overflow-hidden flex items-end p-space-sm shadow-inner" data-location="Siem Reap, Cambodia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDv2iETfg2iX9BOVe5NRzOVyEnqvpBMGVsZ67z8brWbREqaUFIEKva-USbHllo4uuvPezu6q-qcVBOvTDRiZdChnhT6OuOJTfuX1sozAEHB7DBh46cq4dQ6I3r8vHrth2TDFU60Vmt-CY_hF5QB0UFBxtU_JOldRhba4rXH0AoOlTus-8qEONl6--76nM0PruJVKZGLOLX3tBG4RR4SA-Xx4sy5f7DC01i2JvBGrF_xbODpGrvNOdhVQA')">
+<div class="bg-inverse-surface/85 backdrop-blur-md px- space-xs py-1 rounded text-inverse-on-surface font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">pin_drop</span>
+<span class="">GPS Tracking: Siem Reap → Battambang Corridor</span>
+</div>
+</div>
+</div>
+<!-- Verified Assigned Guide Profile Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Assigned MoT Specialist</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold">Active • Available</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative w-14 h-14 rounded-full overflow-hidden shrink-0 shadow-md">
+<img alt="Guide Vannak Seng" class="w-full h-full object-cover" data-alt="Portrait of an experienced Cambodian professional tour guide named Vannak Seng smiling warmly wearing a cream safari guide shirt with Ministry of Tourism official badge in front of ancient Angkor Wat temple ruins with soft natural outdoor sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgtskIWebgRsz-zFQ26GZEyXFwxgC6kNoCbztslddTWoOBoAyh0RSnrAa-x5h3H8pvOqg_quLPDMhDrIYUPQDHrdfqKxWNNoXHaK1wcPQawaUXUFCs__VDwtrFSfVm7pJRlkglepDIPlraJVFHavg82nI6E5qDivjsoGMnYAGlVE9-OhwYQ__vB_kECtL60U_5K3Giwux25DH3n6FGOI5DvSqIdYBhlb0THnxl5IBamv-MqZroJIVY7g">
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<h4 class="font-title-md text-title-md text-on-surface">Vannak Seng</h4>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">APSARA &amp; MoT License #8842</span>
+<div class="flex items-center gap-1 text-tertiary-container mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.98</span>
+<span class="text-on-surface-variant text-xs">(312 verified reviews)</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low p-space-sm rounded-lg italic">
+                “Fluent in English &amp; French. Specializes in 12th-century epigraphy and Sanskrit stone inscriptions across the northern temple circuits.”
+              </p>
+<div class="flex items-center gap-space-xs">
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md text-center transition-colors" onclick="alert('Connecting directly with Vannak Seng via CamTrip Secure Chat...')" type="button">
+                  Message Guide
+                </button>
+<button class="py-2 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" onclick="alert('MoT Credentials verified: APSARA Heritage Badge valid through 2026.')" title="View Official Credentials" type="button">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</button>
+</div>
+</div>
+<!-- Sacred Code & Heritage Etiquette Notice Box -->
+<div class="p-space-md rounded-2xl bg-tertiary-fixed/30 border-l-4 border-tertiary flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-tertiary text-[20px]">temple_buddhist</span>
+<span class="font-label-md text-label-md font-bold">Angkor Code of Conduct In Effect</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Shoulders and knees must be respectfully covered for all temple steps (Days 1 &amp; 2). Please avoid touching fragile sandstone relief sculptures or sitting on delicate lintels.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client Micro-Script -->
+
+</div><div id="planToastNotification" class="fixed bottom-6 right-6 z-50 flex items-center gap-space-sm p-space-sm pl-space-md rounded-2xl bg-inverse-surface/90 text-inverse-on-surface shadow-2xl backdrop-blur-xl border border-surface-container-high/20 transition-all transform hover:scale-[1.02]"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[20px]">verified</span></div><div class="flex flex-col pr-space-xs"><span class="font-title-md text-label-lg font-bold text-on-primary">Ready for 'My Plan'</span><span id="toastSubtext" class="font-body-sm text-xs text-surface-container-high">4 Days &amp; 9 Stops Synchronized</span></div><a href="my-plan-trip-builder.html" data-path="my-plan" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-caps text-label-caps font-bold transition-all shadow-sm"><span class="">View Plan (2)</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a><button type="button" onclick="document.getElementById('planToastNotification').classList.add('hidden')" class="p-1 text-surface-dim hover:text-inverse-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">close</span></button></div></main>
+<!-- ===== Footer ===== --><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl flex flex-col gap-space-xl"><div class="flex flex-col md:flex-row md:items-center justify-between gap-space-lg pb-space-lg"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[24px]">verified</span><span class="font-title-md text-title-md text-on-surface">Kingdom of Wonder Heritage Portal</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">Endorsed by the Ministry of Tourism of the Kingdom of Cambodia. Preserving sacred monuments, safeguarding biodiversity, and championing local indigenous communities.</p></div><div class="flex flex-wrap items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_3px_rgba(28,27,25,0.04)]"><span class="material-symbols-outlined text-primary text-[20px]">lock</span><div class="flex flex-col"><span class="font-label-caps text-label-caps text-on-surface-variant">PAYMENT SECURITY</span><span class="font-label-md text-label-md text-primary font-semibold">Bakong Escrow Protected</span></div></div><div class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-error-container text-on-error-container"><span class="material-symbols-outlined text-[20px]">e911_emergency</span><div class="flex flex-col"><span class="font-label-caps text-label-caps text-on-error-container">EMERGENCY SOS</span><span class="font-label-md text-label-md text-on-error-container font-semibold">Dial 117 (Tourist Police)</span></div></div></div></div><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><span class="">© 2025 CamTrip AI Expeditions. All heritage assets protected under APSARA Authority guidelines.</span><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" data-path="explore" href="explore-cambodia.html">Explore Routes</a><a class="hover:text-on-surface transition-colors" data-path="tips" href="travel-tips-cultural-guide.html">Temple Etiquette</a><a class="hover:text-on-surface transition-colors" data-path="guides" href="licensed-tour-guides-local-experts.html">Licensed Guides</a></div></div></div></footer>
+
+
+
+  <!-- Scripts: component helper, layout components, global behaviour, page behaviour -->
+  <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/components/site.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/pages/user/ai-trip-planner-itinerary-generator.js" defer></script>
+</body>
+</html>

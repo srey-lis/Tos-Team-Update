@@ -1,0 +1,612 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Manager Tour CRUD Booking Confirmations | Tos-Team KH</title>
+
+    <!-- Fonts: Playfair Display (headings), Plus Jakarta Sans (body), Material Symbols (icons) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+    <!-- Global stylesheet (base reset, dashboard drawer, mobile menu) -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+
+    <!-- Tailwind CSS (Play CDN) + shared design tokens -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../../assets/js/tailwind-config.js"></script>
+  </head>
+  <body class="bg-surface font-body-md text-on-surface antialiased" data-layout="dashboard" data-auth-guard="partner">
+  <!-- ===== Sidebar ===== -->
+   <aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-primary-fixed">temple_buddhist</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">Tos-Team</span><span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Operator Console</span></div></div><div class="px-space-md py-space-xs"><div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">business</span><span class="font-label-md text-label-md font-semibold text-on-surface">Heritage Trails Co.</span></div><span class="w-2 h-2 rounded-full bg-emerald-600"></span></div></div><div class="px-space-md mt-space-sm"><span class="px-space-sm font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Manager Workspace</span></div>
+  <nav class="flex flex-col gap-space-xs px-space-md mt-space-xs"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#dashboard-overview"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">Dashboard</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary font-semibold shadow-[0_2px_8px_-2px_rgba(28,27,25,0.04)] transition-colors" href="#tour-crud-section"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-lg text-label-lg">My Tour Packages</span></div><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-[10px] font-bold">3 Tours</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#bookings-confirmation-section"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">event_available</span><span class="font-label-lg text-label-lg">Confirm Bookings</span></div><span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-caps text-[10px] font-bold">3 New</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded-xl bg-surface-container border-0 flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px]">verified</span><div class="flex flex-col"><span class="font-label-md text-label-md font-bold text-on-surface">Verified Operator</span><span class="font-label-caps text-label-caps text-on-surface-variant">Lic. #HT-SR-2025</span></div></div><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span></div><div class="flex items-center justify-between px-space-xs text-on-surface-variant font-label-md text-label-md"><span>Tos-Team KH</span><span class="font-semibold text-secondary">Manager Hub</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col">
+  <!-- ===== Header / top bar ===== -->
+   <header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-[16px]">shield_person</span><span class="font-label-caps text-label-caps font-bold tracking-wide uppercase">Tour Manager Portal</span></div><span class="text-on-surface-variant text-sm font-medium">Manage tours &amp; confirm bookings</span></div><div class="flex items-center gap-space-md"><div class="flex items-center rounded-lg bg-surface-container-high p-0.5 text-on-surface-variant"><button class="px-space-sm py-0.5 rounded-md font-label-md text-label-md font-bold bg-surface-container-lowest text-primary shadow-sm" type="button">EN</button><button class="px-space-sm py-0.5 rounded-md font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface" type="button">ខ្មែរ</button></div><button aria-label="Theme Toggle" class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><button aria-label="Notifications" class="relative w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-title-md text-title-md font-bold text-on-surface leading-tight">Vicheka Seng</span><span class="font-label-md text-label-md text-on-surface-variant leading-tight">Heritage Trails Co. • Tour Manager</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header>
+  <!-- ===== Main content ===== -->
+   <main class="w-full pt-20 bg-surface flex-1"><div class="flex flex-col w-full">
+  <div class="px-space-md lg:px-margin pt-space-lg pb-space-xl flex flex-col gap-space-lg">
+  <!-- Top Greeting Bar -->
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md" id="dashboard-overview">
+  <div class="flex flex-col gap-space-xs">
+  <div class="flex flex-wrap items-center gap-space-sm">
+  <span class="font-headline-md text-headline-md text-primary tracking-tight">សួស្តី, Vicheka Seng</span>
+  <span class="px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps uppercase">Heritage Trails Co.</span>
+  <span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-caps text-label-caps font-bold">
+  <span class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
+              3 Bookings Pending Your Confirmation
+            </span>
+  </div>
+  <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Quickly edit your tour catalog, add new itineraries, adjust departure prices, and review or confirm incoming traveler bookings.
+          </p>
+  </div>
+  <div class="flex items-center gap-space-sm">
+  <a class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-on-primary font-label-lg text-label-lg shadow-sm transition-all" href="#create-package-drawer">
+  <span class="material-symbols-outlined text-[20px]">add_circle</span>
+  <span>+ Add New Tour Package</span>
+  </a>
+  <a class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-secondary hover:bg-secondary/90 text-on-secondary font-label-lg text-label-lg shadow-sm transition-all" href="#bookings-confirmation-section">
+  <span class="material-symbols-outlined text-[20px]">task_alt</span>
+  <span>Review Bookings (3)</span>
+  </a>
+  </div>
+  </div>
+  <!-- Core Summary KPI Trio -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+  <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between border-l-4 border-primary">
+  <div>
+  <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Active Tour Packages</span>
+  <div class="mt-1 flex items-baseline gap-2">
+  <span class="font-headline-lg text-headline-lg font-bold text-on-surface">3</span>
+  <span class="font-body-sm text-body-sm text-emerald-700 font-semibold">All published &amp; open</span>
+  </div>
+  </div>
+  <div class="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+  <span class="material-symbols-outlined text-[24px]">map</span>
+  </div>
+  </div>
+  <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between border-l-4 border-secondary">
+  <div>
+  <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Pending Confirmations</span>
+  <div class="mt-1 flex items-baseline gap-2">
+  <span class="font-headline-lg text-headline-lg font-bold text-secondary">3</span>
+  <span class="font-body-sm text-body-sm text-amber-700 font-semibold">Action required</span>
+  </div>
+  </div>
+  <div class="w-11 h-11 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+  <span class="material-symbols-outlined text-[24px]">pending_actions</span>
+  </div>
+  </div>
+  <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between border-l-4 border-emerald-600">
+  <div>
+  <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Confirmed Bookings</span>
+  <div class="mt-1 flex items-baseline gap-2">
+  <span class="font-headline-lg text-headline-lg font-bold text-on-surface">19</span>
+  <span class="font-body-sm text-body-sm text-on-surface-variant">This month</span>
+  </div>
+  </div>
+  <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+  <span class="material-symbols-outlined text-[24px]">check_circle</span>
+  </div>
+  </div>
+  </div>
+  <!-- SECTION 1: BOOKING CONFIRMATIONS & MANIFESTS -->
+  <div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden flex flex-col" id="bookings-confirmation-section">
+  <div class="p-space-md lg:p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-low/60 border-b border-surface-container-highest">
+  <div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-secondary text-[24px]">event_available</span>
+  <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Booking Confirmations &amp; Traveler Manifest</h2>
+  </div>
+  <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Review booking details, guest contact, payment escrow, and confirm or decline reservations.</p>
+  </div>
+  <!-- Status Filter Tabs -->
+  <div class="flex flex-wrap items-center gap-1.5 p-1 bg-surface-container rounded-xl">
+  <button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-xs flex items-center gap-1.5" type="button">
+  <span>Awaiting Confirmation</span>
+  <span class="px-1.5 py-0.2 rounded-full bg-secondary text-white text-[11px]">3</span>
+  </button>
+  <button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">Confirmed (19)</button>
+  <button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">All Bookings</button>
+  </div>
+  </div>
+  <div class="divide-y divide-surface-container-high">
+  <!-- Booking Request 1: Pending Confirmation -->
+  <div class="p-space-md lg:p-space-lg flex flex-col gap-space-sm hover:bg-surface-container-low/30 transition-colors">
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+  <div class="flex items-start gap-space-sm">
+  <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0">
+  <span class="material-symbols-outlined text-[26px]">hourglass_top</span>
+  </div>
+  <div>
+  <div class="flex flex-wrap items-center gap-space-xs">
+  <span class="font-label-caps text-label-caps px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold">#BK-9041</span>
+  <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-caps text-label-caps font-bold">Pending Confirmation</span>
+  <span class="font-label-caps text-label-caps text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">Bakong KHQR Escrow Paid ($480.00)</span>
+  <span class="text-xs text-on-surface-variant">Booked 25 mins ago</span>
+  </div>
+  <h3 class="font-title-lg text-title-lg font-bold text-on-surface mt-1">3-Day Angkor Sunrise &amp; Sacred Mysteries</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant">Departure Date: <strong class="text-on-surface">Tomorrow, 05:30 AM</strong> • Party: 2 Adults</p>
+  </div>
+  </div>
+  <!-- Confirm / Decline Action Buttons -->
+  <div class="flex flex-wrap items-center gap-space-xs self-start lg:self-auto">
+  <button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-label-md text-label-md font-bold shadow-sm transition-all" type="button">
+  <span class="material-symbols-outlined text-[18px]">check_circle</span>
+  <span>Confirm Booking</span>
+  </button>
+  <button class="inline-flex items-center gap-1.5 px-space-sm py-2 rounded-lg bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md font-semibold transition-colors" type="button">
+  <span class="material-symbols-outlined text-[18px]">cancel</span>
+  <span>Decline / Reschedule</span>
+  </button>
+  <button class="px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+  <span>Details</span>
+  </button>
+  </div>
+  </div>
+  <!-- Guest Manifest Details -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm bg-surface-container-low p-space-sm rounded-xl">
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[20px]">person</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Sophea Cham</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Primary Lead Traveler</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[20px]">call</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">+855 12 884 921</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">sophea.cham@gmail.com</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-secondary text-[20px]">hotel</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">FCC Angkor by Avani</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Room 204 • Pickup 05:00 AM</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-tertiary text-[20px]">info</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Dietary / Notes</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">1 Vegetarian, English Guide</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Booking Request 2: Pending Confirmation -->
+  <div class="p-space-md lg:p-space-lg flex flex-col gap-space-sm hover:bg-surface-container-low/30 transition-colors">
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+  <div class="flex items-start gap-space-sm">
+  <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0">
+  <span class="material-symbols-outlined text-[26px]">hourglass_top</span>
+  </div>
+  <div>
+  <div class="flex flex-wrap items-center gap-space-xs">
+  <span class="font-label-caps text-label-caps px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold">#BK-9043</span>
+  <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-caps text-label-caps font-bold">Pending Confirmation</span>
+  <span class="font-label-caps text-label-caps text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">Bakong Escrow Held ($960.00)</span>
+  <span class="text-xs text-on-surface-variant">Booked 1 hr ago</span>
+  </div>
+  <h3 class="font-title-lg text-title-lg font-bold text-on-surface mt-1">Cardamom Canopy Ranger Expedition</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant">Departure Date: <strong class="text-on-surface">Oct 28, 2025 • 07:00 AM</strong> • Party: 3 Adults</p>
+  </div>
+  </div>
+  <div class="flex flex-wrap items-center gap-space-xs self-start lg:self-auto">
+  <button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-label-md text-label-md font-bold shadow-sm transition-all" type="button">
+  <span class="material-symbols-outlined text-[18px]">check_circle</span>
+  <span>Confirm Booking</span>
+  </button>
+  <button class="inline-flex items-center gap-1.5 px-space-sm py-2 rounded-lg bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md font-semibold transition-colors" type="button">
+  <span class="material-symbols-outlined text-[18px]">cancel</span>
+  <span>Decline / Reschedule</span>
+  </button>
+  <button class="px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+  <span>Details</span>
+  </button>
+  </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm bg-surface-container-low p-space-sm rounded-xl">
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[20px]">person</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Lucas Weber</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Lead Traveler</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[20px]">call</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">+49 170 334910</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">l.weber@berlin-travel.de</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-secondary text-[20px]">hotel</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Raffles Grand Hotel</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Lobby Concierge Desk</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-tertiary text-[20px]">hiking</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Activity Level</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Requested French Guide</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Booking Request 3: Pending Confirmation -->
+  <div class="p-space-md lg:p-space-lg flex flex-col gap-space-sm hover:bg-surface-container-low/30 transition-colors">
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+  <div class="flex items-start gap-space-sm">
+  <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0">
+  <span class="material-symbols-outlined text-[26px]">hourglass_top</span>
+  </div>
+  <div>
+  <div class="flex flex-wrap items-center gap-space-xs">
+  <span class="font-label-caps text-label-caps px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold">#BK-9046</span>
+  <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-caps text-label-caps font-bold">Pending Confirmation</span>
+  <span class="font-label-caps text-label-caps text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">Bakong Escrow Held ($150.00)</span>
+  <span class="text-xs text-on-surface-variant">Booked 3 hrs ago</span>
+  </div>
+  <h3 class="font-title-lg text-title-lg font-bold text-on-surface mt-1">Phnom Penh Heritage &amp; Silk Island</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant">Departure Date: <strong class="text-on-surface">Oct 26, 2025 • 08:30 AM</strong> • Party: 2 Adults</p>
+  </div>
+  </div>
+  <div class="flex flex-wrap items-center gap-space-xs self-start lg:self-auto">
+  <button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-label-md text-label-md font-bold shadow-sm transition-all" type="button">
+  <span class="material-symbols-outlined text-[18px]">check_circle</span>
+  <span>Confirm Booking</span>
+  </button>
+  <button class="inline-flex items-center gap-1.5 px-space-sm py-2 rounded-lg bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md font-semibold transition-colors" type="button">
+  <span class="material-symbols-outlined text-[18px]">cancel</span>
+  <span>Decline / Reschedule</span>
+  </button>
+  <button class="px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+  <span>Details</span>
+  </button>
+  </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm bg-surface-container-low p-space-sm rounded-xl">
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[20px]">person</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Kosal &amp; Monica Tan</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Couple Group</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[20px]">call</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">+855 77 923 118</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">monica.tan@gmail.com</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-secondary text-[20px]">hotel</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Rosewood Phnom Penh</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">Vattanac Tower Lobby</span>
+  </div>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-tertiary text-[20px]">directions_bike</span>
+  <div class="flex flex-col">
+  <span class="font-label-md text-label-md font-bold text-on-surface">Special Request</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">2x Electric Bicycle option</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- SECTION 2: TOUR PACKAGES CRUD (CREATE, READ, UPDATE, DELETE) -->
+  <div class="flex flex-col gap-space-md" id="tour-crud-section">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+  <div>
+  <div class="flex items-center gap-space-xs">
+  <span class="material-symbols-outlined text-primary text-[26px]">map</span>
+  <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">My Tour Packages</h2>
+  <span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold">3 Packages</span>
+  </div>
+  <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manage your operator catalog, adjust prices, edit descriptions, toggle bookings open/close, or add new tours.</p>
+  </div>
+  <a class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-on-primary font-label-lg text-label-lg shadow-sm transition-all self-start sm:self-auto" href="#create-package-drawer">
+  <span class="material-symbols-outlined text-[20px]">add</span>
+  <span>+ Create New Tour</span>
+  </a>
+  </div>
+  <!-- Tour Catalog Cards (Read & Edit & Delete Actions) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+  <!-- Package Card 1 -->
+  <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container-high overflow-hidden flex flex-col justify-between">
+  <div>
+  <div class="relative h-44 w-full overflow-hidden">
+  <img class="w-full h-full object-cover" data-alt="An ethereal golden sunrise over the stone towers of Angkor Wat temple in Cambodia, reflecting in the tranquil waters of the lotus pond with dramatic morning mist and lush tropical palm silhouettes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgVmWC303YYdV46rAI5q84J-ioJKsR9wsfN3Uo6y0qoSzzLnmOsXk6GSJs6gn7TeOV1xpd0_ZZ3pGfzbBJM8vnyYJs_Nv6IoSg1hWEe_eGJI3SxeEsFYQdKI-NvvdQ-S9F4rNX5EA5o-HELejk54KjghrP_GeS0xa7yrOQKBBbZo_vy5AsX3beSAuJgdL3VMTN_z9DLoPFIglns4_i7r4D1NRUKf6iJj_OmLDDLlEXQ6f1-w5thJ_XSQ"/>
+  <div class="absolute top-3 left-3">
+  <span class="px-2.5 py-1 rounded-full bg-emerald-700 text-white font-label-caps text-label-caps font-bold shadow-sm inline-flex items-center gap-1">
+  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                      Active • Open for Booking
+                    </span>
+  </div>
+  <div class="absolute top-3 right-3">
+  <span class="px-2 py-0.5 rounded-md bg-surface/90 backdrop-blur-md text-on-surface font-label-caps text-label-caps font-bold shadow-xs">Siem Reap</span>
+  </div>
+  </div>
+  <div class="p-space-md flex flex-col gap-space-xs">
+  <div class="flex items-center justify-between">
+  <span class="font-label-caps text-label-caps text-on-surface-variant uppercase font-semibold">Duration: 3 Days / 2 Nights</span>
+  <div class="flex items-center gap-1 text-tertiary font-bold text-xs">
+  <span class="material-symbols-outlined text-[15px] text-amber-500 fill-current">star</span>
+  <span>4.98 (128)</span>
+  </div>
+  </div>
+  <h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-snug">3-Day Angkor Sunrise &amp; Sacred Mysteries</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    Comprehensive temple discovery including Angkor Wat dawn, Bayon smile faces, Ta Prohm tree roots, and Banteay Srei sandstone carvings.
+                  </p>
+  <!-- Quick Specs -->
+  <div class="grid grid-cols-2 gap-2 my-1 pt-2 border-t border-surface-container-high">
+  <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-xs">
+  <span class="material-symbols-outlined text-[16px] text-primary">group</span>
+  <span>Max 10 Pax / group</span>
+  </div>
+  <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-xs">
+  <span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+  <span>Moderate Difficulty</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="p-space-md pt-0 flex flex-col gap-space-sm bg-surface-container-lowest">
+  <div class="flex items-baseline justify-between pt-2 border-t border-surface-container-high">
+  <div>
+  <span class="font-headline-sm text-headline-sm font-bold text-primary">$240</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">/ pax</span>
+  </div>
+  <span class="font-label-caps text-label-caps text-emerald-700 font-bold bg-emerald-50 px-2 py-1 rounded">68 Bookings this month</span>
+  </div>
+  <!-- Tour CRUD Action Toolbar -->
+  <div class="flex items-center gap-1.5 pt-1">
+  <button class="flex-1 py-2 px-space-xs rounded-lg bg-primary hover:bg-primary-container text-white font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1" type="button">
+  <span class="material-symbols-outlined text-[16px]">edit</span>
+  <span>Edit Tour</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" title="Toggle Booking Status" type="button">
+  <span class="material-symbols-outlined text-[18px]">toggle_on</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" title="Duplicate Tour" type="button">
+  <span class="material-symbols-outlined text-[18px]">content_copy</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md transition-colors" title="Archive / Delete" type="button">
+  <span class="material-symbols-outlined text-[18px]">delete</span>
+  </button>
+  </div>
+  </div>
+  </div>
+  <!-- Package Card 2 -->
+  <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container-high overflow-hidden flex flex-col justify-between">
+  <div>
+  <div class="relative h-44 w-full overflow-hidden">
+  <img class="w-full h-full object-cover" data-alt="Dense emerald green Cardamom mountain rainforest canopy in southern Cambodia with misty river valley below and a sustainable luxury wooden ranger outpost perched seamlessly on the river bend." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0sK3VcsRR7a5KbxsHzncox043K6_Z50TdHQy0C9rkojRLx7BMOT3r3mwWL7uKVAaizUx_s5Qch57J9Ebvhnaxj7OXrhWeL5KAgz4tGN1C7iqN9Bkna1LJFb6Cxn6G2Wm7UX_H1mA8_dQDHpzrklmLpTSC0PdI1j-kWPKqnNOzg12HoEI4TiYsPFM0sB-Xqyo7oVdyshd45Yh7zZfr9uRZ4U_U7A-VVgzy_SA-7LWACUxKEqEcgtcpXQ"/>
+  <div class="absolute top-3 left-3">
+  <span class="px-2.5 py-1 rounded-full bg-emerald-700 text-white font-label-caps text-label-caps font-bold shadow-sm inline-flex items-center gap-1">
+  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                      Active • Open for Booking
+                    </span>
+  </div>
+  <div class="absolute top-3 right-3">
+  <span class="px-2 py-0.5 rounded-md bg-surface/90 backdrop-blur-md text-on-surface font-label-caps text-label-caps font-bold shadow-xs">Koh Kong</span>
+  </div>
+  </div>
+  <div class="p-space-md flex flex-col gap-space-xs">
+  <div class="flex items-center justify-between">
+  <span class="font-label-caps text-label-caps text-on-surface-variant uppercase font-semibold">Duration: 4 Days / 3 Nights</span>
+  <div class="flex items-center gap-1 text-tertiary font-bold text-xs">
+  <span class="material-symbols-outlined text-[15px] text-amber-500 fill-current">star</span>
+  <span>4.92 (84)</span>
+  </div>
+  </div>
+  <h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-snug">Cardamom Canopy Ranger Expedition</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    Deep jungle wildlife patrol alongside eco-rangers, nocturnal camera trapping, river kayaking, and protected biosphere observation.
+                  </p>
+  <div class="grid grid-cols-2 gap-2 my-1 pt-2 border-t border-surface-container-high">
+  <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-xs">
+  <span class="material-symbols-outlined text-[16px] text-primary">group</span>
+  <span>Max 6 Pax / group</span>
+  </div>
+  <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-xs">
+  <span class="material-symbols-outlined text-[16px] text-secondary">terrain</span>
+  <span>Active / Hiking</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="p-space-md pt-0 flex flex-col gap-space-sm bg-surface-container-lowest">
+  <div class="flex items-baseline justify-between pt-2 border-t border-surface-container-high">
+  <div>
+  <span class="font-headline-sm text-headline-sm font-bold text-primary">$320</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">/ pax</span>
+  </div>
+  <span class="font-label-caps text-label-caps text-emerald-700 font-bold bg-emerald-50 px-2 py-1 rounded">34 Bookings this month</span>
+  </div>
+  <div class="flex items-center gap-1.5 pt-1">
+  <button class="flex-1 py-2 px-space-xs rounded-lg bg-primary hover:bg-primary-container text-white font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1" type="button">
+  <span class="material-symbols-outlined text-[16px]">edit</span>
+  <span>Edit Tour</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" title="Toggle Booking Status" type="button">
+  <span class="material-symbols-outlined text-[18px]">toggle_on</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" title="Duplicate Tour" type="button">
+  <span class="material-symbols-outlined text-[18px]">content_copy</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md transition-colors" title="Archive / Delete" type="button">
+  <span class="material-symbols-outlined text-[18px]">delete</span>
+  </button>
+  </div>
+  </div>
+  </div>
+  <!-- Package Card 3 -->
+  <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container-high overflow-hidden flex flex-col justify-between">
+  <div>
+  <div class="relative h-44 w-full overflow-hidden">
+  <img class="w-full h-full object-cover" data-alt="French colonial saffron yellow architectural villa in Phnom Penh lined with bougainvillea flowers and a serene traveler cycling peacefully along the riverbank path during golden hour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLB5iHSR21GIClLLrBb6WAccxXg3ckBino2tFhfVTiOS8G1TWJdOd2Q-m9tbesYrX9oEM9guv0phhBjhy9OhqJpOw9vYEfzUvzrnRk1cUPY02J4RXUSWKSx4hITofW58j3BE2XE-_CU9wq-2ZZGQ7OhviHC3tOvT1uuN3642oHgOEEAutDbLMuTsMH3ycnNh13eYuHmS2SnnScpTXdKOAi-wMs2cDfAzhaOGIWxHDS_hSSRyzEUQ08WQ"/>
+  <div class="absolute top-3 left-3">
+  <span class="px-2.5 py-1 rounded-full bg-emerald-700 text-white font-label-caps text-label-caps font-bold shadow-sm inline-flex items-center gap-1">
+  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                      Active • Open for Booking
+                    </span>
+  </div>
+  <div class="absolute top-3 right-3">
+  <span class="px-2 py-0.5 rounded-md bg-surface/90 backdrop-blur-md text-on-surface font-label-caps text-label-caps font-bold shadow-xs">Phnom Penh</span>
+  </div>
+  </div>
+  <div class="p-space-md flex flex-col gap-space-xs">
+  <div class="flex items-center justify-between">
+  <span class="font-label-caps text-label-caps text-on-surface-variant uppercase font-semibold">Duration: 1 Day Full Tour</span>
+  <div class="flex items-center gap-1 text-tertiary font-bold text-xs">
+  <span class="material-symbols-outlined text-[15px] text-amber-500 fill-current">star</span>
+  <span>4.89 (92)</span>
+  </div>
+  </div>
+  <h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-snug">Phnom Penh Heritage &amp; Silk Island</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                    Colonial architecture walking trail, Royal Palace treasures, traditional Mekong ferry cruise, and artisan silk weavers of Koh Dach.
+                  </p>
+  <div class="grid grid-cols-2 gap-2 my-1 pt-2 border-t border-surface-container-high">
+  <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-xs">
+  <span class="material-symbols-outlined text-[16px] text-primary">group</span>
+  <span>Max 14 Pax / group</span>
+  </div>
+  <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-xs">
+  <span class="material-symbols-outlined text-[16px] text-secondary">pedal_bike</span>
+  <span>Easy / Cultural</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="p-space-md pt-0 flex flex-col gap-space-sm bg-surface-container-lowest">
+  <div class="flex items-baseline justify-between pt-2 border-t border-surface-container-high">
+  <div>
+  <span class="font-headline-sm text-headline-sm font-bold text-primary">$75</span>
+  <span class="font-label-caps text-label-caps text-on-surface-variant">/ pax</span>
+  </div>
+  <span class="font-label-caps text-label-caps text-emerald-700 font-bold bg-emerald-50 px-2 py-1 rounded">92 Bookings this month</span>
+  </div>
+  <div class="flex items-center gap-1.5 pt-1">
+  <button class="flex-1 py-2 px-space-xs rounded-lg bg-primary hover:bg-primary-container text-white font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1" type="button">
+  <span class="material-symbols-outlined text-[16px]">edit</span>
+  <span>Edit Tour</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" title="Toggle Booking Status" type="button">
+  <span class="material-symbols-outlined text-[18px]">toggle_on</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" title="Duplicate Tour" type="button">
+  <span class="material-symbols-outlined text-[18px]">content_copy</span>
+  </button>
+  <button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md transition-colors" title="Archive / Delete" type="button">
+  <span class="material-symbols-outlined text-[18px]">delete</span>
+  </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- CREATE / EDIT TOUR PACKAGE DRAWER FORM -->
+  <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container-high p-space-md lg:p-space-lg flex flex-col gap-space-md mt-2" id="create-package-drawer">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-sm border-b border-surface-container-high gap-2">
+  <div class="flex items-center gap-space-xs">
+  <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+  <span class="material-symbols-outlined text-[20px]">add_task</span>
+  </div>
+  <div>
+  <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Tour Package Form Editor (Create / Update)</h3>
+  <p class="font-body-sm text-body-sm text-on-surface-variant">Fill in the tour specifications to publish directly into the traveler booking portal.</p>
+  </div>
+  </div>
+  <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 font-label-caps text-label-caps font-bold self-start sm:self-auto">Status: Ready to Save</span>
+  </div>
+  <form class="grid grid-cols-1 md:grid-cols-12 gap-space-md" onsubmit="return false;">
+  <!-- Tour Title -->
+  <div class="md:col-span-8 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Tour Title *</label>
+  <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all" placeholder="e.g., Kulen Mountain Sacred Waterfalls &amp; Hidden Caves" type="text" value="Kulen Mountain Sacred Waterfalls &amp; Hidden Caves"/>
+  </div>
+  <!-- Region / Location -->
+  <div class="md:col-span-4 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Region / Province *</label>
+  <select class="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all">
+  <option selected="">Siem Reap (Angkor Sector)</option>
+  <option>Phnom Penh Capital</option>
+  <option>Battambang Circuit</option>
+  <option>Koh Kong / Cardamoms</option>
+  <option>Mondulkiri Highlands</option>
+  </select>
+  </div>
+  <!-- Pricing per Pax -->
+  <div class="md:col-span-3 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Price per Traveler (USD) *</label>
+  <div class="relative">
+  <span class="absolute left-3 top-2 text-on-surface-variant font-bold">$</span>
+  <input class="w-full pl-7 pr-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all" placeholder="120" type="number" value="135"/>
+  </div>
+  </div>
+  <!-- Duration -->
+  <div class="md:col-span-3 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Duration *</label>
+  <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all" placeholder="e.g. 1 Full Day (8 hrs)" type="text" value="1 Full Day (8 Hours)"/>
+  </div>
+  <!-- Max Capacity -->
+  <div class="md:col-span-3 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Max Capacity per Departure</label>
+  <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all" placeholder="8" type="number" value="8"/>
+  </div>
+  <!-- Difficulty Level -->
+  <div class="md:col-span-3 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Difficulty</label>
+  <select class="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all">
+  <option>Easy / Leisure</option>
+  <option selected="">Moderate Trekking</option>
+  <option>Challenging Expedition</option>
+  </select>
+  </div>
+  <!-- Description -->
+  <div class="md:col-span-12 flex flex-col gap-1">
+  <label class="font-label-md text-label-md font-bold text-on-surface">Tour Description &amp; Highlights</label>
+  <textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary focus:bg-surface-container-lowest text-on-surface text-sm font-medium outline-none transition-all" rows="2">Ancient sandstone carvings of the 1,000 Lingas riverbed, cooling swim under the sacred Kulen waterfall, and picnic lunch prepared by local village hosts.</textarea>
+  </div>
+  <!-- Form Footer Actions -->
+  <div class="md:col-span-12 flex flex-wrap items-center justify-between pt-space-xs border-t border-surface-container-high gap-space-sm">
+  <div class="flex items-center gap-space-sm">
+  <label class="inline-flex items-center gap-2 cursor-pointer">
+  <input checked="" class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary" type="checkbox"/>
+  <span class="font-label-md text-label-md font-bold text-on-surface">Publish and immediately open for booking</span>
+  </label>
+  </div>
+  <div class="flex items-center gap-space-xs">
+  <button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+                    Cancel / Reset
+                  </button>
+  <button class="px-space-lg py-2 rounded-lg bg-primary hover:bg-primary-container text-white font-label-md text-label-md font-bold shadow-sm transition-all flex items-center gap-1.5" type="submit">
+  <span class="material-symbols-outlined text-[18px]">save</span>
+  <span>Save &amp; Publish Tour Package</span>
+  </button>
+  </div>
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div></main></div>
+    <script src="../../assets/js/components/define-component.js" defer></script>
+  <script src="../../assets/js/auth.js" defer></script>
+    <script src="../../assets/js/script.js" defer></script>
+  </body>
+  </html>
